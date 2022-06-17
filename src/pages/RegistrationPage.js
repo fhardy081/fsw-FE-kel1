@@ -1,7 +1,8 @@
 import React from 'react';
 
-function RegistrationPage() {
-    return(
+const RegistrationPage = () => {
+    return (
+        <>
         <div className="row" style={{marginRight: 0}}>
             <div className="col-md-6">
                 <div className="image-registration">
@@ -27,18 +28,18 @@ function RegistrationPage() {
                             <input className="form__input" type="password"  id="password" placeholder="Masukkan Password"/>
                         </div>
                     </div>
-                    <div class="footer">
-                        <button type="submit" class="btn-register" style={{justifyContent: 'center', alignItems: 'center'}}>Daftar</button>
+                    <div className="footer">
+                        <button type="submit" className="btn-register" style={{justifyContent: 'center', alignItems: 'center'}}>Daftar</button>
                         <div className="login-direct">
-                            Sudah punya akun?
-                            <a href='/' style={{color: '#7126B5', fontWeight: 'bold'}}> Masuk di sini</a>
+                            Sudah punya akun? &nbsp;
+                            <a href='/' style={{color: '#7126B5', fontWeight: 'bold'}}>Masuk di sini</a>
                         </div>
                     </div>
                 </div> 
             </div>
         </div>
-        
+        </>
            
-    )       
+    )    
 }
 export default RegistrationPage;
