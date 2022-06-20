@@ -1,10 +1,15 @@
-import RegistrationPage from "./pages/RegistrationPage";
+import {BrowserRouter} from "react-router-dom";
+// import RegistrationPage from "./pages/RegistrationPage";
+import Navbar from "./components/Navbar";
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return(
-    <>
-    <RegistrationPage/>
-    </>
+    <BrowserRouter>
+      <Navbar/>
+      <ProductPage/>
+      {/* <RegistrationPage/> */}
+    </BrowserRouter>
       
     
       
