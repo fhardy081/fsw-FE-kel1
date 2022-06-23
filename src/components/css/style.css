@@ -1,0 +1,31 @@
+* {
+    font-family: 'Poppins';
+  } 
+
+  .form-control {
+    border-radius: 0.7rem;
+  }
+
+  .btn-primary {
+    background-color: #7126B5;
+    border-radius: 0.7rem;
+    border-color: #7126B5;
+  }
+
+  .btn-primary:hover {
+    background-color: #7126B5;
+  }
+
+  .text-primary > b{
+    color: #7126B5;
+  }
+
+  .btn-outline-primary{
+    background-color: #fff;
+    border-radius: 0.7rem;
+    border-color: #7126B5;
+    color: #7126B5;
+  }
+  .btn-outline-primary:hover{
+    background-color: #7126B5;
+  }
