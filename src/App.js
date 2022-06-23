@@ -1,19 +1,21 @@
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import RegistrationPage from "./pages/RegistrationPage";
-import Navbar from "./components/Navbar";
+import Homepage from "./pages/homepage";
 import ProductPage from "./pages/ProductPage";
 
 function App() {
-  return(
+  return (
     <BrowserRouter>
-      <Navbar/>
-      <ProductPage/>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/products" element={<ProductPage />} />
+      </Routes>
       {/* <RegistrationPage/> */}
     </BrowserRouter>
-      
-    
-      
-      
+
+
+
+
   )
 }
 
