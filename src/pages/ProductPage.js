@@ -4,7 +4,7 @@ const ProductPage = () => {
     return (
         <>
         
-        <div className="container" style={{marginTop: 40}}>
+        <div className="container container-product-page" style={{marginTop: 40}}>
             <div className="row">
                 <div className="col-md-1"></div>
                 <div className="col-md-6">

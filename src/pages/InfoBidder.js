@@ -1,14 +1,8 @@
-import '../components/css/style.css'
-
-const mystyle = {
-    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)"
-};
-
 const InfoProduct = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light fixed-top" style={mystyle}>
+            <nav className="navbar navbar-expand-lg navbar-light fixed-top" style={{ boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)" }}>
                 <div className="container">
                     <a className="navbar-brand me-auto" id="logo" href="/">&nbsp;</a>
                     <p className="me-auto mb-1">Info Penawar</p>
@@ -27,13 +21,13 @@ const InfoProduct = () => {
                                         <img src='assets/images/jam_casio.png' width={"100%"} />
                                     </div>
                                     <div className='col-md-10'>
-                                        <h5 className="card-title" style={{fontWeight: "bold"}}>Nama Pembeli</h5>
+                                        <h5 className="card-title" style={{ fontWeight: "bold" }}>Nama Pembeli</h5>
                                         <p className="card-text">Kota</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <h6 className='title mt-3' style={{fontWeight: "bold"}}>Daftar Produkmu yang Ditawar</h6>
+                        <h6 className='title mt-3' style={{ fontWeight: "bold" }}>Daftar Produkmu yang Ditawar</h6>
                         <div className='row mt-3'>
                             <div className='col-md-2'>
                                 <img src='assets/images/jam_casio.png' width={"100%"} />
@@ -62,21 +56,21 @@ const InfoProduct = () => {
             </div>
 
             <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered" style={{width:"22.5rem"}}>
+                <div className="modal-dialog modal-dialog-centered" style={{ width: "22.5rem" }}>
                     <div className="modal-content" style={{ borderRadius: "1rem" }}>
                         <div className="modal-body">
                             <button type="button" className="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button><br />
-                            <h6 className='title mt-3' style={{fontWeight: "bold"}}>Yeay kamu berhasil mendapat harga yang sesuai</h6>
+                            <h6 className='title mt-3' style={{ fontWeight: "bold" }}>Yeay kamu berhasil mendapat harga yang sesuai</h6>
                             <p className='card-text'>Segera hubungi pembeli melalui whatsapp untuk transaksi selanjutnya</p>
                             <div className="card mb-3" style={{ backgroundColor: "#EEEEEE", borderRadius: "1rem" }}>
                                 <div className="card-body">
-                                    <h6 className='text-center mb-3' style={{fontWeight: "bold"}}>Product Match</h6>
+                                    <h6 className='text-center mb-3' style={{ fontWeight: "bold" }}>Product Match</h6>
                                     <div className='row'>
                                         <div className='col-md-2'>
                                             <img src='assets/images/jam_casio.png' width={"100%"} />
                                         </div>
                                         <div className='col-md-10'>
-                                            <h5 className="card-title" style={{fontWeight: "bold"}}>Nama Pembeli</h5>
+                                            <h5 className="card-title" style={{ fontWeight: "bold" }}>Nama Pembeli</h5>
                                             <p className="card-text">Kota</p>
                                         </div>
                                     </div>
@@ -86,7 +80,7 @@ const InfoProduct = () => {
                                         </div>
                                         <div className='col-md-10'>
                                             <h5 className="card-title">Jam Tangan Casio</h5>
-                                            <h5 className="card-title" style={{textDecoration:"line-through"}}>Rp 250.000</h5>
+                                            <h5 className="card-title" style={{ textDecoration: "line-through" }}>Rp 250.000</h5>
                                             <h5 className="card-title">Ditawar Rp 200.000</h5>
                                         </div>
                                     </div>
