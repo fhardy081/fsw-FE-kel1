@@ -1,25 +1,22 @@
-// import logo from './logo.svg';
-// import './App.css';
-
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import InfoProduct from "./pages/InfoProduct";
-import Login from "./pages/Login";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage";
 import ProductPage from "./pages/ProductPage";
-import Homepage from "./pages/homepage";
+import InfoProduct from "./pages/InfoProduct";
 import RegistrationPage from "./pages/RegistrationPage";
+import Login from "./pages/Login";
 
 function App() {
   return (
     <BrowserRouter>
-        <Routes>
-            <Route path="/login" element={<Login/>} />
-            <Route path="/" element={<Homepage/>} />
-            <Route path="/product" element={<ProductPage/>} />
-            <Route path="/register" element={<RegistrationPage/>} />
-            <Route path="/infoproduct" element={<InfoProduct/>} />
-        </Routes>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/products" element={<ProductPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<RegistrationPage />} />
+        <Route path="/infoproduct" element={<InfoProduct />} />
+      </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
 export default App;

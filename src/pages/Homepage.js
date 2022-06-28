@@ -15,7 +15,7 @@ const Homepage = () => {
           placeholder="Search"
           aria-label="Search"
         />
-        <button className="btn btn-masuk">Masuk</button>
+        <button className="btn btn-masuk"><a href="/login" style={{color: "white"}}>Masuk</a></button>
       </div>
     </div>
   </nav>

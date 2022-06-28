@@ -32,7 +32,7 @@ const RegistrationPage = () => {
                         <button type="submit" className="btn-register" style={{justifyContent: 'center', alignItems: 'center'}}>Daftar</button>
                         <div className="login-direct">
                             Sudah punya akun? &nbsp;
-                            <a href='/' style={{color: '#7126B5', fontWeight: 'bold'}}>Masuk di sini</a>
+                            <a href='/login' style={{color: '#7126B5', fontWeight: 'bold'}}>Masuk di sini</a>
                         </div>
                     </div>
                 </div> 
