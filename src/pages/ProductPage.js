@@ -3,6 +3,7 @@ import React from 'react';
 const ProductPage = () => {
     return (
         <>
+        
         <div className="container" style={{marginTop: 40}}>
             <div className="row">
                 <div className="col-md-1"></div>
