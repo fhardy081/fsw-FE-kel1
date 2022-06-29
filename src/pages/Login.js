@@ -18,7 +18,7 @@ const Login = () => {
                                     <input type="email" className="form-control" id="email" placeholder="Contoh: johndee@gmail.com" />
                                 </div>
                                 <div className="col-md-12 mb-3">
-                                    <label htmlFor="password" className="form-label">Passwordd</label>
+                                    <label htmlFor="password" className="form-label">Password</label>
                                     <input type="password" className="form-control" id="password" placeholder="Masukkan password" />
                                 </div>
                                 <div className="col-md-12 mb-3 d-grid">
