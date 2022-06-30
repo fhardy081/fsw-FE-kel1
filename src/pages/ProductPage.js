@@ -1,45 +1,31 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import DetailProduct from '../components/productpage/DetailProduct';
+import Modals from '../components/productpage/Modals';
+import CarouselProduct from '../components/productpage/CarouselProduct';
+import Navbar from '../components/Navbar';
+import DescriptionProduct from '../components/productpage/DescriptionProduct';
 
 const ProductPage = () => {
+    const [ product, setProduct] = useState({})
+    const [ user, setUser] = useState({})
+    const [ hasoffer, setHasoffer] = useState(true)
+
+    useEffect(()=>{
+        setProduct({user_id:1})
+        setUser({id:1})
+        setHasoffer(true)
+    }, [product, hasoffer, user])
+
     return (
         <>
-        <div className="container" style={{marginTop: 40}}>
+        <Navbar/>
+
+        <div className="container container-product-page" style={{marginTop: 40}}>
             <div className="row">
                 <div className="col-md-1"></div>
                 <div className="col-md-6">
-                    <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel" style={{width: 600}}>
-                        <div className="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div className="carousel-inner">
-                            <div className="carousel-item active">
-                            <img src="assets/images/jam_casio.png" className="d-block w-100" alt="..."/>
-                            </div>
-                            <div className="carousel-item">
-                            <img src="assets/images/jam_casio.png" className="d-block w-100" alt="..."/>
-                            </div>
-                            <div className="carousel-item">
-                            <img src="assets/images/jam_casio.png" className="d-block w-100" alt="..."/>
-                            </div>
-                        </div>
-                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span className="visually-hidden">Previous</span>
-                        </button>
-                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span className="visually-hidden">Next</span>
-                        </button>
-                    </div>
-                    <div className="card-description">
-                        <div className="card-body-description">
-                            <h5 className="card-title">Deskripsi</h5>
-                            <p className="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        </div>
-                    </div>
+                    <CarouselProduct/>
+                    <DescriptionProduct/>
                 </div>
                 <div className="col-md-4">
                     <div className="card-product">
@@ -47,8 +33,9 @@ const ProductPage = () => {
                             <h5 className="card-title">Jam Tangan Casio</h5>
                             <p className="card-text">Aksesoris</p>
                             <h4 className="card-title">Rp. 250.000</h4>
-                            <a href="/" className="btn btn-primary btn-terbitakan">Terbitakan</a>
-                            <a href="/" className="btn btn-primary btn-edit">Edit</a>
+                            {/* <a href="/" className="btn btn-primary btn-terbitakan" data-bs-toggle="modal" data-bs-target="#exampleModal">Terbitakan</a>
+                            <a href="/" className="btn btn-primary btn-edit">Edit</a> */}
+                            <DetailProduct user={user} product={product} hasoffer={hasoffer}/>
                         </div>
                     </div>
                     <div className="card-seller">
@@ -61,15 +48,19 @@ const ProductPage = () => {
                                     <h5 className="card-title" style={{marginBottom: 4}}>Nama Penjual</h5>
                                     <p className="card-text">Kota</p>
                                 </div>
-                            </div>
-                            
-                            
+                            </div>                      
                         </div>
                     </div>
                 </div>
                 <div className="col-md-1"></div>
             </div>
+            <Modals/>
+            
         </div>
+        <div className="alert alert-success alert-dismissible fade show" role="alert">
+                Harga tawarmu berhasil dikirim ke penjual
+                <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         </>
            
     )    
