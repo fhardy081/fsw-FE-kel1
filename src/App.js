@@ -5,6 +5,7 @@ import InfoProduct from "./pages/InfoProduct";
 import InfoBidder from "./pages/InfoBidder";
 import RegistrationPage from "./pages/RegistrationPage";
 import Login from "./pages/Login";
+import ListProduct from "./pages/ListProduct";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/infoproduct" element={<InfoProduct />} />
         <Route path="/infobidder" element={<InfoBidder />} />
+        <Route path="/listproduct" element={<ListProduct />}/>
       </Routes>
     </BrowserRouter>
   )

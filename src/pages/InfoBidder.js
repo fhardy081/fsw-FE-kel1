@@ -1,4 +1,12 @@
+import { useEffect } from 'react';
+
 const InfoProduct = () => {
+
+    useEffect(() => {
+        if (window.Close) {
+            window.Close()
+        }
+    }, [])
 
     return (
         <>
@@ -14,6 +22,10 @@ const InfoProduct = () => {
                         <a href=''><i className="bi bi-arrow-left offset-md-5"></i></a>
                     </div>
                     <div className='col-md-6'>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                         <div className="card">
                             <div className="card-body">
                                 <div className='row'>
@@ -44,10 +56,16 @@ const InfoProduct = () => {
                                 <h5 className="card-title">Jam Tangan Casio</h5>
                                 <h5 className="card-title">Rp 250.000</h5>
                                 <h5 className="card-title">Ditawar Rp 200.000</h5>
-                                <form className='float-end mb-3'>
-                                    <a href='' className='btn btn-outline-primary me-2' style={{ color: 'black', borderRadius: "1rem" }}>Tolak</a>
-                                    <a href='' className='btn btn-primary' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModal">Terima</a>
-                                </form>
+                                <div className='row mb-3'>
+                                    <div className='col-md-8 offset-md-4 row'>
+                                        <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Tolak</a>
+                                        <a href='/' className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima">Terima</a>
+                                    </div>
+                                    {/* <div className='col-md-8 offset-md-4 row'>
+                                        <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Status</a>
+                                        <a href='/' className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalHubungi">Hubungi di <i className='bi bi-whatsapp'></i></a>
+                                    </div> */}
+                                </div>
                             </div>
                             <hr />
                         </div>
@@ -55,7 +73,7 @@ const InfoProduct = () => {
                 </div>
             </div>
 
-            <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal fade" id="exampleModalTerima" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" style={{ width: "22.5rem" }}>
                     <div className="modal-content" style={{ borderRadius: "1rem" }}>
                         <div className="modal-body">
@@ -88,6 +106,37 @@ const InfoProduct = () => {
                             </div>
                             <div className='d-grid'>
                                 <a href='https://wa.me/089627382823?text=Hai%20saya%20dari%20SecondHand' className="btn btn-primary" style={{ borderRadius: "1rem" }}>Hubungi via Whatsapp <i className='bi bi-whatsapp float-end'></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="modal fade" id="exampleModalHubungi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog modal-dialog-centered" style={{ width: "22.5rem" }}>
+                    <div className="modal-content" style={{ borderRadius: "1rem" }}>
+                        <div className="modal-body">
+                            <button type="button" className="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button><br />
+                            <h6 className='title mt-3' style={{ fontWeight: "bold" }}>Perbarui status penjualan produkmu</h6>
+                            <form className="mb-3">
+                                <div className="form-check">
+                                    <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked />
+                                    <label className="form-check-label" for="exampleRadios1">
+                                        Berhasil Terjual
+                                    </label>
+                                    <p className="card-text">Kamu telah sepakat menjual produk ini kepada pembeli</p>
+                                </div>
+                                <div className="form-check">
+                                    <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
+                                    <label className="form-check-label" for="exampleRadios2">
+                                        Batalkan Transaksi
+                                    </label>
+                                    <p className="card-text">Kamu membatalkan transaksi produk ini dengan pembeli</p>
+                                </div>
+                            </form>
+                            <div className='d-grid'>
+                                <a href='https://wa.me/089627382823?text=Hai%20saya%20dari%20SecondHand' className="btn btn-primary" style={{ borderRadius: "1rem" }}>Kirim</a>
+                                <a href='https://wa.me/089627382823?text=Hai%20saya%20dari%20SecondHand' className="btn btn-secondary" style={{ borderRadius: "1rem" }}>Kirim</a>
                             </div>
                         </div>
                     </div>
