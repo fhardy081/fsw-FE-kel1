@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Modals = () => {
+const Modals = (props) => {
+    // const [showModal, setShowModal] = useState (false)
+    const saveOffer = () => {
+        if(props.onSave){
+            props.onSave()
+        }
+    }
+
+
     return (
         <>
         <div className="modal fade" id="modalBuyer" tabindex="-1" aria-labelledby="modalBuyerLabel" aria-hidden="true">
@@ -31,7 +39,7 @@ const Modals = () => {
                         </div>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-primary btn-save">Simpan</button>
+                        <button type="button" className="btn btn-primary btn-save" onClick={saveOffer} data-bs-dismiss="modal">Simpan</button>
                     </div>
                 </div>
             </div>

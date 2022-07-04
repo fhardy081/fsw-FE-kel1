@@ -9,9 +9,12 @@ const RegistrationPage = () => {
                     <img src="assets/images/register.png" alt="Second Hand" width="100%" height="100%"></img>
                 </div>
             </div>
-            <div className="col-md-6">
+            <div className="col-md-6 d-flex justify-content-center">
                 <div className="form">
                     <div className="form-body">
+                        <div className="back-button-register">
+                            <a href="/"><img src="assets/images/fi_arrow-left.png" alt="Button Back"></img>&nbsp;</a>
+                        </div>
                         <div className="form-title">
                             Daftar
                         </div>

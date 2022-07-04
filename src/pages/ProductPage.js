@@ -9,11 +9,12 @@ const ProductPage = () => {
     const [ product, setProduct] = useState({})
     const [ user, setUser] = useState({})
     const [ hasoffer, setHasoffer] = useState(true)
+    const [showAlert, setShowAlert] = useState(false)
 
     useEffect(()=>{
-        setProduct({user_id:1})
+        setProduct({user_id:2})
         setUser({id:1})
-        setHasoffer(true)
+        setHasoffer(false)
     }, [product, hasoffer, user])
 
     return (
@@ -54,13 +55,13 @@ const ProductPage = () => {
                 </div>
                 <div className="col-md-1"></div>
             </div>
-            <Modals/>
+            <Modals onSave={() => setShowAlert(true)}/>
             
         </div>
-        <div className="alert alert-success alert-dismissible fade show" role="alert">
+        <div className={`alert alert-success alert-dismissible alert-buyer fade ${showAlert ? 'show' : ''}`} role="alert">
                 Harga tawarmu berhasil dikirim ke penjual
-                <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
+                <button type="button" className="btn-close"  onClick={()=> setShowAlert(false)} aria-label="Close"></button>
+        </div>
         </>
            
     )    

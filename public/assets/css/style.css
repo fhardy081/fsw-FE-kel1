@@ -5,516 +5,528 @@
     height: 100%;
 } */
 
-
-.form{
-    font-family: 'Poppins';
-    margin-top:200px;
-    margin-left: 104px;
+@media only screen and (min-width: 992px) {
+    .form{
+        font-family: 'Poppins';
+        margin-top:200px;
+        margin-left: 104px;
+        
+    }
     
-}
-
-.form__input{
+    .form__input{
+        
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 12px 16px;
+        gap: 16px;
+        width: 452px;
+        height: 48px;
     
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 12px 16px;
-    gap: 16px;
-    width: 452px;
-    height: 48px;
-
-    border: 1px solid #D0D0D0;
-    border-radius: 16px;
+        border: 1px solid #D0D0D0;
+        border-radius: 16px;
+        
+    }
     
-}
+    .form-title{
+        
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        color: #000000;
+    }
 
-.form-title{
+    .back-button-register{
+        display:none;
+    }
     
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 36px;
+    .Nama{
+        margin-top: 16px;
+    }
+    
+    .email{
+        margin-top: 16px;
+    }
+    
+    .password{
+        margin-top: 16px;
+    }
+    
+    .btn-register{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 12px 24px;
+        gap: 4px;
+        margin-top: 24px;
+    
+        width: 452px;
+        height: 48px;
+    
+        /* Primary/Purple/04 */
+        background: #7126B5;
+        border-radius: 16px;
+        text-align: center;
+    
+        /* Neutral/01 */
+        color: #FFFFFF;
+    }
+    
+    
+    .login-direct{
+        margin-top: 40px;
+        margin-left: 80px;
+    }
+    
+    .navbar-expand-lg{
+        background-color: white;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+    .navbar-brand{
+        width: 100px;
+        height: 34px;
+        /* Primary/Purple/05 */
+        background-color: #4B1979;
+    }
+    
+    .search-bar{
+        flex-direction: row;
+        padding: 12px 24px;
+        gap: 16px;
+        
+    }
+    
+    .cari-produk{
+        position: relative;
+        width: 444px;
+        height: 48px;
+        right: 170px;
+    
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+    
+        background-image: url('../images/fi_search.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: 390px 12px !important;
+        background: #EEEEEE;
+        border-radius: 16px;
+        border-color: white;
+    }
+    
+    .nav-item-list{
+        background-image: url('../images/fi_list.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        margin-right: 24px;
+    }
+    
+    .nav-item-notification{
+        background-image: url('../images/fi_bell.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+        margin-right: 24px;
+    }
+    
+    .nav-item-user{
+        background-image: url('../images/fi_user.png') !important;
+        background-repeat: no-repeat !important;
+        background-position: center !important;
+    }
+    
+    
+    .carousel-item{
+        width: 600px;
+        height: 436px;
+    }
+    
+    .carousel-inner{
+        width: 600px;
+    }
+    
+    .card-product{
+        margin-left: 32px;
+        width: 336px;
+    }
+    
+    .container-product-page .card-body{
+        margin-left: 32px;
+        width: 336px;   
+    
+        background: #FFFFFF;
+    
+        /* Shadow/High */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+    }
+    
+    .card-title{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    .card-text{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+    
+        /* identical to box height, or 143% */
+    
+        /* Neutral/03 */
+        color: #8A8A8A;
+    }
+    
+    .btn-terbitkan{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        gap: 4px;
+    
+        width: 304px;
+        height: 48px;
+        margin-top: 16px;
+    
+        /* Primary/Purple/04 */
+        background: #7126B5;
+        border-radius: 16px;
+        border-color: #7126B5;
+    }
+    
+    .btn-terbitkan:hover{
+        background: #4B1979;;
+        border-radius: 16px;
+        border-color: #4B1979;;
+        
+    }
+    
+    .btn-primary:focus{
+        background: #7126B5;
+        border-radius: 16px;
+        border-color: #7126B5;
+    
+    }
+    
+    .btn-edit{
+        box-sizing: border-box;
+    
+        /* Auto layout */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 24px;
+        gap: 4px;
+    
+        width: 304px;
+        height: 48px;
+        margin-top: 14px;
+    
+        /* Neutral/01 */
+        background: #FFFFFF;
+        color: #000000;
+    
+        /* Primary/Purple/04 */
+        border: 1px solid #7126B5;
+        border-radius: 16px;
+        
+    }
+    
+    .btn-primary.disabled{
+        background: #D0D0D0;
+        border-radius: 16px;
+        border-color: #D0D0D0;
+    }
+    
+    .card-seller{
+        position: absolute;
+        width: 336px;
+        height: 80px;
+        margin-left: 32px;   
+    }
+    
+    .card-body-seller{
+        position: absolute;
+        width: 336px;
+        height: 80px;
+        margin-left: 32px;
+        margin-top: 24px;
+        /* Neutral/01 */
+        background: #FFFFFF;
+        background-repeat: no-repeat !important;
+        background-position: left !important;
+    
+        /* Shadow/Low */
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+    }
+    
+    .seller-image{
+        width: 48px;
+        height: 48px;
+        margin-left: 16px;
+        margin-top: 16px;
+        margin-right: auto; 
+        flex: none;
+     
+    }
+    
+    .card-description{
+        width: 600px;
+        height: 339px;
+    
+    
+        /* Neutral/01 */
+        background: #FFFFFF;
+    }
+    
+    .card-body-description{
+        width: 600px;
+        height: 339px;
+        margin-top: 24px;
+        padding: 16px;
+    
+        /* Neutral/01 */
+        background: #FFFFFF;
+    
+        /* Shadow/Low */
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+    }
+    
+    /* Modal */
+    
+    .btn-close{
+        background-image: url('../images/fi_x.png') !important;
+        background-size: 36px;
+    }
+    
+    .modal-body{
+        padding: 0rem 1rem 0rem 1rem;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    .modal-header{
+        margin-right: 16px;
+    }
+    
+    .modal-title{
+        margin-right: 16px;
+        margin-left: 16px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        
     color: #000000;
-}
-
-.Nama{
-    margin-top: 16px;
-}
-
-.email{
-    margin-top: 16px;
-}
-
-.password{
-    margin-top: 16px;
-}
-
-.btn-register{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 12px 24px;
-    gap: 4px;
-    margin-top: 24px;
-
-    width: 452px;
-    height: 48px;
-
-    /* Primary/Purple/04 */
-    background: #7126B5;
-    border-radius: 16px;
-    text-align: center;
-
-    /* Neutral/01 */
-    color: #FFFFFF;
-}
-
-
-.login-direct{
-    margin-top: 40px;
-    margin-left: 80px;
-}
-
-.navbar-expand-lg{
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-}
-
-.navbar-brand{
-    width: 100px;
-    height: 34px;
-    /* Primary/Purple/05 */
-    background-color: #4B1979;
-}
-
-.search-bar{
-    flex-direction: row;
-    padding: 12px 24px;
-    gap: 16px;
+    }
     
-}
-
-.cari-produk{
-    position: relative;
-    width: 444px;
-    height: 48px;
-    right: 170px;
-
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-
-    background-image: url('../images/fi_search.png') !important;
-    background-repeat: no-repeat !important;
-    background-position: 390px 12px !important;
-    background: #EEEEEE;
-    border-radius: 16px;
-    border-color: white;
-}
-
-.nav-item-list{
-    background-image: url('../images/fi_list.png') !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    margin-right: 24px;
-}
-
-.nav-item-notification{
-    background-image: url('../images/fi_bell.png') !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    margin-right: 24px;
-}
-
-.nav-item-user{
-    background-image: url('../images/fi_user.png') !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-}
-
-
-.carousel-item{
-    width: 600px;
-    height: 436px;
-}
-
-.carousel-inner{
-    width: 600px;
-}
-
-.card-product{
-    margin-left: 32px;
-    width: 336px;
-}
-
-.container-product-page .card-body{
-    margin-left: 32px;
-    width: 336px;   
-
-    background: #FFFFFF;
-
-    /* Shadow/High */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 16px;
-}
-
-.card-title{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-.card-text{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-
-    /* identical to box height, or 143% */
-
-    /* Neutral/03 */
-    color: #8A8A8A;
-}
-
-.btn-terbitkan{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 24px;
-    gap: 4px;
-
-    width: 304px;
-    height: 48px;
-    margin-top: 16px;
-
-    /* Primary/Purple/04 */
-    background: #7126B5;
-    border-radius: 16px;
-    border-color: #7126B5;
-}
-
-.btn-terbitkan:hover{
-    background: #4B1979;;
-    border-radius: 16px;
-    border-color: #4B1979;;
+    .modal-text{
+        color: #8A8A8A;
+        margin-top: 16px;
+        margin-right: 16px;
+        margin-left: 16px;
     
-}
-
-.btn-primary:focus{
-    background: #7126B5;
-    border-radius: 16px;
-    border-color: #7126B5;
-
-}
-
-.btn-edit{
-    box-sizing: border-box;
-
-    /* Auto layout */
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 24px;
-    gap: 4px;
-
-    width: 304px;
-    height: 48px;
-    margin-top: 14px;
-
-    /* Neutral/01 */
-    background: #FFFFFF;
-    color: #000000;
-
-    /* Primary/Purple/04 */
-    border: 1px solid #7126B5;
-    border-radius: 16px;
+    }
     
-}
-
-.btn-primary.disabled{
-    background: #D0D0D0;
-    border-radius: 16px;
-    border-color: #D0D0D0;
-}
-
-.card-seller{
-    position: absolute;
-    width: 336px;
-    height: 80px;
-    margin-left: 32px;   
-}
-
-.card-body-seller{
-    position: absolute;
-    width: 336px;
-    height: 80px;
-    margin-left: 32px;
-    margin-top: 24px;
-    /* Neutral/01 */
-    background: #FFFFFF;
-    background-repeat: no-repeat !important;
-    background-position: left !important;
-
-    /* Shadow/Low */
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 16px;
-}
-
-.seller-image{
-    width: 48px;
-    height: 48px;
-    margin-left: 16px;
-    margin-top: 16px;
-    margin-right: auto; 
-    flex: none;
- 
-}
-
-.card-description{
-    width: 600px;
-    height: 339px;
-
-
-    /* Neutral/01 */
-    background: #FFFFFF;
-}
-
-.card-body-description{
-    width: 600px;
-    height: 339px;
-    margin-top: 24px;
-    padding: 16px;
-
-    /* Neutral/01 */
-    background: #FFFFFF;
-
-    /* Shadow/Low */
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 16px;
-}
-
-/* Modal */
-
-.btn-close{
-    background-image: url('../images/fi_x.png') !important;
-    background-size: 36px;
-}
-
-.modal-body{
-    padding: 0rem 1rem 0rem 1rem;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-}
-
-.modal-header{
-    margin-right: 16px;
-}
-
-.modal-title{
-    margin-right: 16px;
-    margin-left: 16px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
+    .modal-content{
+        width: 360px;
+        height: 438px;
+        left: 0px;
+        top: 0px;
     
-color: #000000;
-}
-
-.modal-text{
-    color: #8A8A8A;
-    margin-top: 16px;
-    margin-right: 16px;
-    margin-left: 16px;
-
-}
-
-.modal-content{
-    width: 360px;
-    height: 438px;
-    left: 0px;
-    top: 0px;
-
-    /* Shadow/High */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 16px;
-}
-
-.modal-header{
-    border-bottom: 0px solid;
-}
-
-.card-product-modal{
-    width: 296px;
-    height: 80px;
-    background: #EEEEEE;
-
-    /* Shadow/High */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 16px;
-    margin-right: 16px;
-    margin-left: 16px;
-}
-
-.modal-footer{
-    border-top: 0px solid;
-    align-items: center !important;
-    justify-content: center;
-    padding-top: 0px;
-}
-
-.input-modal{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-}
-
-.input-tawar{
-    margin-top: 24px;
-    margin-right: 16px;
-    margin-left: 16px;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.card-title-product{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
+        /* Shadow/High */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+    }
     
-    /* identical to box height, or 143% */
+    .modal-header{
+        border-bottom: 0px solid;
+    }
     
-    color: #000000;
-}
-
-.card-text-product{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
+    .card-product-modal{
+        width: 296px;
+        height: 80px;
+        background: #EEEEEE;
     
-    /* identical to box height, or 143% */
+        /* Shadow/High */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+        margin-right: 16px;
+        margin-left: 16px;
+    }
     
-    /* Neutral/05 */
-    color: #151515;
-}
-
-.form-control-tawar{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-
-    /* Neutral/02 */
-    border: 1px solid #D0D0D0;
-    border-radius: 16px;
-    width: 296px;
-    height: 48px;
-
-    padding: 16px
-}
-
-.btn-save{
-
-    display: flex;
-    flex-direction: row;
-    align-items: center !important;
-    justify-content: center;
-    gap: 4px;
-
-    width: 304px;
-    height: 48px;
-
-    /* Primary/Purple/04 */
-    background: #7126B5;
-    border-radius: 16px;
-    border-color: #7126B5;        
-}
-
-.alert{
-    position: absolute;
-}
-
-.alert-success{
-
-    color: #FFFFFF;
-    background: #73CA5C;
-    width: 500px;
-    height: 52px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 12px;
-
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
+    .modal-footer{
+        border-top: 0px solid;
+        align-items: center !important;
+        justify-content: center;
+        padding-top: 0px;
+    }
     
-}
-
-.btn-close{
-    background-image: url('../images/fi_x_white.png') !important;
-    background-size: 20px;
-}
-
-.dropdown-menu{
-    width: 376px;
-
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-    border-radius: 16px;
-}
-
-.dropdown-menu.show{
-    left: -330px;
-}
-
-.card-text-notification{
-    margin-bottom: 4px;
-
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 14px;
-    color: #8A8A8A;
-}
-
-.card-title-price-linethrough{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-    text-decoration: line-through;
-}
-
-.card-title-product{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
-}
-
-.card-title-bargain{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
+    .input-modal{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+    }
+    
+    .input-tawar{
+        margin-top: 24px;
+        margin-right: 16px;
+        margin-left: 16px;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    
+    .card-title-product{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        
+        /* identical to box height, or 143% */
+        
+        color: #000000;
+    }
+    
+    .card-text-product{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        
+        /* identical to box height, or 143% */
+        
+        /* Neutral/05 */
+        color: #151515;
+    }
+    
+    .form-control-tawar{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    
+        /* Neutral/02 */
+        border: 1px solid #D0D0D0;
+        border-radius: 16px;
+        width: 296px;
+        height: 48px;
+    
+        padding: 16px
+    }
+    
+    .btn-save{
+    
+        display: flex;
+        flex-direction: row;
+        align-items: center !important;
+        justify-content: center;
+        gap: 4px;
+    
+        width: 304px;
+        height: 48px;
+    
+        /* Primary/Purple/04 */
+        background: #7126B5;
+        border-radius: 16px;
+        border-color: #7126B5;        
+    }
+    
+    .alert{
+        position: absolute;
+    }
+    
+    .alert-success{
+    
+        color: #FFFFFF;
+        background: #73CA5C;
+        width: 500px;
+        height: 52px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+    
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        
+    }
+    
+    .btn-close{
+        background-image: url('../images/fi_x_white.png') !important;
+        background-size: 20px;
+    }
+    
+    .dropdown-menu{
+        width: 376px;
+    
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+    }
+    
+    .dropdown-menu.show{
+        left: -330px;
+    }
+    
+    .card-text-notification{
+        margin-bottom: 4px;
+    
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 14px;
+        color: #8A8A8A;
+    }
+    
+    .card-title-price-linethrough{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        text-decoration: line-through;
+    }
+    
+    .card-title-product{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    .card-title-bargain{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+    }
+    
+    .alert-buyer{
+        position: absolute;
+        left: 488px;
+        right: 300px;
+        top: 92px;
+    }
 }
