@@ -295,6 +295,29 @@
 
     }
 
+    .btn-terbitkan-responsive:hover{
+        background: #4B1979;;
+        border-radius: 16px;
+        border-color: #4B1979;;
+        
+    }
+
+    .btn-save:hover{
+        background: #4B1979;;
+        border-radius: 16px;
+        border-color: #4B1979;;
+        
+    }
+
+    .btn-primary:focus{
+        background: #4B1979;;
+        border-radius: 16px;
+        border-color: #4B1979;
+        box-shadow: 0 0 0 .25rem rgba(156, 12, 192, 0.733);
+    }
+
+
+
     .btn-primary{
         border-color: #7126B5;
     }
@@ -340,6 +363,7 @@
         border-radius: 16px 16px 0px 0px;
         width: 360px;
         height: 422px;
+        top: 16px;
     }
 
     .modal-content .modal-title{
