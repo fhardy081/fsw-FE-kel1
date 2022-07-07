@@ -24,7 +24,7 @@ const ProductPage = () => {
         <Navbar/>
 
         <div className="container container-product-page" style={{marginTop: 40}}>
-            <div className="row">
+            <div className="row" style={{'--bs-gutter-x' : 0}}>
                 <div className="col-md-1"></div>
                 <div className="col-md-6">
                     <CarouselProduct/>
