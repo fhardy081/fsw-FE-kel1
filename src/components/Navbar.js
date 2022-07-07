@@ -17,16 +17,16 @@ const Navbar = () => {
                             <a className="nav-link active" aria-current="page" href="/">&nbsp;</a>
                             </li>
                             <li>
-                            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <ul class="navbar-nav">
-                                <li class="nav-item dropdown">
-                                <a class="nav-link nav-item-notification" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div className="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul className="navbar-nav">
+                                <li className="nav-item dropdown">
+                                <a className="nav-link nav-item-notification" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 &nbsp;
 
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <ul className="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li>
-                                        <a class="dropdown-item" href="/">
+                                        <a className="dropdown-item" href="/">
                                         <div className="card-notification">
                                         <div className="card-body-notification">
                                             <div className="row">
@@ -54,7 +54,7 @@ const Navbar = () => {
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="/">
+                                        <a className="dropdown-item" href="/">
                                         <div className="card-notification">
                                         <div className="card-body-notification">
                                             <div className="row">

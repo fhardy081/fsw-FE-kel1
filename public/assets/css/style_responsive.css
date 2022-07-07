@@ -84,6 +84,434 @@
         align-items:center;
         text-align: center;
     }
+
+    /* Product Page */
+
+    .carousel-item{
+        width: 360px;
+        height: 300px;
+    }
+
+    .carousel-item.actiive{
+        width: 360px;
+        height: 300px;
+    }
+
+    .carousel-inner{
+        width: 360px;
+    }
+
+    .carousel-indicators{
+        bottom: 10px;
+    }
+
+    .img-seller{
+        height: 300px;
+    }
+    
+    .navbar{
+        display:none;
+    }
+
+    .container-product-page{
+        margin-top: 0px !important;
+        padding: 0px;
+        
+    }
+
+    .card-description{
+        width: 328px;
+        padding: 12px;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+
+        position: relative;
+        top: 187px;
+      
+    }
+
+    .carousel-inner{
+        width: 100%;
+    }
+
+    .card-product{
+        width: 328px;
+        height: 98px;
+    }
+
+    .card-title{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .card-title-name{
+        /* Body/14/Medium */
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+
+        /* identical to box height, or 143% */
+
+        /* Neutral/05 */
+        color: #151515;
+    }
+
+    .card-title-price{
+        /* Body/14/Regular */
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+
+        /* identical to box height, or 143% */
+
+        /* Neutral/05 */
+        color: #151515;
+    }
+
+    .card-text-category{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 14px;
+    }
+
+    .card-product{
+        width: 328px;
+        height: 98px;
+        /* Neutral/01 */
+        background: #FFFFFF;
+
+        /* Shadow/Low */
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+
+        bottom: 605px;
+        position: relative;
+    }
+
+    .card-seller{
+        width: 328px;
+        height: 80px;
+        /* Shadow/Low */
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+
+        position: relative;
+        bottom: 588px;
+    }
+
+    .card-title-name-seller{
+        /* Body/14/Medium */
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+
+        /* identical to box height, or 143% */
+
+        color: #000000;
+    }
+
+    .card-text-city{
+        /* Body/10/Regular */
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 10px;
+        line-height: 14px;
+
+        /* identical to box height, or 140% */
+
+        /* Neutral/03 */
+        color: #8A8A8A;
+    }
+
+    .card-seller{
+        /* position: absolute; */
+        width: 328px;
+        height: 80px;
+        margin-left: 16px;   
+    }
+    
+    .card-body-seller{
+        position: absolute;
+        width: 328px;
+        height: 80px;
+        /* margin-left: 32px;
+        margin-top: 24px; */
+        /* Neutral/01 */
+        /* background: #FFFFFF;
+        background-repeat: no-repeat !important;
+        background-position: left !important; */
+    
+        /* Shadow/Low */
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+    }
+
+    .card-body-seller .col-md-2 {
+        width: 0px;
+        height: 0px;
+    }
+
+    .card-body-seller .col-md-10 {
+        padding-left: 96px;
+        padding-top: 20px;
+    }
+    
+    .seller-image{
+        width: 48px;
+        height: 48px;
+        margin-left: 16px;
+        margin-top: 16px;
+        margin-right: auto; 
+        flex: none;
+     
+    }
+
+
+    .btn-terbitkan{
+        display: none;
+    }
+
+    .btn-terbitkan-responsive{
+        width: 328px;
+        height: 48px;
+        background: #7126B5;
+        border-radius: 16px;
+
+        left: 18px;
+        margin-bottom: 24px;
+    
+
+    }
+
+    .btn-primary{
+        border-color: #7126B5;
+    }
+
+    .btn-primary.disabled{
+        background-color: #D0D0D0;
+        border-color: #D0D0D0;
+    }
+
+    .btn.disabled{
+        opacity: unset;
+    }
+
+    .btn-back-responsive{
+        margin-top: 44px;
+        margin-left: 16px;
+
+        background: #FFFFFF;
+        border-radius: 20px;
+        width: 30px;
+        height: 30px;
+    }
+
+    /* MODAL */
+
+    .carousel-control-next-icon{
+        display: none;
+    }
+
+    .carousel-control-prev-icon{
+        display: none;
+    }
+
+    .btn-close-tawar{
+        display: none;
+    }
+    .modal-dialog {
+        align-items: flex-end;
+        margin: 0px;
+     }  
+
+    .modal-content{
+        border-radius: 16px 16px 0px 0px;
+        width: 360px;
+        height: 422px;
+    }
+
+    .modal-content .modal-title{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+        padding-left: 14px;
+    }
+
+    .modal-content .modal-text{
+        margin-top: 16px;
+        /* Body/14/Regular */
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        padding-left: 14px;
+
+        /* or 143% */
+
+        /* Neutral/03 */
+        color: #8A8A8A;
+    }
+
+    .modal-header{
+        border-bottom: 0px;
+    }
+
+    .card-product-modal{
+        display: flex;
+        justify-content: center;
+    }
+
+    .card-body-product{
+        
+        width: 296px;
+        height: 80px;
+
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+        background: #EEEEEE;
+    }
+
+    .card-body-product .col-md-2{
+        height: 0px;
+        width: 0px;
+    }
+
+    .card-title-product{
+        margin-left: 80px;
+        margin-top: 18px;
+
+        /* Body/14/Medium */
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+
+        /* identical to box height, or 143% */
+
+        color: #000000;
+    }
+
+    .card-text-product{
+        margin-left: 80px;
+
+        /* Body/14/Regular */
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+
+        /* identical to box height, or 143% */
+
+        /* Neutral/05 */
+        color: #151515;
+    }
+
+
+    .input-modal{
+        margin-top: 24px;
+        /* Body/12/Regular */
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+
+        /* identical to box height, or 150% */
+
+        color: #000000;
+    }
+
+    .input-tawar{
+        padding-left: 14px;
+    }
+
+    .form-control-tawar{
+        
+        width: 296px;
+        height: 48px;
+        padding-left: 16px;
+
+        background: #FFFFFF;
+
+        /* Neutral/02 */
+        border: 1px solid #D0D0D0;
+        border-radius: 16px;
+
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+
+        /* identical to box height, or 143% */
+
+        /* Neutral/03 */
+        color: #8A8A8A;
+
+    }
+
+    .modal-footer{
+
+        border-top: 0px;
+    }
+
+    .btn-save{
+        margin: 0 auto;
+        display: block;
+        width: 296px;
+        height: 48px;
+        border-radius: 16px;
+        /* Primary/Purple/04 */
+        background: #7126B5;
+    }
+
+    .alert-buyer{
+        position: absolute;
+        top: 92px;
+        width: 328px;
+        height: 72px;
+
+        background: #73CA5C;
+        border-color: #73CA5C;
+        border-radius: 12px;
+
+        /* Body/14/Medium */
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+
+        /* or 143% */
+
+        /* Neutral/01 */
+        color: #FFFFFF;
+        left: 4%;
+    }
+
+    .btn-close{
+        background-image: url('../images/fi_x_wht.png') !important;
+        background-size: 20px;
+    }
+
+
 }
 
 @media only screen and (max-width: 991px) {

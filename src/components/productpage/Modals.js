@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 
 const Modals = (props) => {
     // const [showModal, setShowModal] = useState (false)
@@ -11,7 +11,7 @@ const Modals = (props) => {
 
     return (
         <>
-        <div className="modal fade" id="modalBuyer" tabindex="-1" aria-labelledby="modalBuyerLabel" aria-hidden="true">
+        <div className="modal fade" id="modalBuyer" tabIndex="-1" aria-labelledby="modalBuyerLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header">                        
@@ -26,7 +26,7 @@ const Modals = (props) => {
                                     <div className="col-md-2">
                                         <img src="assets/images/image_seller.png" className="seller-image d-block" alt="Product Buy"/>
                                     </div>
-                                    <div className="col-md-10" style={{paddingTop: 16, paddingBottom: 16, paddingLeft: 32}}>
+                                    <div className="col-md-10">
                                         <h5 className="card-title-product" style={{marginBottom: 4}}>Jam Tangan Casio</h5>
                                         <p className="card-text-product">Rp. 250.000</p>
                                     </div>

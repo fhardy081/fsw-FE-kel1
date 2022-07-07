@@ -7,7 +7,6 @@ const CarouselProduct = () => {
         id="carouselExampleIndicators"
         className="carousel slide"
         data-bs-ride="carousel"
-        style={{ width: 600 }}
       >
         <div className="carousel-indicators">
           <button
@@ -31,25 +30,25 @@ const CarouselProduct = () => {
             aria-label="Slide 3"
           ></button>
         </div>
-        <div className="carousel-inner">
+        <div className="carousel-inner mx-auto">
           <div className="carousel-item active">
             <img
               src="assets/images/jam_casio.png"
-              className="d-block w-100"
+              className="img-seller d-block w-100"
               alt="..."
             />
           </div>
           <div className="carousel-item">
             <img
               src="assets/images/jam_casio.png"
-              className="d-block w-100"
+              className="img-seller d-block w-100"
               alt="..."
             />
           </div>
           <div className="carousel-item">
             <img
               src="assets/images/jam_casio.png"
-              className="d-block w-100"
+              className="img-seller d-block w-100"
               alt="..."
             />
           </div>
