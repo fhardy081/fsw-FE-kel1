@@ -1,22 +1,19 @@
 import '../components/css/style.css'
 
-const mystyle = {
-    boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)"
-};
-
 const InfoProduct = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light fixed-top" style={mystyle}>
+            <nav className="navbar navbar-expand-lg navbar-light fixed-top d-none d-sm-block" style={{ boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)" }}>
                 <div className="container">
                     <a className="navbar-brand me-auto" id="logo" href="/">&nbsp;</a>
                 </div>
             </nav>
-            <div className='container'><br />
-                <div className='row mt-5'>
-                    <div className='col-md-3'>
-                        <a href=''><i className="bi bi-arrow-left offset-md-5"></i></a>
+            <div className='container info-prd'>
+                <div className='row'>
+                    <div className='col-md-3' style={{ marginBottom: '2rem' }}>
+                        <a href=''><i className="bi bi-arrow-left offset-md-5" style={{ fontSize: '1.5rem', color: 'black' }}></i></a>
+                        <span className='title'><center style={{marginTop:'-1.875rem'}}>Lengkapi Detail Product</center></span>
                     </div>
                     <form action='#' className='col-md-6'>
                         <div className="col-md mb-3">
@@ -43,13 +40,13 @@ const InfoProduct = () => {
                         </div>
                         <div className="col-md mb-3">
                             <label htmlFor="foto" className="form-label">Foto Produk</label><br />
-                            <label><img src='/assets/img/Group_1.png' alt='' /><input type={'file'} hidden /></label>
+                            <label><img src='/assets/img/Group_1.png' alt='' /><input type={'file'} accept=".jpg,.png" hidden /></label>
                         </div>
                         <div className='row'>
-                            <div className="col-md mb-3 d-grid">
+                            <div className="col-6 mb-3 d-grid">
                                 <a href='#' className="btn btn-outline-primary">Preview</a>
                             </div>
-                            <div className="col-md mb-3 d-grid">
+                            <div className="col-6 mb-3 d-grid">
                                 <button type="submit" className="btn btn-primary">Terbitkan</button>
                             </div>
                         </div>
