@@ -1,5 +1,5 @@
 import React from "react";
-import "../info-profil.css";
+import '../components/css/info-profil.css'
 
 const InfoProfil = () => {
     return (
@@ -7,9 +7,8 @@ const InfoProfil = () => {
             {/*Nav*/}
             <nav className="navbar navbar-expand-lg sticky-top">
                 <div className="container-fluid px-5">
-                    <a className="navbar-brand" href="#" />
+                    <a className="navbar-brand" href="/" />
                     <h2 className="title text-center">Lengkapi Info Akunmu</h2>
-                    <h2 />
                 </div>
             </nav>
             {/* Foto Profil */}

@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import "../homepage.css";
 import Imgbanner from "../Assets/img banner.png";
 import Banner2 from "../Assets/banner2.png";
 import Banner3 from "../Assets/banner3.png";
@@ -9,7 +8,7 @@ import Rectangle24 from "../Assets/Rectangle 24.png";
 const Homepage = () => {
   useEffect(() => {
     if (window.Loadowlcarousel) {
-      window.Loadowlcarousel("#owl-carousel")
+      window.Loadowlcarousel("/owl-carousel")
     }
   }, [])
   return (
@@ -17,7 +16,7 @@ const Homepage = () => {
       {/*Nav*/}
       <nav className="navbar navbar-expand-lg sticky-top">
         <div className="container">
-          <a className="navbar-brand" href="#" />
+          <a className="navbar-brand" href="/"/>
           <div className="navbar-nav navbar-top">
             <form className="search-bar">
               <input className="cari-produk" type="search" placeholder="Cari di sini..." aria-label="Search" />

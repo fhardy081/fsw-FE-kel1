@@ -12,8 +12,21 @@
         margin-left: 104px;
         
     }
+
+    .form-control.cari-produk{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 12px 16px;
+        gap: 16px;
+        width: 452px;
+        height: 48px;
     
-    .form__input{
+        border: 1px solid #D0D0D0;
+        border-radius: 16px;
+    }
+    
+    /* .form__input{
         
         display: flex;
         flex-direction: row;
@@ -26,7 +39,7 @@
         border: 1px solid #D0D0D0;
         border-radius: 16px;
         
-    }
+    } */
     
     .form-title{
         
@@ -77,6 +90,21 @@
     .login-direct{
         margin-top: 40px;
         margin-left: 80px;
+    }
+
+    .navbar.navbar-expand-lg.sticky-top{
+        height: 68px;
+    }
+
+    .navbar-nav.me-auto.mb-2.mb-lg-0{
+        border-width: 0px;
+    }
+
+    .navbar-nav-notification{
+        top: 0px;
+        position: absolute;
+        border-width: 0px;
+        background-color: transparent;
     }
     
     .navbar-expand-lg{
@@ -162,9 +190,11 @@
 
     /* PRODUCT */
     
-    .card-product{
+    .container-product-page .card-product{
         margin-left: 32px !important;
         width: 336px;
+        height: 188px;
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
     }
     
     .container-product-page .card-body{
@@ -484,7 +514,8 @@
     
     }
     
-    .card-title-product{
+    h5.card-title-product{
+        margin-left: 0px;
         margin-top: 16px;
 
         font-family: 'Poppins';
@@ -603,6 +634,7 @@
     }
     
     .card-title-product{
+        margin-left: 26px;
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 400;
