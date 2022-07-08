@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
+import InfoProfil from "./pages/InfoProfil";
 import ProductPage from "./pages/ProductPage";
 import InfoProduct from "./pages/InfoProduct";
 import InfoBidder from "./pages/InfoBidder";
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/product" element={<ProductPage />} />
+        <Route path="/info-profil" element={<InfoProfil />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/infoproduct" element={<InfoProduct />} />
