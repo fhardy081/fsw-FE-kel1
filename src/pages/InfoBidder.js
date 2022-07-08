@@ -1,4 +1,4 @@
-const InfoProduct = () => {
+const InfoBidder = () => {
 
     return (
         <>
@@ -11,7 +11,7 @@ const InfoProduct = () => {
             <div className='container info-bidder'>
                 <div className='row satu'>
                     <div className='col-md-3' style={{ marginBottom: '2rem' }}>
-                        <a href=''><i className="bi bi-arrow-left offset-md-5" style={{ fontSize: '1.5rem', color: 'black' }}></i></a>
+                        <a href='/'><i className="bi bi-arrow-left offset-md-5" style={{ fontSize: '1.5rem', color: 'black' }}></i></a>
                         <span className='title'><center style={{marginTop:'-1.875rem'}}>Info Penawar</center></span>
                     </div>
                     <div className='col-md-6'>
@@ -23,7 +23,7 @@ const InfoProduct = () => {
                             <div className="card-body">
                                 <div className='row'>
                                     <div className='col-2'>
-                                        <img src='assets/images/jam_casio.png' width={"100%"} />
+                                        <img src='assets/images/jam_casio.png' width={"100%"} alt="Product"/>
                                     </div>
                                     <div className='col-10'>
                                         <h5 className="card-title" style={{ fontWeight: "bold" }}>Nama Pembeli</h5>
@@ -35,7 +35,7 @@ const InfoProduct = () => {
                         <h6 className='title mt-3' style={{ fontWeight: "bold" }}>Daftar Produkmu yang Ditawar</h6>
                         <div className='row mt-3'>
                             <div className='col-2'>
-                                <img src='assets/images/jam_casio.png' width={"100%"} />
+                                <img src='assets/images/jam_casio.png' width={"100%"} alt="Product"/>
                             </div>
                             <div className='col-10'>
                                 <div className='row'>
@@ -51,7 +51,7 @@ const InfoProduct = () => {
                                 <h5 className="card-title">Ditawar Rp 200.000</h5>
                                 <div className='row mb-3'>
                                     <div className='col-md-8 offset-md-4 row'>
-                                        <a href='#' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Tolak</a>
+                                        <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Tolak</a>
                                         <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima">Terima</button>
                                     </div>
                                     {/* <div className='col-md-8 offset-md-4 row'>
@@ -70,4 +70,5 @@ const InfoProduct = () => {
             </>
     )
 }
-export default InfoProduct;
+
+export default InfoBidder

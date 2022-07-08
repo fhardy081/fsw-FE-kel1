@@ -14,7 +14,7 @@ const InfoProfil = () => {
             {/* Foto Profil */}
                 <div className="profpic"></div>
             {/*Info*/}
-            <div className="container pt-4" id="card">
+            <div className="container" id="card">
                 <div className="mb-3">
                     <label htmlFor="exampleFormControlInput1" className="form-label">
                         Nama
@@ -32,8 +32,8 @@ const InfoProfil = () => {
                         Kota
                     </label>
                     <select
-                        className="form-select form-select-lg mb-3"
-                        aria-label=".form-select-lg example"
+                        className="form-select form-control mb-3"
+                        aria-label=".form-select example"
                         required=""
                     >
                         <option selected="">Pilih Kota</option>
@@ -44,6 +44,7 @@ const InfoProfil = () => {
                         <option value={5}>Bali</option>
                     </select>
                 </div>
+                
                 <div className="mb-3">
                     <label htmlFor="exampleFormControlTextarea1" className="form-label">
                         Alamat
