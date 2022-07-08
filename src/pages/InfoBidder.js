@@ -1,4 +1,4 @@
-const InfoProduct = () => {
+const InfoBidder = () => {
 
     return (
         <>
@@ -9,7 +9,7 @@ const InfoProduct = () => {
                 </div>
             </nav>
             <div className='container info-bidder'>
-                <div className='row'>
+                <div className='row satu'>
                     <div className='col-md-3' style={{ marginBottom: '2rem' }}>
                         <a href=''><i className="bi bi-arrow-left offset-md-5" style={{ fontSize: '1.5rem', color: 'black' }}></i></a>
                         <span className='title'><center style={{marginTop:'-1.875rem'}}>Info Penawar</center></span>
@@ -140,4 +140,4 @@ const InfoProduct = () => {
     )
 }
 
-export default InfoProduct
+export default InfoBidder
