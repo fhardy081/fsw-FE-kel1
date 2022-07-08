@@ -13,18 +13,15 @@ const Homepage = () => {
   }, [])
   return (
     <>
-      {/*Nav*/}
-      <nav className="navbar navbar-expand-lg sticky-top">
-        <div className="container">
-          <a className="navbar-brand" href="/"/>
-          <div className="navbar-nav navbar-top">
-            <form className="search-bar">
-              <input className="cari-produk" type="search" placeholder="Cari di sini..." aria-label="Search" />
-            </form>
-            <button className="btn btn-masuk"><i class="bi bi-box-arrow-in-right"></i>&nbsp;Masuk</button>
-          </div>
-        </div>
-      </nav>
+      {/*Nav*/}<nav className="navbar navbar-expand-lg sticky-top">
+            <div className="container">
+                <a className="navbar-brand" href="/">&nbsp;</a>
+                <form class="search-bar d-flex">
+                    <input className="form-control cari-produk" type="search" placeholder="Cari di sini ..." aria-label="Search"/>
+                </form>
+                <button className="btn btn-masuk"><i class="bi bi-box-arrow-in-right"></i>&nbsp;Masuk</button>
+            </div>
+        </nav>
       {/*Carousel*/}
       <div className="container" style={{ paddingTop: 30 }}>
         <div className="row">

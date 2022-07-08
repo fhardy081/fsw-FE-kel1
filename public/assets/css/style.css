@@ -23,10 +23,12 @@
         height: 48px;
     
         border: 1px solid #D0D0D0;
+        background: #EEEEEE;
+        border-color: #EEEEEE;
         border-radius: 16px;
     }
     
-    /* .form__input{
+    .form__input{
         
         display: flex;
         flex-direction: row;
@@ -39,7 +41,7 @@
         border: 1px solid #D0D0D0;
         border-radius: 16px;
         
-    } */
+    }
     
     .form-title{
         
