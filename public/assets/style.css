@@ -1,0 +1,47 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+#logo{
+    position: inherit;
+    width: 100px;
+    height: 34px;
+    left: 122px;
+    top: 10px;
+
+    /* Primary/DarkBlue/04 */
+    background: #7126B5;
+}
+
+#logo2{
+  width: 100px;
+  height: 34px;
+}
+
+.btn-success{
+  background-color: #5CB85F;
+  border-radius: 2px;
+  border-color: #5CB85F;
+}
+
+.btn-primary{
+  background-color: #0D28A6;
+  border-radius: 2px;
+  border-color: #0D28A6;
+}
+
+.btn-warning{
+  background-color: #F9CC00;
+  border-radius: 2px;
+  border-color: #F9CC00;
+}
+
+.btn-danger{
+  background-color: #FA2C5A;
+  border-radius: 2px;
+  border-color: #FA2C5A;
+}
+
+@media (min-device-width : 320px) and (max-device-width : 991px){
+  
+}

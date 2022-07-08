@@ -1,0 +1,79 @@
+* {
+  font-family: 'Poppins';
+}
+
+.form-control {
+  border-radius: 0.7rem;
+}
+
+.btn-primary {
+  background-color: #7126B5;
+  border-radius: 0.7rem;
+  border-color: #7126B5;
+}
+
+.btn-primary:hover {
+  background-color: #7126B5;
+}
+
+.text-primary>b {
+  color: #7126B5;
+}
+
+.btn-outline-primary {
+  background-color: #fff;
+  border-radius: 0.7rem;
+  border-color: #7126B5;
+  color: #7126B5;
+}
+
+.btn-outline-primary:hover {
+  background-color: #7126B5;
+}
+
+.login .arrow-login{
+  display: none;
+}
+
+.info-prd .title{
+  display: none;
+}
+
+.info-prd .row{
+  margin-top: 3rem;
+}
+
+.bgc{
+  background-color: #EEEEEE;
+}
+
+@media (min-device-width : 320px) and (max-device-width : 991px) {
+  .login .pict-login {
+    display: none;
+  }
+
+  .login .arrow-login{
+    display: inherit;
+  }
+
+  .login .mrl{
+    margin-bottom: 2rem;
+  }
+
+  .login .input-width-login{
+    width: 117%;
+  }
+
+  .info-prd .info-bidder .row{
+    margin-top: 0rem;
+  }
+
+  .info-prd .info-bidder .title{
+    display: inherit;
+  }
+
+  .bgc{
+    background-color: #FFF;
+  }
+  
+}
