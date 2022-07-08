@@ -294,7 +294,7 @@
     }
 
     .btn-terbitkan-responsive{
-        display: none;
+        display: none !important; 
         flex-direction: row;
         align-items: center;
         justify-content: center;

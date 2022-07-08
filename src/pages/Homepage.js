@@ -8,7 +8,7 @@ import Rectangle24 from "../Assets/Rectangle 24.png";
 const Homepage = () => {
   useEffect(() => {
     if (window.Loadowlcarousel) {
-      window.Loadowlcarousel("/owl-carousel")
+      window.Loadowlcarousel("#owl-carousel")
     }
   }, [])
   return (

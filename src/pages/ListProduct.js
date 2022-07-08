@@ -21,7 +21,7 @@ import '../components/css/ListProduct.css';
 
 function ListProduct() {
   return (
-    <>
+    <div id="list-product">
       <Navbar className="ms-auto navbar" bg="white" expand="lg">
         <Container fluid className="me-3">
           <Navbar.Brand href="#home" className="logo" />
@@ -130,7 +130,7 @@ function ListProduct() {
           })}
         </Row>
       </Container>
-    </>
+    </div>
 
   );
 }
