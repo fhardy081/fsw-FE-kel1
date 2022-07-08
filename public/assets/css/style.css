@@ -296,7 +296,11 @@
     }
 
     .btn-terbitkan-responsive{
+<<<<<<< HEAD
         display: none !important;
+=======
+        display: none !important; 
+>>>>>>> a3134eb701d09c82afee0965b2427bb29f5a35ee
         flex-direction: row;
         align-items: center;
         justify-content: center;

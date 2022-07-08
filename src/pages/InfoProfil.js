@@ -3,7 +3,7 @@ import '../components/css/info-profil.css'
 
 const InfoProfil = () => {
     return (
-        <>
+        <div id="info-profil">
             {/*Nav*/}
             <nav className="navbar navbar-expand-lg sticky-top">
                 <div className="container-fluid px-5">
@@ -74,7 +74,7 @@ const InfoProfil = () => {
                     <button className="btn-submit">Submit</button>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
