@@ -8,9 +8,9 @@
 
   <!-- CSS -->
   <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-  <link rel="stylesheet" href="/assets/css/style.css">
+  <!-- <link rel="stylesheet" href="/assets/css/style.css"> -->
   <link rel="stylesheet" href="/assets/style.css" />
-  <link rel="stylesheet" href="/assets/css/style_responsive.css">
+  <!-- <link rel="stylesheet" href="/assets/css/style_responsive.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -50,7 +50,16 @@
 
   <script>
     function Loadowlcarousel(id) {
-      $(id).owlCarousel()
+      $(id).owlCarousel({
+        stagePadding: 200,
+        loop: true,
+        items: 3,
+        lazyLoad: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: true
+      });
     }
   </script>
 

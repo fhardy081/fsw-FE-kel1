@@ -52,7 +52,7 @@ const InfoBidder = () => {
                                 <div className='row mb-3'>
                                     <div className='col-md-8 offset-md-4 row'>
                                         <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Tolak</a>
-                                        <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima">Terima</button>
+                                        <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalHubungi">Terima</button>
                                     </div>
                                     {/* <div className='col-md-8 offset-md-4 row'>
                                         <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Status</a>

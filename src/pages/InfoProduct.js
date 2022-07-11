@@ -13,7 +13,7 @@ const InfoProduct = () => {
                 <div className='row satu'>
                     <div className='col-md-3' style={{ marginBottom: '2rem' }}>
                         <a href=''><i className="bi bi-arrow-left offset-md-5" style={{ fontSize: '1.5rem', color: 'black' }}></i></a>
-                        <span className='title'><center style={{marginTop:'-1.875rem'}}>Lengkapi Detail Product</center></span>
+                        <span className='title'><center style={{ marginTop: '-1.875rem' }}>Lengkapi Detail Product</center></span>
                     </div>
                     <form action='#' className='col-md-6'>
                         <div className="col-md mb-3">
@@ -39,8 +39,14 @@ const InfoProduct = () => {
                             <textarea class="form-control" id="deskripsi" rows="3" placeholder='Contoh: Jalan Ikan Hiu 33'></textarea>
                         </div>
                         <div className="col-md mb-3">
-                            <label htmlFor="foto" className="form-label">Foto Produk</label><br />
-                            <label><img src='/assets/img/Group_1.png' alt='' /><input type={'file'} accept=".jpg,.png" hidden /></label>
+                            <div className='row'>
+                                <div className='col-md-3'>
+                                    <label htmlFor="foto" className="form-label">Foto Produk<br /><img src='/assets/img/Group_1.png' alt='' /><input id="foto" type={'file'} accept=".jpg,.png" hidden /></label>
+                                </div>
+                                <div className='col-md-3'>
+                                    {/* looping foto */}
+                                </div>
+                            </div>
                         </div>
                         <div className='row'>
                             <div className="col-6 mb-3 d-grid">
