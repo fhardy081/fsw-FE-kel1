@@ -43,7 +43,7 @@ const InfoBidder = () => {
                                         <span className="card-text">Penawaran produk</span>
                                     </div>
                                     <div className='col'>
-                                        <span className="card-text float-end">20 Apr, 14:04</span>
+                                        <span className="card-title float-end">20 Apr, 14:04</span>
                                     </div>
                                 </div>
                                 <h5 className="card-title">Jam Tangan Casio</h5>
