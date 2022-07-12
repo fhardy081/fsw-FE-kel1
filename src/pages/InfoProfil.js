@@ -4,17 +4,10 @@ const InfoProfil = () => {
     return (
         <div id="info-profil">
             {/*Nav*/}
-<<<<<<< HEAD
-            <nav className="navbar navbar-expand-lg sticky-top">
-                <div className="container-fluid px-5">
-                    <a className="navbar-brand" href="/">&nbsp;</a>
-                    <h2 className="title text-center">Lengkapi Info Akunmu</h2>
-=======
             <nav className="navbar navbar-expand-lg navbar-light fixed-top d-none d-sm-block" style={{ boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)" }}>
                 <div className="container">
                     <a className="navbar-brand me-auto" id="logo" href="/">&nbsp;</a>
                     <p className="me-auto mb-1">Lengkapi Info Akun</p>
->>>>>>> 6ad4e0c37e1b9df7727504807aaad87727f40002
                 </div>
             </nav>
             {/* Foto Profil */}

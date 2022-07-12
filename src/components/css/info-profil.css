@@ -1,16 +1,6 @@
-<<<<<<< HEAD
-.body{
-    font-family: "Poppins";
-}
-#info-profil .navbar-expand-lg{
-    background-color: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-}
-=======
 #info-profil .title {
     display: none;
   }
->>>>>>> 6ad4e0c37e1b9df7727504807aaad87727f40002
 
 #info-profil .satu {
     margin-top: 5rem;
@@ -22,118 +12,7 @@
     margin-top: 0rem;
   }
 
-<<<<<<< HEAD
-    position: absolute;
-    width: 568px;
-    height: 360px;
-    left: 34%;
-    top: 44%;
-}
-
-#info-profil input.form-control{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 12px 16px;
-    gap: 16px;
-
-    width: 200%;
-    height: 48px;
-
-    background: #FFFFFF;
-    /* Neutral/02 */
-
-    border: 1px solid #D0D0D0;
-    border-radius: 16px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
-}
-
-#info-profil select.form-select{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 12px 16px;
-    gap: 16px;
-
-    width: 350%;
-    height: 58px;
-
-    background: #FFFFFF;
-    /* Neutral/02 */
-
-    border: 1px solid #D0D0D0;
-    border-radius: 16px;
-
-    /* Inside auto layout */
-
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
-}
-
-#info-profil .title.text-center{
-    right: 200px;
-}
-
-/* .textarea{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 12px 16px;
-    gap: 16px;
-    width: 400%;
-    height: 48px;
-    background: #FFFFFF;
-    border: 1px solid #D0D0D0;
-    border-radius: 16px;
-    flex: none;
-    order: 1;
-    align-self: stretch;
-    flex-grow: 0;
-} */
-
-#info-profil .profpic{
-    display: inline-block;
-    position: absolute;
-    width: 96px;
-    height: 96px;
-    left: 45%;
-    top: 25%;
-
-    /* Primary/Purple/01 */
-
-    background: #E2D4F0;
-    border-radius: 12px;
-}
-
-#info-profil .btn-submit{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 24px;
-    gap: 4px;
-    width: 420%;
-    height: 48px;
-    background: #7126B5;
-    color: white;
-    border-radius: 16px;
-}
-
-#info-profil .btn-submit:hover{
-    background-color: white;
-    color: #7126B5;
-}
-=======
 #info-profil .title {
     display: inherit;
   }
 }
->>>>>>> 6ad4e0c37e1b9df7727504807aaad87727f40002

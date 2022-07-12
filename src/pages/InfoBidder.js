@@ -66,10 +66,6 @@ const InfoBidder = () => {
                 </div>
             </div>
 
-<<<<<<< HEAD
-            <div className="modal fade" id="exampleModalTerima" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
-            </>
-=======
             <div className="modal fade" id="exampleModalTerima" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-dialog-centered" style={{ width: "22.5rem" }}>
                     <div className="modal-content" style={{ borderRadius: "1rem" }}>
@@ -141,7 +137,6 @@ const InfoBidder = () => {
             </div>
         </>
 
->>>>>>> 6ad4e0c37e1b9df7727504807aaad87727f40002
     )
 }
 
