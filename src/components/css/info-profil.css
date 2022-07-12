@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .body{
     font-family: "Poppins";
 }
@@ -5,32 +6,23 @@
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }
+=======
+#info-profil .title {
+    display: none;
+  }
+>>>>>>> 6ad4e0c37e1b9df7727504807aaad87727f40002
 
-#info-profil .navbar-brand{
-    width: 100px;
-    height: 34px;
-    /* Primary/Purple/05 */
-    background-color: #4B1979;
-}
+#info-profil .satu {
+    margin-top: 5rem;
+  }
 
-#info-profil h2.title{
-    /* Title/16/Regular */
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-    left: 15%;
-    align-items: center;
-}
+@media (min-device-width : 320px) and (max-device-width : 991px) {
 
-#info-profil #card{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 16px;
+#info-profil .row {
+    margin-top: 0rem;
+  }
 
+<<<<<<< HEAD
     position: absolute;
     width: 568px;
     height: 360px;
@@ -139,3 +131,9 @@
     background-color: white;
     color: #7126B5;
 }
+=======
+#info-profil .title {
+    display: inherit;
+  }
+}
+>>>>>>> 6ad4e0c37e1b9df7727504807aaad87727f40002

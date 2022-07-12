@@ -595,6 +595,21 @@
         position: absolute;
     }
     
+    .alert.alert-success.alert-dismissible.alert-buyer.fade.show{
+        color: #FFFFFF;
+        background: #73CA5C;
+        width: 500px;
+        height: 52px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 12px;
+    
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
     .alert-success{
     
         color: #FFFFFF;
