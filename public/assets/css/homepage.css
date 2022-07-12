@@ -21,7 +21,7 @@
     border-radius: 0px 16px;
 }
 
-#home button.btn-masuk{
+#home a.btn-masuk{
     /* Primary/Purple/04 */
     background-color: #7126B5;
     border-radius: 12px;

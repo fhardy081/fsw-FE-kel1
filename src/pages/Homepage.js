@@ -21,7 +21,7 @@ const Homepage = () => {
             <form className="search-bar">
               <input className="cari-produk" type="search" placeholder="Cari di sini..." aria-label="Search" />
             </form>
-            <button className="btn btn-masuk"><i className="bi bi-box-arrow-in-right"></i>&nbsp;Masuk</button>
+            <a href="/login" className="btn btn-masuk"><i className="bi bi-box-arrow-in-right"></i>&nbsp;Masuk</a>
           </div>
         </div>
       </nav>
@@ -93,7 +93,7 @@ const Homepage = () => {
           <div className="card ms-2" style={{ width: "18rem" }}>
             <img
               src={Rectangle23}
-              className="card-img-top"
+              className="card-img-top mt-3"
               alt="jam"
             />
             <div className="card-body">
@@ -108,7 +108,7 @@ const Homepage = () => {
           <div className="card ms-2" style={{ width: "18rem" }}>
             <img
               src={Rectangle24}
-              className="card-img-top"
+              className="card-img-top mt-3"
               alt="jam"
             />
             <div className="card-body">
