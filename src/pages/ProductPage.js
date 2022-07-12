@@ -20,7 +20,7 @@ const ProductPage = () => {
     // }, [product, hasoffer, user, showAlert])
 
     return (
-        <>
+        <div id='product-page'>
         <Navbar/>
 
         <div className="container container-product-page" style={{marginTop: 40}}>
@@ -69,7 +69,7 @@ const ProductPage = () => {
             <button type="button" class="btn-back-responsive fas fa-arrow-left fixed-top" aria-label="Back"></button>
         </div>
         
-        </>
+        </div>
            
     )    
 }

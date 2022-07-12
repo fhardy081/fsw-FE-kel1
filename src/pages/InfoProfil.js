@@ -7,7 +7,7 @@ const InfoProfil = () => {
             {/*Nav*/}
             <nav className="navbar navbar-expand-lg sticky-top">
                 <div className="container-fluid px-5">
-                    <a className="navbar-brand" href="/"/>
+                    <a className="navbar-brand" href="/">&nbsp;</a>
                     <h2 className="title text-center">Lengkapi Info Akunmu</h2>
                 </div>
             </nav>

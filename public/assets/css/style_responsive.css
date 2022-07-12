@@ -109,13 +109,15 @@
         height: 300px;
     }
     
-    .navbar{
+    #root .navbar{
         display:none;
     }
 
-    .container-product-page{
+    #root .container-product-page{
         margin-top: 0px !important;
         padding: 0px;
+        padding-right: var(--bs-gutter-x,0px);
+        padding-left: var(--bs-gutter-x,.0px);
         
     }
 
@@ -134,9 +136,10 @@
         width: 100%;
     }
 
-    .card-product{
+    .card-product.mx-auto{
         width: 328px;
         height: 98px;
+        top: -510px;
     }
 
     .card-title{
@@ -197,9 +200,10 @@
         position: relative;
     }
 
-    .card-seller{
+    #product-page .card-seller{
         width: 328px;
         height: 80px;
+        top: -496px;
         /* Shadow/Low */
         box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
         border-radius: 16px;
@@ -279,11 +283,12 @@
     }
 
 
-    .btn-terbitkan{
+    #root .btn-terbitkan{
         display: none;
     }
 
     .btn-terbitkan-responsive{
+        margin-left: 15px;
         width: 328px;
         height: 48px;
         background: #7126B5;
@@ -354,19 +359,19 @@
     .btn-close-tawar{
         display: none;
     }
-    .modal-dialog {
+    #modalBuyer .modal-dialog {
         align-items: flex-end;
         margin: 0px;
      }  
 
-    .modal-content{
+    #modalBuyer .modal-content{
         border-radius: 16px 16px 0px 0px;
         width: 360px;
         height: 422px;
         top: 16px;
     }
 
-    .modal-content .modal-title{
+    #modalBuyer .modal-content .modal-title{
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
@@ -391,7 +396,7 @@
         color: #8A8A8A;
     }
 
-    .modal-header{
+    #modalBuyer .modal-header{
         border-bottom: 0px;
     }
 
@@ -431,6 +436,18 @@
         color: #000000;
     }
 
+    #cardProductPage .card-text{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+
+        /* or 143% */
+
+        /* Neutral/03 */
+        color: #8A8A8A;
+    }
     .card-text-product{
         margin-left: 80px;
 
@@ -491,12 +508,12 @@
 
     }
 
-    .modal-footer{
+    #modalBuyer .modal-footer{
 
         border-top: 0px;
     }
 
-    .btn-save{
+    #modalBuyer .btn-save{
         margin: 0 auto;
         display: block;
         width: 296px;

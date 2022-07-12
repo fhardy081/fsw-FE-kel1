@@ -296,11 +296,7 @@
     }
 
     .btn-terbitkan-responsive{
-<<<<<<< HEAD
-        display: none !important;
-=======
         display: none !important; 
->>>>>>> a3134eb701d09c82afee0965b2427bb29f5a35ee
         flex-direction: row;
         align-items: center;
         justify-content: center;
@@ -395,7 +391,7 @@
      
     }
     
-    .card-description{
+    #cardProductPage .card-description{
         width: 600px;
         height: 339px;
     
@@ -404,9 +400,9 @@
         background: #FFFFFF;
     }
     
-    .card-body-description{
+    #cardProductPage .card-body-description{
         width: 600px;
-        height: 339px;
+        height: auto;
         margin-top: 24px;
         padding: 16px;
     
@@ -438,7 +434,7 @@
         display: none;
     }
     
-    .modal-body{
+    #modalBuyer .modal-body{
         padding: 0rem 1rem 0rem 1rem;
         font-family: 'Poppins';
         font-style: normal;
@@ -447,11 +443,11 @@
         line-height: 20px;
     }
     
-    .modal-header{
+    #modalBuyer .modal-header{
         margin-right: 16px;
     }
     
-    .modal-title{
+    #modalBuyer .modal-title{
         margin-right: 16px;
         margin-left: 16px;
         font-family: 'Poppins';
@@ -462,7 +458,7 @@
     color: #000000;
     }
     
-    .modal-text{
+    #modalBuyer .modal-text{
         color: #8A8A8A;
         margin-top: 16px;
         margin-right: 16px;
@@ -470,7 +466,7 @@
     
     }
     
-    .modal-content{
+    #modalBuyer .modal-content{
         width: 360px;
         height: 438px;
         left: 0px;
@@ -481,11 +477,11 @@
         border-radius: 16px;
     }
     
-    .modal-header{
+    #modalBuyer .modal-header{
         border-bottom: 0px solid;
     }
     
-    .card-product-modal{
+    #modalBuyer .card-product-modal{
         width: 296px;
         height: 80px;
         background: #EEEEEE;
@@ -497,7 +493,7 @@
         margin-left: 16px;
     }
     
-    .modal-footer{
+    #modalBuyer .modal-footer{
         border-top: 0px solid;
         align-items: center !important;
         justify-content: center;
@@ -520,10 +516,9 @@
     
     }
     
-    h5.card-title-product{
-        margin-left: 0px;
+    #modalBuyer h5.card-title-product{
         margin-top: 16px;
-
+        margin-left: 28px;
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
@@ -533,6 +528,20 @@
         /* identical to box height, or 143% */
         
         color: #000000;
+    }
+
+    #cardProductPage .card-text{
+        /* Body/14/Regular */
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+
+        /* or 143% */
+
+        /* Neutral/03 */
+        color: #8A8A8A;
     }
     
     .card-text-product{
@@ -565,7 +574,7 @@
         padding: 16px
     }
     
-    .btn-save{
+    #modalBuyer .btn-save{
     
         display: flex;
         flex-direction: row;
@@ -607,18 +616,15 @@
         background-image: url('../images/fi_x_white.png') !important;
         background-size: 20px;
     }
-    
-    .dropdown-menu{
+    .navbar-expand-lg .navbar-nav .dropdown-menu{
+        left: 820px;
         width: 376px;
-    
+
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
         border-radius: 16px;
+        margin-top: -10px;
     }
-    
-    .dropdown-menu.show{
-        left: -330px;
-    }
-    
+
     .card-text-notification{
         margin-bottom: 4px;
     
@@ -628,6 +634,10 @@
         font-size: 10px;
         line-height: 14px;
         color: #8A8A8A;
+    }
+
+    .card-body-notification{
+        border-bottom: 1px solid #E5E5E5;
     }
     
     .card-title-price-linethrough{
@@ -639,8 +649,7 @@
         text-decoration: line-through;
     }
     
-    .card-title-product{
-        margin-left: 26px;
+    #navbarProductPage .card-title-product{
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 400;

@@ -10,7 +10,7 @@ const Navbar = () => {
                     <form class="search-bar d-flex">
                         <input className="form-control cari-produk" type="search" placeholder="Cari di sini ..." aria-label="Search" />
                     </form>
-                    <div className="collapse navbar-collapse justify-content-end" id="navbarText">
+                    <div className="collapse navbar-collapse justify-content-end" id="navbarProductPage">
                         <ul className="navbar-nav navbar-top">
                             <li className="nav-item">
                                 <a className="nav-link nav-item-list active" aria-current="page" href="/">&nbsp;</a>
@@ -71,10 +71,6 @@ const Navbar = () => {
                                                             <p className="card-text-notification">Kamu akan segera dihubungi penjual via whatsapp</p>
 
                                                         </div>
-                                                        <h5 className="card-title-product" style={{marginBottom: 4}}>Jam Tangan Casio</h5>
-                                                        <h5 className="card-title-price-linethrough" style={{marginBottom: 4}}>Rp 250.000</h5>
-                                                        <h5 className="card-title-bargain" style={{marginBottom: 4}}>Berhasil Ditawar Rp 200.000</h5>
-                                                        <p className="card-text-notification">Kamu akan segera dihubungi penjual via whatsapp</p>
                                                         
                                                     </div>
                                                 </div>

@@ -7,7 +7,7 @@ export default function DetailProduct(props) {
     return (<>
         {product.user_id === user.id ?
         <>
-            <a href="/" className="btn btn-primary btn-terbitkan" onClick="alert" data-bs-toggle="alert">Terbitkan</a>
+            <a href="/" className="btn btn-primary btn-terbitkan" id="buttonproductPage" onClick="alert" data-bs-toggle="alert">Terbitkan</a>
             <a href="/" className="btn btn-primary btn-edit">Edit</a>
         </>
         :
