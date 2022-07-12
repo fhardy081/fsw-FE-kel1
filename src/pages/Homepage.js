@@ -12,7 +12,7 @@ const Homepage = () => {
     }
   }, [])
   return (
-    <>
+    <div id="home">
       {/*Nav*/}
       <nav className="navbar navbar-expand-lg sticky-top">
         <div className="container">
@@ -122,7 +122,7 @@ const Homepage = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

@@ -128,8 +128,8 @@ const InfoBidder = () => {
                                 </div>
                             </form>
                             <div className='d-grid'>
-                                <a href='https://wa.me/089627382823?text=Hai%20saya%20dari%20SecondHand' className="btn btn-primary" style={{ borderRadius: "1rem" }}>Kirim</a>
-                                <a href='https://wa.me/089627382823?text=Hai%20saya%20dari%20SecondHand' className="btn btn-secondary" style={{ borderRadius: "1rem" }}>Kirim</a>
+                                <a href='/' className="btn btn-primary" style={{ borderRadius: "1rem" }}>Kirim</a>
+                                {/* <a href='/' className="btn btn-secondary" style={{ borderRadius: "1rem" }}>Kirim</a> */}
                             </div>
                         </div>
                     </div>
