@@ -12,18 +12,6 @@ const Homepage = () => {
     }
   }, [])
   return (
-<<<<<<< HEAD
-    <>
-      {/*Nav*/}<nav className="navbar navbar-expand-lg sticky-top">
-            <div className="container">
-                <a className="navbar-brand" href="/">&nbsp;</a>
-                <form class="search-bar d-flex">
-                    <input className="form-control cari-produk" type="search" placeholder="Cari di sini ..." aria-label="Search"/>
-                </form>
-                <button className="btn btn-masuk"><i class="bi bi-box-arrow-in-right"></i>&nbsp;Masuk</button>
-            </div>
-        </nav>
-=======
     <div id="home">
       {/*Nav*/}
       <nav className="navbar navbar-expand-lg sticky-top">
@@ -37,7 +25,6 @@ const Homepage = () => {
           </div>
         </div>
       </nav>
->>>>>>> 6ad4e0c37e1b9df7727504807aaad87727f40002
       {/*Carousel*/}
       <div style={{overflowX:'hidden'}}>
         <div className="owl-carousel" id="owl-carousel">
