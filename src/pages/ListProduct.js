@@ -22,43 +22,16 @@ import Navbar from '../components/Navbar';
 function ListProduct() {
   return (
     <div id="list-product">
-      <Navbar className="ms-auto navbar" bg="white" expand="lg">
-        <Container fluid className="me-3">
-          <Navbar.Brand href="#home" className="logo" />
-
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Form className="d-flex test">
-              <input
-                type="search"
-                placeholder="Cari di sini..."
-                className="me-2 searchBar"
-                aria-label="Search"
-              />
-              <i className="searchIcon" type="button"><FaSearch /></i>
-            </Form>
-            <Nav className="flex-grow-1 justify-content-end nav">
-              <Nav.Link href="#link"><FaListUl className="link" /></Nav.Link>
-              <Nav.Link href="#home">
-                <FaBell className="link" />
-              </Nav.Link>
-              <Nav.Link href="#link">
-                <FaRegUser className="link" />
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
-      <div className="mb-4 title-list">
-        <h4 style={{ fontWeight: 'bold', marginTop: "50px", marginLeft: "250px" }}>Daftar Jual Saya</h4>
-      </div>
+      <Navbar/>
 
       <Container>
-        <Card>
+      <div className="mb-4 title-list">
+        <h4 style={{ fontWeight: 'bold', marginTop: "50px", fontSize: '20px' }}>Daftar Jual Saya</h4>
+      </div>
+        <Card className="upper">
           <Row>
             <Col xs={1}>
-              <img src={`${process.env.PUBLIC_URL}/assets/images/image_seller.png`} style={{ width: '100%', paddingLeft: '15px', paddingTop: '5px' }} alt="" />
+              <img src={`${process.env.PUBLIC_URL}/assets/images/image_seller.png`} style={{ paddingLeft: '16px', paddingTop: '16px' }} alt="" />
             </Col>
             <Col xs={9}>
               <h5 style={{ fontWeight: 'bold', paddingTop: '12px', marginRight: '20%' }}>Fitri</h5>
@@ -71,7 +44,7 @@ function ListProduct() {
             </Col>
           </Row>
         </Card>
-        <Row style={{ marginTop: '5%'}}>
+        <Row style={{ marginTop: '25px'}}>
           <Col>
             <div className="card-test">
               <div className="card-body1">
