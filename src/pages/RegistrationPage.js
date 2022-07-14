@@ -1,7 +1,7 @@
 import { Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useRef, useState } from "react";
+import api from "../lib/api"
 
 const RegistrationPage = () => {
     const navigate = useNavigate();
@@ -25,14 +25,12 @@ const RegistrationPage = () => {
                 password: passwordField.current.value,
             };
 
-            const registerRequest = await axios.post(
-                "https://secondhand-kel1.herokuapp.com/api/v1/register",
+            const registerRequest = await api.post(
+                "/api/v1/register",
                 userToRegisterPayload
             );
 
-            const registerResponse = registerRequest.data;
-
-            if (registerResponse.status) {
+            if (registerRequest.status) {
                 navigate("/login")
             }
         } catch (err) {

@@ -1,10 +1,13 @@
 import '../components/css/style.css'
 import { Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import api from "../lib/api"
 import { useRef, useState } from "react";
+import { useDispatch } from 'react-redux';
+import { setToken } from '../reducers/api-store';
 
 const Login = () => {
+    const dispatch = useDispatch()
     const navigate = useNavigate();
 
     const emailField = useRef("");
@@ -24,15 +27,15 @@ const Login = () => {
                 password: passwordField.current.value,
             };
 
-            const loginRequest = await axios.post(
-                "https://secondhand-kel1.herokuapp.com/api/v1/login",
+            const loginRequest = await api.post(
+                "/api/v1/login",
                 userToLoginPayload
             );
             
             const loginResponse = loginRequest.data;
 
             if (loginRequest.status === 200) {
-                localStorage.setItem("token", loginResponse.access_token);
+                dispatch(setToken(loginResponse.access_token))
 
                 navigate("/");
             }

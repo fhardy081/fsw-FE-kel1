@@ -4,6 +4,7 @@ import Banner2 from "../Assets/banner2.png";
 import Banner3 from "../Assets/banner3.png";
 import Rectangle23 from "../Assets/Rectangle 23.png";
 import Rectangle24 from "../Assets/Rectangle 24.png";
+import Navbar from "../components/Navbar";
 
 const Homepage = () => {
   useEffect(() => {
@@ -14,7 +15,7 @@ const Homepage = () => {
   return (
     <div id="home">
       {/*Nav*/}
-      <nav className="navbar navbar-expand-lg sticky-top">
+      {/* <nav className="navbar navbar-expand-lg sticky-top">
         <div className="container">
           <a className="navbar-brand" href="/" />
           <div className="navbar-nav navbar-top">
@@ -24,7 +25,8 @@ const Homepage = () => {
             <a href="/login" className="btn btn-masuk"><i className="bi bi-box-arrow-in-right"></i>&nbsp;Masuk</a>
           </div>
         </div>
-      </nav>
+      </nav> */}
+      <Navbar/>
       {/*Carousel*/}
       <div style={{overflowX:'hidden'}}>
         <div className="owl-carousel" id="owl-carousel">

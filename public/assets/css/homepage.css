@@ -1,4 +1,4 @@
-#home .navbar-expand-lg{
+/* #home .navbar-expand-lg{
     background-color: white;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }
@@ -6,7 +6,6 @@
 #home .navbar-brand{
     width: 100px;
     height: 34px;
-    /* Primary/Purple/05 */
     background-color: #4B1979;
 }
 
@@ -15,11 +14,11 @@
     padding: 12px 24px;
     gap: 16px;
     
-}
-#home button.btn-search{
+} */
+/* #home button.btn-search{
     background: #EEEEEE;
     border-radius: 0px 16px;
-}
+} */
 
 #home a.btn-masuk{
     /* Primary/Purple/04 */
@@ -31,7 +30,7 @@
     font-family: 'Poppins';
 }
 
-#home input.cari-produk{
+/* #home input.cari-produk{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -46,7 +45,7 @@
     
     background: #EEEEEE;
     border-radius: 16px;
-}
+} */
 
 #home #imgbanner{
     width: 100%;
