@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const token = useSelector(state => state.api.token)
+
+    const navigate = useNavigate();
+    // const [setIsLoggedIn] = useState(true);
+    // const [setUser] = useState({});
+    
+    const logout = () => {
+        localStorage.removeItem("token");
+
+        // setIsLoggedIn(false);
+        // setUser({});
+        navigate("/");
+    };
     return (
         <>
             <nav className="navbar navbar-expand-lg sticky-top">
@@ -87,20 +99,20 @@ const Navbar = () => {
                                                     </div>
                                                 </a>
                                             </li>
-
                                         </ul>
-                                        {/* <div className="collapse navbar-collapse" id="navbarNavDropdown">
-                                        <ul className="navbar-nav-notification">
-                                            <li className="nav-item dropdown">
-                                                
+                                    </li>
+                                    {/* <li className="nav-item">
+                                        <a className="nav-link nav-item-user" href="/">&nbsp;</a>
+                                    </li> */}
+                                    <li className='nav-item'>
+                                        <a className="nav-link nav-item-user" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            &nbsp;
+                                        </a>
+                                        <ul className="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li className='nav-item'>
+                                                <p className="dropdown-item" onClick={logout}>Logout</p>
                                             </li>
                                         </ul>
-                                    </div> */}
-
-                                    </li>
-                                    {/* <NotificationProduct/> */}
-                                    <li className="nav-item">
-                                        <a className="nav-link nav-item-user" href="/">&nbsp;</a>
                                     </li>
                                 </ul>
                             </div>)
