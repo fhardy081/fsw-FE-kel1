@@ -1,31 +1,70 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Imgbanner from "../Assets/img banner.png";
 import Banner2 from "../Assets/banner2.png";
 import Banner3 from "../Assets/banner3.png";
 import Rectangle23 from "../Assets/Rectangle 23.png";
 import Rectangle24 from "../Assets/Rectangle 24.png";
 import Navbar from "../components/Navbar";
+import { useNavigate } from "react-router-dom";
+import api from "../lib/api"
 
 const Homepage = () => {
-  useEffect(() => {
-    if (window.Loadowlcarousel) {
-      window.Loadowlcarousel("#owl-carousel")
-    }
-  }, [])
+  const [post, setPost] = useState([]);
+    const [category, setCategory] = useState([""]);
+    const [user, setUser] = useState({});
+    const [setIsLoggedIn] = useState(true);
+
+    const categories = category ? `${category}` : "";
+
+    useEffect(() => {
+      if (window.Loadowlcarousel) {
+        window.Loadowlcarousel("#owl-carousel")
+      }
+
+        const getProductPublish = async () => {
+            try {
+                const response = await api.get(
+                    `/api/v1/products`
+                )
+                const data = await response.data.products;
+                let products = []
+                for (let i in data){
+                  if (categories){
+                    console.log(categories)
+                    if (categories == data[i].category) {
+                      products.push(data[i])
+                    }
+                  }else{
+                    products.push(data[i])
+                  }
+                }
+                setPost(products);
+            } catch (err) {
+                console.log(err);
+            }
+        }
+
+        // Function validasi user
+        const validateLogin = async () => {
+            try {
+                const currentUserRequest = await api.get(
+                    "/api/v1/whoami");
+
+                const currentUserResponse = currentUserRequest.data;
+
+                if (currentUserResponse.status) {
+                    setUser(currentUserResponse.data.user);
+                }
+            } catch (err) {
+                setIsLoggedIn(false);
+            }
+        };
+        validateLogin();
+        getProductPublish();
+    }, [categories]);
   return (
     <div id="home">
       {/*Nav*/}
-      {/* <nav className="navbar navbar-expand-lg sticky-top">
-        <div className="container">
-          <a className="navbar-brand" href="/" />
-          <div className="navbar-nav navbar-top">
-            <form className="search-bar">
-              <input className="cari-produk" type="search" placeholder="Cari di sini..." aria-label="Search" />
-            </form>
-            <a href="/login" className="btn btn-masuk"><i className="bi bi-box-arrow-in-right"></i>&nbsp;Masuk</a>
-          </div>
-        </div>
-      </nav> */}
       <Navbar/>
       {/*Carousel*/}
       <div style={{overflowX:'hidden'}}>
@@ -81,47 +120,34 @@ const Homepage = () => {
       <div className="container mb-3">
         <h2 className="category-title">Telusuri Kategori</h2>
         <div className="row">
-          <button className="btn btn-filter m-2"><i className="bi bi-search"></i>&nbsp;Semua</button>
-          <button className="btn btn-filter m-2"><i className="bi bi-search"></i>&nbsp;Hobi</button>
-          <button className="btn btn-filter m-2"><i className="bi bi-search"></i>&nbsp;Kendaraan</button>
-          <button className="btn btn-filter m-2"><i className="bi bi-search"></i>&nbsp;Baju</button>
-          <button className="btn btn-filter m-2"><i className="bi bi-search"></i>&nbsp;Elektronik</button>
-          <button className="btn btn-filter m-2"><i className="bi bi-search"></i>&nbsp;Kesehatan</button>
+          <button onClick={() => setCategory(null)} className="btn btn-filter m-2"><i className="bi bi-search"></i>&nbsp;Semua</button>
+          <button onClick={() => setCategory("Hobi")} className="btn btn-filter m-2"><i className="bi bi-search"></i>&nbsp;Hobi</button>
+          <button onClick={() => setCategory("Kendaraan")} className="btn btn-filter m-2"><i className="bi bi-search"></i>&nbsp;Kendaraan</button>
+          <button onClick={() => setCategory("Baju")} className="btn btn-filter m-2"><i className="bi bi-search"></i>&nbsp;Baju</button>
+          <button onClick={() => setCategory("Elektronik")} className="btn btn-filter m-2"><i className="bi bi-search"></i>&nbsp;Elektronik</button>
+          <button onClick={() => setCategory("Kesehatan")} className="btn btn-filter m-2"><i className="bi bi-search"></i>&nbsp;Kesehatan</button>
         </div>
       </div>
       {/*Product Card*/}
       <div className="container pt-2">
         <div className="row">
+        {post.map((post) =>
           <div className="card ms-2" style={{ width: "18rem" }}>
             <img
-              src={Rectangle23}
+              src={post.photo}
+              alt={post.photo}
               className="card-img-top mt-3"
-              alt="jam"
             />
             <div className="card-body">
-              <h5 className="card-title">Jam Tangan Casio</h5>
-              <p className="jenis-barang">Aksesoris</p>
+              <h5 className="card-title">{post.name}</h5>
+              <p className="jenis-barang">{post.category}</p>
               <h5 className="card-text">
-                RP250.000
+              Rp {post.price.toLocaleString()}
                 <p />
               </h5>
             </div>
           </div>
-          <div className="card ms-2" style={{ width: "18rem" }}>
-            <img
-              src={Rectangle24}
-              className="card-img-top mt-3"
-              alt="jam"
-            />
-            <div className="card-body">
-              <h5 className="card-title">Jam Tangan Casio</h5>
-              <p className="jenis-barang">Aksesoris</p>
-              <h5 className="card-text">
-                RP250.000
-                <p />
-              </h5>
-            </div>
-          </div>
+          ).reverse()}
         </div>
       </div>
     </div>
