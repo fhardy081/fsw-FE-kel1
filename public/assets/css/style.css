@@ -168,6 +168,11 @@
         background-repeat: no-repeat !important;
         background-position: center !important;
     }
+
+    #dropdown-profil.dropdown-menu.show{
+        width: 200px;
+        left:auto;
+    }
     
     /* CAROUSEL */
     .carousel-item{

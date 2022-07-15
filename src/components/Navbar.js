@@ -16,6 +16,11 @@ const Navbar = () => {
         // setUser({});
         navigate("/");
     };
+
+    const infoprofil = () => {
+        navigate("/info-profil");
+    }
+
     return (
         <>
             <nav className="navbar navbar-expand-lg sticky-top">
@@ -108,7 +113,10 @@ const Navbar = () => {
                                         <a className="nav-link nav-item-user" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             &nbsp;
                                         </a>
-                                        <ul className="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" id="dropdown-profil">
+                                            <li className='nav-item'>
+                                                <p className="dropdown-item" onClick={infoprofil}>Profile</p>
+                                            </li>
                                             <li className='nav-item'>
                                                 <p className="dropdown-item" onClick={logout}>Logout</p>
                                             </li>
