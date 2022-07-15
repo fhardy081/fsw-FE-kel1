@@ -1,10 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 
 const Navbar = () => {
-    // const token = useSelector(state => state.api.token)
 
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -17,6 +15,10 @@ const Navbar = () => {
         setUser({});
         navigate("/");
     };
+
+    const infoprofil = () => {
+        navigate("/info-profil");
+    }
 
     return (
         <>
@@ -110,7 +112,10 @@ const Navbar = () => {
                                         <a className="nav-link nav-item-user" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             &nbsp;
                                         </a>
-                                        <ul className="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink" id="dropdown-profil">
+                                            <li className='nav-item'>
+                                                <p className="dropdown-item" onClick={infoprofil}>Profile</p>
+                                            </li>
                                             <li className='nav-item'>
                                                 <p className="dropdown-item" onClick={logout}>Logout</p>
                                             </li>
