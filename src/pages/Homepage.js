@@ -109,6 +109,8 @@ const Homepage = () => {
           ).reverse()}
         </div>
       </div>
+      {/* Tombol Jual */}
+      <button className="tombol-jual-homepage"><i class="bi bi-plus"></i>&nbsp;Jual</button>
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import { useRef, useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import { Col, Row, Nav, Navbar, Form, Container, Button, Alert } from "react-bootstrap";
 import { useNavigate, Navigate, useParams, Link } from "react-router-dom";
 
@@ -9,7 +8,6 @@ import '../components/css/style.css'
 
 const InfoProduct = () => {
     const navigate = useNavigate();
-    const userRedux = useSelector(selectUser);
     const { id } = useParams();
     const [data, setData] = useState([]);
     const nameField = useRef("");
