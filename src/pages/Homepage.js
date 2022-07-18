@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import Imgbanner from "../Assets/img banner.png";
 import Banner2 from "../Assets/banner2.png";
 import Banner3 from "../Assets/banner3.png";
-import Rectangle23 from "../Assets/Rectangle 23.png";
-import Rectangle24 from "../Assets/Rectangle 24.png";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import api from "../lib/api"
@@ -109,14 +107,6 @@ const Homepage = () => {
             /></div>
         </div>
       </div>
-      {/* <div className="container" style={{ paddingTop: 30 }}>
-        <div className="row">
-          <div className="col-12">
-
-          </div>
-        </div>
-      </div> */}
-      {/*Category*/}
       <div className="container mb-3">
         <h2 className="category-title">Telusuri Kategori</h2>
         <div className="row">
@@ -150,6 +140,8 @@ const Homepage = () => {
           ).reverse()}
         </div>
       </div>
+      {/* Tombol Jual */}
+      <button className="tombol-jual-homepage"><i class="bi bi-plus"></i>&nbsp;Jual</button>
     </div>
   )
 }
