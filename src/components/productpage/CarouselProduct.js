@@ -33,21 +33,21 @@ const CarouselProduct = () => {
         <div className="carousel-inner mx-auto">
           <div className="carousel-item active">
             <img
-              src="assets/images/jam_casio.png"
+              src="/assets/images/jam_casio.png"
               className="img-seller d-block w-100"
               alt="..."
             />
           </div>
           <div className="carousel-item">
             <img
-              src="assets/images/jam_casio.png"
+              src="/assets/images/jam_casio.png"
               className="img-seller d-block w-100"
               alt="..."
             />
           </div>
           <div className="carousel-item">
             <img
-              src="assets/images/jam_casio.png"
+              src="/assets/images/jam_casio.png"
               className="img-seller d-block w-100"
               alt="..."
             />

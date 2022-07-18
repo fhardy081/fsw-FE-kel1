@@ -38,7 +38,7 @@ function ListProduct() {
               <p>Jakarta</p>
             </Col>
             <Col xs={2} style={{ paddingTop: '20px', paddingLeft: '120px' }}>
-              <Link to="/profile">
+              <Link to="/info-profil">
                 <Button className="seller-btn" variant="" style={{ borderColor: "#7126B5" }}>Edit</Button>
               </Link>
             </Col>

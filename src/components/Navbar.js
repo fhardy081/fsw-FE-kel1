@@ -1,24 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { removeToken } from "../reducers/api-store";
 
 const Navbar = () => {
 
+    const dispatch = useDispatch();
+    const token = useSelector(state => state.api.token);
+
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(true);
-    const [setUser] = useState({});
 
     const logout = () => {
-        localStorage.removeItem("token");
+        dispatch(removeToken())
 
         setIsLoggedIn(false);
-        setUser({});
-        navigate("/");
+        navigate("/login");
     };
 
     const infoprofil = () => {
         navigate("/info-profil");
     }
+
+    useEffect(() => {
+        setIsLoggedIn(!!token)
+    },[token]) 
 
     return (
         <>

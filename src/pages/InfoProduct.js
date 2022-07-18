@@ -1,6 +1,76 @@
+import React from "react";
+import axios from "axios";
+import { useRef, useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { Col, Row, Nav, Navbar, Form, Container, Button, Alert } from "react-bootstrap";
+import { useNavigate, Navigate, useParams, Link } from "react-router-dom";
+
 import '../components/css/style.css'
 
 const InfoProduct = () => {
+    const navigate = useNavigate();
+    const userRedux = useSelector(selectUser);
+    const { id } = useParams();
+    const [data, setData] = useState([]);
+    const nameField = useRef("");
+    const priceField = useRef("");
+    const categoryField = useRef("");
+    const descriptionField = useRef("");
+    const [pictureField, setpictureField] = useState([]);
+    const [sold, setSold] = useState(Boolean);
+    const fileInputRef = useRef();
+
+    const [errorResponse, setErrorResponse] = useState({
+        isError: false,
+        message: "",
+    });
+
+    const onPost = async (e, isPublished) => {
+        e.preventDefault();
+
+        try {
+            const token = localStorage.getItem("token");
+            const postPayload = new FormData();
+            postPayload.append("name", nameField.current.value);
+            postPayload.append("price", priceField.current.value);
+            postPayload.append("category", categoryField.current.value);
+            postPayload.append("description", descriptionField.current.value);
+            postPayload.append("picture", pictureField);
+            postPayload.append("isPublished", isPublished);
+            postPayload.append("sold", sold);
+
+            const postRequest = await axios.post(
+                "http://localhost:2000/v1/product",
+                postPayload,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "multipart/form-data",
+                    },
+                }
+            );
+            // console.log(postRequest);
+            const postResponse = postRequest.data;
+            // console.log(postResponse)
+
+            if (postResponse.status) {
+                setData(postResponse.data.created_product);
+                const endpointid = postResponse.data.created_product.user_id;
+                
+                if (isPublished) navigate("/");
+                else navigate(`/listproduct/${endpointid}`)
+            }
+
+        } catch (err) {
+            console.log(err);
+            const response = err.response.data;
+
+            setErrorResponse({
+                isError: true,
+                message: response.message,
+            });
+        }
+    };
 
     return (
         <>

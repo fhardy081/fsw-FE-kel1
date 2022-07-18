@@ -5,8 +5,11 @@ import Modals from '../components/productpage/Modals';
 import CarouselProduct from '../components/productpage/CarouselProduct';
 import Navbar from '../components/Navbar';
 import DescriptionProduct from '../components/productpage/DescriptionProduct';
+import { useParams } from 'react-router-dom';
 
 const ProductPage = () => {
+    const param = useParams()
+
     const [ product, setProduct] = useState({})
     const [ user, setUser] = useState({})
     const [ hasoffer, setHasoffer] = useState(true)
@@ -18,6 +21,12 @@ const ProductPage = () => {
         setHasoffer(false)
         setShowAlert(false)}, [])
     // }, [product, hasoffer, user, showAlert])
+
+    //hanya coba apakah id nya masuk atau tidak, kalau mau fetch bisa dihapus aja
+    useEffect(()=>{
+        console.log(`current id ${param.id}`)
+    },[param.id])
+    //sampai sini hanya test saja
 
     return (
         <div id='product-page'>
@@ -45,7 +54,7 @@ const ProductPage = () => {
                         <div className="card-body-seller">
                             <div className="row">
                                 <div className="col-md-2">
-                                    <img src="assets/images/image_seller.png" className="seller-image d-block" alt="Seller"/>
+                                    <img src="/assets/images/image_seller.png" className="seller-image d-block" alt="Seller"/>
                                 </div>
                                 <div className="col-md-10">
                                     <h5 className="card-title-name-seller" style={{marginBottom: 4}}>Nama Penjual</h5>

@@ -7,19 +7,24 @@ import InfoBidder from "./pages/InfoBidder";
 import RegistrationPage from "./pages/RegistrationPage";
 import Login from "./pages/Login";
 import ListProduct from "./pages/ListProduct";
+import SecurePage from "./pages/SecurePage";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/product" element={<ProductPage />} />
-        <Route path="/info-profil" element={<InfoProfil />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/infoproduct" element={<InfoProduct />} />
-        <Route path="/infobidder" element={<InfoBidder />} />
-        <Route path="/listproduct" element={<ListProduct />}/>
+
+        <Route path="/" element={<SecurePage />} >
+          <Route path="product/:id" element={<ProductPage />} />
+          <Route path="info-profil" element={<InfoProfil />} />
+          <Route path="infoproduct" element={<InfoProduct />} />
+          <Route path="infoproduct/:id" element={<InfoProduct />} />
+          <Route path="infobidder" element={<InfoBidder />} />
+          <Route path="listproduct" element={<ListProduct />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
