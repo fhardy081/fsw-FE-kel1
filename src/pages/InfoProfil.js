@@ -1,5 +1,4 @@
 import '../components/css/info-profil.css'
-import axios from "axios";
 import { useNavigate, Navigate} from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import api from "../lib/api"
@@ -9,7 +8,7 @@ function InfoProfil () {
     const navigate = useNavigate();
         const [isLoggedIn, setIsLoggedIn] = useState(true);
         const [user, setUser] = useState({});
-        const [data, setData] = useState([]);
+        const [data, setData] = useState({});
         const nameField = useRef("");
         const cityField = useRef("");
         const addressField = useRef("");
@@ -26,13 +25,13 @@ function InfoProfil () {
         const getUsers = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const responseUsers = await axios.get(`api/v1/user/whoami/`,
+                const responseUsers = await api.get(`/api/v1/whoami/`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`,
                         },
                     });
-                const dataUsers = await responseUsers.data.data;
+                const dataUsers = responseUsers.data.user_data;
                 setData(dataUsers)
             } catch (err) {
             }
@@ -44,16 +43,17 @@ function InfoProfil () {
             try {
                 const token = localStorage.getItem("token");
     
-                const userToUpdatePayload = new FormData();
-                userToUpdatePayload.append("name", nameField.current.value);
-                userToUpdatePayload.append("city", cityField.current.value);
-                userToUpdatePayload.append("address", addressField.current.value);
-                userToUpdatePayload.append("phone_number", phoneField.current.value);
-                userToUpdatePayload.append("photo_id", photoField);
+                const userToUpdatePayload = {
+                    name: nameField.current.value,
+                    city: cityField.current.value,
+                    address: addressField.current.value,
+                    phone_number: phoneField.current.value,
+                    photo_id: photoField
+                };
     
     
-                const updateRequest = await axios.put(
-                    `api/v1/update/${data.id}`,
+                const updateRequest = await api.put(
+                    `/api/v1/update/${data.id}`,
                     userToUpdatePayload,
                     {
                         headers: {
@@ -70,8 +70,6 @@ function InfoProfil () {
                 console.log(updateResponse.status)
                 if (updateResponse.status) navigate("/");
     
-    
-    
             } catch (err) {
                 const response = err.response.data;
                 setErrorResponse({
@@ -80,22 +78,6 @@ function InfoProfil () {
                 });
             }
         };
-    
-        // const validateLogin = async () => {
-        //     try {
-        //         const currentUserRequest = await api.get(
-        //             "/api/v1/whoami");
-
-        //         const currentUserResponse = currentUserRequest.data;
-
-        //         if (currentUserResponse.status) {
-        //             setUser(currentUserResponse.data.user);
-        //         }
-        //     } catch (err) {
-        //         setIsLoggedIn(false);
-        //     }
-        // };
-        // validateLogin();
 
     
         useEffect(() => {
@@ -106,11 +88,11 @@ function InfoProfil () {
     
                    //Validasi token API
                     const currentUserRequest = await api.get(
-                        "api/v1/user/whoami/",
+                        "/api/v1/whoami/",
                         {
-                            headers: {
-                                Authorization: `Bearer ${token}`,
-                            },
+                            // headers: {
+                            //     Authorization: `Bearer ${token}`,
+                            // },
                         }
                     );
     
@@ -127,6 +109,8 @@ function InfoProfil () {
             fetchData();
             getUsers();
         }, [])
+
+        
 
     return (
         <div id="info-profil">
@@ -160,10 +144,10 @@ function InfoProfil () {
                             <label htmlFor="kategori" className="form-label">Kota<span style={{ color: "red" }}>*</span></label>
                             <select class="form-control" id="kota">
                                 <option>Pilih Kota</option>
-                                <option ref={cityField}>1</option>
-                                <option ref={cityField}>2</option>
-                                <option ref={cityField}>3</option>
-                                <option ref={cityField}>4</option>
+                                <option ref={cityField} defaultValue={data.city}>DKI Jakarta</option>
+                                <option ref={cityField} defaultValue={data.city}>Kota Depok</option>
+                                <option ref={cityField} defaultValue={data.city}>Bali</option>
+                                <option ref={cityField} defaultValue={data.city}>Yogyakarta</option>
                             </select>
                         </div>
                         <div className="col-md mb-3">
