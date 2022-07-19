@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import React from "react";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-    const token = useSelector(state => state.api.token)
 
     const navigate = useNavigate();
-    // const [setIsLoggedIn] = useState(true);
-    // const [setUser] = useState({});
-    
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [setUser] = useState({});
+
     const logout = () => {
         localStorage.removeItem("token");
 
-        // setIsLoggedIn(false);
-        // setUser({});
+        setIsLoggedIn(false);
+        setUser({});
         navigate("/");
     };
 
@@ -30,7 +29,7 @@ const Navbar = () => {
                         <input className="form-control cari-produk" type="search" placeholder="Cari di sini ..." aria-label="Search" />
                     </form>
                     {(() => {
-                        if (!token) {
+                        if (!isLoggedIn) {
                             return (
                                 <form>
                                     <Link to='/login' className='btn btn-primary' type='button'>Masuk</Link>

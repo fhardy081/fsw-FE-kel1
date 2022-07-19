@@ -99,3 +99,23 @@
   }
 
 }
+
+  .tombol-jual-homepage{
+    position:fixed;
+    width: 115px;
+    height: 52px;
+    bottom: 7%;
+    right:50%;
+    text-align:center;
+    background-color: #7126B5;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    color: white;
+    border-color: #7126B5;
+  }
+
+  .tombol-jual-homepage :hover{
+    background-color: #E2D4F0;
+    color: #3C3C3C;
+    border-color: #E2D4F0;
+  }
