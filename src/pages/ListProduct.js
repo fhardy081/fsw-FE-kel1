@@ -62,7 +62,7 @@ function ListProduct() {
                   <ListGroup.Item className="py-3">
                     <Link to="/" className="text-decoration">
                       <i type="button" className="link">
-                        <FaRegHeart style={{ color: '#8A8A8A' }} />
+                        <FaRegHeart style={{ color: '#8A8A8A', fontStyle: 'normal' }} />
                         {' '}
                         Diminati
                       </i>
@@ -71,7 +71,7 @@ function ListProduct() {
                   <ListGroup.Item className="py-3">
                     <Link to="/" className="text-decoration">
                       <i type="button" className="link">
-                        <FaDollarSign style={{ color: '#8A8A8A' }} />
+                        <FaDollarSign style={{ color: '#8A8A8A', fontStyle: 'normal' }} />
                         {' '}
                         Terjual
                       </i>

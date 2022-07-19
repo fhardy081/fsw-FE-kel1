@@ -68,6 +68,7 @@
 
 #list-product .link {
     border-color: #151515;
+    font-style: normal;
 }
 
 #list-product .link:hover {

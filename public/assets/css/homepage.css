@@ -20,12 +20,12 @@
     border-radius: 0px 16px;
 } */
 
-#home a.btn-masuk{
+#home a.btn-masuk {
     /* Primary/Purple/04 */
     background-color: #7126B5;
     border-radius: 12px;
     font-weight: thin;
-    color:white;
+    color: white;
     position: sticky;
     font-family: 'Poppins';
 }
@@ -47,12 +47,12 @@
     border-radius: 16px;
 } */
 
-#home #imgbanner{
+#home #imgbanner {
     width: 100%;
     max-height: 400px;
 }
 
-#home #carousel-body2{
+#home #carousel-body2 {
     width: 100%;
     height: 390px;
     background-color: #E2D4F0;
@@ -62,7 +62,7 @@
     justify-content: center;
 }
 
-#home #carousel-body3{
+#home #carousel-body3 {
     width: 100%;
     height: 390px;
     background-color: #B6D4A8;
@@ -71,15 +71,15 @@
     position: relative;
 }
 
-#home button.btn-filter{
+#home button.btn-filter {
     /* Auto layout */
     display: flex;
     flex-direction: row;
     align-items: center;
     /* padding: 14px 24px; */
     /* padding-left: 0.5rem; */
-    
-    width: 126px;
+
+    width: 133px;
     height: 48px;
 
     /* Primary/Purple/04 */
@@ -90,16 +90,16 @@
     transition-duration: 0.4s;
 }
 
-#home .magnifying-glass{
+#home .magnifying-glass {
     padding-right: 0em;
 }
 
-#home .btn-filter:hover{
+#home .btn-filter:hover {
     background: #7126B5;
-    color:white;
+    color: white;
 }
 
-#home h2.category-title{
+#home h2.category-title {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
@@ -109,7 +109,7 @@
     color: #000000;
 }
 
-#home h5.card-title{
+#home h5.card-title {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -117,7 +117,7 @@
     line-height: 20px;
 }
 
-#home h5.card-text{
+#home h5.card-text {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -125,7 +125,7 @@
     line-height: 20px;
 }
 
-#home p.jenis-barang{
+#home p.jenis-barang {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
@@ -133,7 +133,7 @@
     line-height: 14px;
 }
 
-#home #owl-carousel{
+#home #owl-carousel {
     margin-top: 40px;
     width: 150%;
     left: -25%;
@@ -146,4 +146,14 @@
     transition: .4s ease all;
     /* margin: 0 20px; */
     transform: scale(0.9);
-  }
+}
+
+#home .nav-resp {
+    display: none;
+}
+
+@media (min-device-width : 320px) and (max-device-width : 991px) {
+    #home .nav-resp {
+        display: inherit;
+    }
+}
