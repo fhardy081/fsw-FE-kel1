@@ -3,7 +3,7 @@ import Homepage from "./pages/Homepage";
 import InfoProfil from "./pages/InfoProfil";
 import ProductPage from "./pages/ProductPage";
 import InfoProduct from "./pages/InfoProduct";
-import InfoBidder from "./pages/InfoBidder";
+import InfoOffer from "./pages/InfoOffer";
 import RegistrationPage from "./pages/RegistrationPage";
 import Login from "./pages/Login";
 import ListProduct from "./pages/ListProduct";
@@ -22,7 +22,7 @@ function App() {
           <Route path="info-profil" element={<InfoProfil />} />
           <Route path="infoproduct" element={<InfoProduct />} />
           <Route path="infoproduct/:id" element={<InfoProduct />} />
-          <Route path="infobidder" element={<InfoBidder />} />
+          <Route path="infooffer" element={<InfoOffer />} />
           <Route path="listproduct" element={<ListProduct />} />
         </Route>
       </Routes>

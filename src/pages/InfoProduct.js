@@ -165,9 +165,11 @@ const InfoProduct = () => {
                                 <div className='col-md-9'>
                                     {/* looping foto */}
                                     <div className="row">
-                                        <div className="col">
-                                            <img className='mt-4' src={data.photos} width="100%" />
-                                        </div>
+                                        {data?.photos?.map((photo, i) => (
+                                            <div className="col">
+                                                <img className='mt-4' src={photo} key={i} width="100%" />
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
                             </div>

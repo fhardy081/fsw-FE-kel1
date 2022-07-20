@@ -1,7 +1,9 @@
-const InfoBidder = () => {
+const InfoOffer = () => {
 
     return (
         <>
+        {/* if user.id = user.id.login
+        tampil */}
             <nav className="navbar navbar-expand-lg navbar-light fixed-top d-none d-sm-block" style={{ boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)" }}>
                 <div className="container">
                     <a className="navbar-brand me-auto" id="logo" href="/">&nbsp;</a>
@@ -54,6 +56,7 @@ const InfoBidder = () => {
                                         <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Tolak</a>
                                         <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima">Terima</button>
                                     </div>
+                                    {/* if di terima tampilkan ini */}
                                     {/* <div className='col-md-8 offset-md-4 row'>
                                         <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Status</a>
                                         <a href='/' className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalHubungi">Hubungi di <i className='bi bi-whatsapp'></i></a>
@@ -140,4 +143,4 @@ const InfoBidder = () => {
     )
 }
 
-export default InfoBidder
+export default InfoOffer

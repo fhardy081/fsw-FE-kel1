@@ -1,19 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '@fontsource/poppins';
-import {
-  Container,
-  Nav,
-  Form,
-  Row,
-  Col,
-  Card,
-  Button,
-  ListGroup,
-} from 'react-bootstrap';
-import {
-FaCube, FaSearch, FaListUl, FaBell, FaRegUser, FaRegHeart, FaDollarSign, FaPlus
-} from 'react-icons/fa';
+import { Container, Row, Col, Card, Button, ListGroup } from 'react-bootstrap';
+import { FaCube, FaRegHeart, FaDollarSign, FaPlus } from 'react-icons/fa';
 
 import ItemCard from '../components/ListProduct/ItemCard';
 import '../components/css/ListProduct.css';
