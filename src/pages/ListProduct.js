@@ -27,7 +27,7 @@ function ListProduct() {
               <p>Jakarta</p>
             </Col>
             <Col xs={2} style={{ paddingTop: '20px', paddingLeft: '120px' }}>
-              <Link to="/info-profil">
+              <Link to="/profile">
                 <Button className="seller-btn" variant="" style={{ borderColor: "#7126B5" }}>Edit</Button>
               </Link>
             </Col>
@@ -51,7 +51,7 @@ function ListProduct() {
                   <ListGroup.Item className="py-3">
                     <Link to="/" className="text-decoration">
                       <i type="button" className="link">
-                        <FaRegHeart style={{ color: '#8A8A8A', fontStyle: 'normal' }} />
+                        <FaRegHeart style={{ color: '#8A8A8A' }} />
                         {' '}
                         Diminati
                       </i>
@@ -60,7 +60,7 @@ function ListProduct() {
                   <ListGroup.Item className="py-3">
                     <Link to="/" className="text-decoration">
                       <i type="button" className="link">
-                        <FaDollarSign style={{ color: '#8A8A8A', fontStyle: 'normal' }} />
+                        <FaDollarSign style={{ color: '#8A8A8A' }} />
                         {' '}
                         Terjual
                       </i>

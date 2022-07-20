@@ -14,10 +14,10 @@ const InfoOffer = () => {
                 <div className='row satu'>
                     <div className='col-md-3' style={{ marginBottom: '2rem' }}>
                         <a href='/'><i className="bi bi-arrow-left offset-md-5" style={{ fontSize: '1.5rem', color: 'black' }}></i></a>
-                        <span className='title'><center style={{ marginTop: '-1.875rem' }}>Info Penawar</center></span>
+                        <span className='title'><center style={{marginTop:'-1.875rem'}}>Info Penawar</center></span>
                     </div>
                     <div className='col-md-6'>
-                        <div class="alert alert-success alert-dismissible fade show mx-auto" role="alert" style={{ backgroundColor: "#73CA5C", borderRadius: "0.75rem", color: "white" }}>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert" style={{backgroundColor:"#73CA5C", borderRadius:"0.75rem",color:"white"}}>
                             Status produk berhasil diperbarui
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
@@ -25,11 +25,11 @@ const InfoOffer = () => {
                             <div className="card-body">
                                 <div className='row'>
                                     <div className='col-2'>
-                                        <img src='assets/images/jam_casio.png' width={"100%"} alt="Product" />
+                                        <img src='assets/images/jam_casio.png' width={"100%"} alt="Product"/>
                                     </div>
                                     <div className='col-10'>
-                                        <p className="card-title" style={{ fontWeight: "bold", marginBottom: "0.3rem" }}>Nama Pembeli</p>
-                                        <p className="card-text" style={{ fontSize: 12, color: "#8A8A8A", marginBottom: "0.3rem" }}>Kota</p>
+                                        <h5 className="card-title" style={{ fontWeight: "bold" }}>Nama Pembeli</h5>
+                                        <p className="card-text">Kota</p>
                                     </div>
                                 </div>
                             </div>
@@ -37,24 +37,24 @@ const InfoOffer = () => {
                         <h6 className='title mt-3' style={{ fontWeight: "bold" }}>Daftar Produkmu yang Ditawar</h6>
                         <div className='row mt-3'>
                             <div className='col-2'>
-                                <img src='assets/images/jam_casio.png' width={"100%"} alt="Product" />
+                                <img src='assets/images/jam_casio.png' width={"100%"} alt="Product"/>
                             </div>
                             <div className='col-10'>
                                 <div className='row'>
                                     <div className='col'>
-                                        <span className="float-start" style={{ fontSize: 12, color: "#8A8A8A" }}>Penawaran produk</span>
+                                        <span className="card-text">Penawaran produk</span>
                                     </div>
                                     <div className='col'>
-                                        <span className="float-end" style={{ fontSize: 12, color: "#8A8A8A" }}>20 Apr, 14:04</span>
+                                        <span className="card-title float-end">20 Apr, 14:04</span>
                                     </div>
                                 </div>
-                                <p style={{ marginBottom: "0.3rem" }}>Jam Tangan Casio</p>
-                                <p style={{ marginBottom: "0.3rem" }}>Rp 250.000</p>
-                                <p style={{ marginBottom: "0.3rem" }}>Ditawar Rp 200.000</p>
+                                <h5 className="card-title">Jam Tangan Casio</h5>
+                                <h5 className="card-title">Rp 250.000</h5>
+                                <h5 className="card-title">Ditawar Rp 200.000</h5>
                                 <div className='row mb-3'>
                                     <div className='col-md-8 offset-md-4 row'>
                                         <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Tolak</a>
-                                        <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima">Terima</button>
+                                        <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalHubungi">Terima</button>
                                     </div>
                                     {/* if di terima tampilkan ini */}
                                     {/* <div className='col-md-8 offset-md-4 row'>
@@ -70,32 +70,32 @@ const InfoOffer = () => {
             </div>
 
             <div className="modal fade" id="exampleModalTerima" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog modal-dialog-centered" style={{ width: "21.5rem" }}>
+                <div className="modal-dialog modal-dialog-centered" style={{ width: "22.5rem" }}>
                     <div className="modal-content" style={{ borderRadius: "1rem" }}>
                         <div className="modal-body">
                             <button type="button" className="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button><br />
                             <h6 className='title mt-3' style={{ fontWeight: "bold" }}>Yeay kamu berhasil mendapat harga yang sesuai</h6>
-                            <p className='card-text' style={{ color: "#8A8A8A" }}>Segera hubungi pembeli melalui whatsapp untuk transaksi selanjutnya</p>
+                            <p className='card-text'>Segera hubungi pembeli melalui whatsapp untuk transaksi selanjutnya</p>
                             <div className="card mb-3 bgc" style={{ borderRadius: "1rem" }}>
                                 <div className="card-body">
                                     <h6 className='text-center mb-3' style={{ fontWeight: "bold" }}>Product Match</h6>
                                     <div className='row'>
                                         <div className='col-2'>
-                                            <img src='assets/images/jam_casio.png' width={"150%"} alt="Product" />
+                                            <img src='assets/images/jam_casio.png' width={"100%"} alt="Prudct"/>
                                         </div>
                                         <div className='col-10'>
-                                            <h6 className="card-title" style={{ fontWeight: "bold" }}>Nama Pembeli</h6>
-                                            <p className="card-text" style={{ fontSize: 12, color: "#8A8A8A" }}>Kota</p>
+                                            <h5 className="card-title" style={{ fontWeight: "bold" }}>Nama Pembeli</h5>
+                                            <p className="card-text">Kota</p>
                                         </div>
                                     </div>
                                     <div className='row mt-3'>
                                         <div className='col-2'>
-                                            <img src='assets/images/jam_casio.png' width={"150%"} alt="Product" />
+                                            <img src='assets/images/jam_casio.png' width={"100%"} alt="Prudct"/>
                                         </div>
                                         <div className='col-10'>
-                                            <h6 className="card-title">Jam Tangan Casio</h6>
-                                            <h6 className="card-title" style={{ textDecoration: "line-through" }}>Rp 250.000</h6>
-                                            <h6 className="card-title">Ditawar Rp 200.000</h6>
+                                            <h5 className="card-title">Jam Tangan Casio</h5>
+                                            <h5 className="card-title" style={{ textDecoration: "line-through" }}>Rp 250.000</h5>
+                                            <h5 className="card-title">Ditawar Rp 200.000</h5>
                                         </div>
                                     </div>
                                 </div>
@@ -114,20 +114,20 @@ const InfoOffer = () => {
                         <div className="modal-body">
                             <button type="button" className="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button><br />
                             <h6 className='title mt-3' style={{ fontWeight: "bold" }}>Perbarui status penjualan produkmu</h6>
-                            <form className="mb-4">
-                                <div className="form-check mt-3">
+                            <form className="mb-3">
+                                <div className="form-check">
                                     <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked />
                                     <label className="form-check-label" for="exampleRadios1">
                                         Berhasil Terjual
                                     </label>
-                                    <p className="card-title" style={{ fontSize: 14, color: "#8A8A8A" }}>Kamu telah sepakat menjual produk ini kepada pembeli</p>
+                                    <p className="card-text">Kamu telah sepakat menjual produk ini kepada pembeli</p>
                                 </div>
-                                <div className="form-check mt-3">
+                                <div className="form-check">
                                     <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
                                     <label className="form-check-label" for="exampleRadios2">
                                         Batalkan Transaksi
                                     </label>
-                                    <p className="card-title" style={{ fontSize: 14, color: "#8A8A8A" }}>Kamu membatalkan transaksi produk ini dengan pembeli</p>
+                                    <p className="card-text">Kamu membatalkan transaksi produk ini dengan pembeli</p>
                                 </div>
                             </form>
                             <div className='d-grid'>

@@ -6,14 +6,18 @@ import CarouselProduct from '../components/productpage/CarouselProduct';
 import Navbar from '../components/Navbar';
 import DescriptionProduct from '../components/productpage/DescriptionProduct';
 import { useParams } from 'react-router-dom';
+import api from "../lib/api";
 
 const ProductPage = () => {
     const param = useParams()
-
+    const { id } = useParams();
     const [ product, setProduct] = useState({})
     const [ user, setUser] = useState({})
     const [ hasoffer, setHasoffer] = useState(true)
     const [showAlert, setShowAlert] = useState(false)
+    const [data, setData] = useState({})
+    const [isLoggedIn, setIsLoggedIn] = useState(true)
+    const [post, setPost] = useState([]);
 
     useEffect(()=>{
         setProduct({user_id:2})
@@ -27,6 +31,60 @@ const ProductPage = () => {
         console.log(`current id ${param.id}`)
     },[param.id])
     //sampai sini hanya test saja
+    const getUsers = async () => {
+        try {
+            const responseUsers = await api.get(`/api/v1/whoami`,
+                {
+                    // headers: {
+                    //     Authorization: `Bearer ${token}`,
+                    // },
+                });
+            const dataUsers = responseUsers.data.user_data;
+            setData(dataUsers)
+        } catch (err) {
+        }
+    }
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+
+               //Validasi token API
+                const currentUserRequest = await api.get(
+                    "/api/v1/whoami")
+
+                const currentUserResponse = currentUserRequest.data;
+
+                if (currentUserResponse.status) {
+                    setUser(currentUserResponse.data.user_data);
+                }
+            } catch (err) {
+                setIsLoggedIn(false);
+            }
+        };
+
+        fetchData();
+        getUsers();
+    }, [])
+
+    useEffect(() => {
+        const getProduct = async () => {
+            try {
+                const responseProduct = await api.get(`/api/v1/products/:id`, {
+
+                })
+                console.log(responseProduct)
+
+                const dataProduct = await responseProduct.data.data.posts[0];
+                setPost(dataProduct)
+                console.log(dataProduct);
+
+            } catch (err) {
+                console.log(err);
+            }
+        }
+        getProduct();
+    }, [id])
 
     return (
         <div id='product-page'>

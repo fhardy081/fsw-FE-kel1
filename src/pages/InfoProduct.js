@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import api from "../lib/api"
 import '../components/css/style.css'
 
+
 const InfoProduct = () => {
     const navigate = useNavigate();
     const { id } = useParams();
@@ -64,6 +65,7 @@ const InfoProduct = () => {
                 category: parseInt(categoryField.current.value),
                 description: descriptionField.current.value,
                 photo: photos,
+
             }
 
             if (id) {
@@ -195,7 +197,7 @@ const InfoProduct = () => {
                 </div>
             </div>
         </>
-
+        
     )
 }
 
