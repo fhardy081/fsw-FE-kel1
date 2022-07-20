@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../lib/api"
 import '../components/css/style.css'
 
+
 const InfoProduct = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({});
@@ -48,6 +49,7 @@ const InfoProduct = () => {
                 category: parseInt(categoryField.current.value),
                 description: descriptionField.current.value,
                 photo: photos,
+
             }
 
             const postRequest = await api.post(
@@ -57,6 +59,7 @@ const InfoProduct = () => {
                 setData(postRequest.data.newProduct);
                 navigate(`/`)
             }else{
+
                 setErrorResponse({
                     isError: true,
                     message: postRequest.data.message
@@ -72,6 +75,7 @@ const InfoProduct = () => {
                     isError: true,
                     message: response.message,
                 });
+
             }else{
                 setErrorResponse({
                     isError: true,
@@ -148,7 +152,7 @@ const InfoProduct = () => {
                 </div>
             </div>
         </>
-
+        
     )
 }
 
