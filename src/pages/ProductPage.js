@@ -7,23 +7,42 @@ import Navbar from '../components/Navbar';
 import DescriptionProduct from '../components/productpage/DescriptionProduct';
 import { useParams } from 'react-router-dom';
 import api from "../lib/api";
+import { async } from 'q';
 
 const ProductPage = () => {
     const param = useParams()
-    const { id } = useParams();
+    // const { id } = useParams();
     const [ product, setProduct] = useState({})
+    // const [ products, setProducts] = useState({})
     const [ user, setUser] = useState({})
     const [ hasoffer, setHasoffer] = useState(true)
     const [showAlert, setShowAlert] = useState(false)
-    const [data, setData] = useState({})
-    const [isLoggedIn, setIsLoggedIn] = useState(true)
-    const [post, setPost] = useState([]);
+    const [data, setData] = useState({
+        name: "...",
+        price: 0,
+        user_name: "...",
+        category: "...",
+        description: "...",
+        photos: []
+    })
+    const submitOffer = async(price) => {
+        try{
+            const res = await api.post(`/api/v1/offerproduct/${param.id}`, {
+                price: price
+            })
+        } catch(e){
+
+        }
+        setShowAlert(true)
+    }
+
 
     useEffect(()=>{
-        setProduct({user_id:2})
-        setUser({id:1})
+        // setProduct({user_id:2})
+        // setUser({id:1})
         setHasoffer(false)
-        setShowAlert(false)}, [])
+        setShowAlert(false)
+    }, [])
     // }, [product, hasoffer, user, showAlert])
 
     //hanya coba apakah id nya masuk atau tidak, kalau mau fetch bisa dihapus aja
@@ -40,51 +59,50 @@ const ProductPage = () => {
                     // },
                 });
             const dataUsers = responseUsers.data.user_data;
-            setData(dataUsers)
+            setUser(dataUsers)
         } catch (err) {
         }
     }
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-
-               //Validasi token API
-                const currentUserRequest = await api.get(
-                    "/api/v1/whoami")
-
-                const currentUserResponse = currentUserRequest.data;
-
-                if (currentUserResponse.status) {
-                    setUser(currentUserResponse.data.user_data);
-                }
-            } catch (err) {
-                setIsLoggedIn(false);
-            }
-        };
-
-        fetchData();
-        getUsers();
-    }, [])
-
-    useEffect(() => {
-        const getProduct = async () => {
-            try {
-                const responseProduct = await api.get(`/api/v1/products/:id`, {
-
-                })
-                console.log(responseProduct)
-
-                const dataProduct = await responseProduct.data.data.posts[0];
-                setPost(dataProduct)
-                console.log(dataProduct);
-
-            } catch (err) {
-                console.log(err);
-            }
+    const getProducts = async () => {
+        try {
+            const responseUsers = await api.get(`/api/v1/product/${param.id}`,
+                {
+                    // headers: {
+                    //     Authorization: `Bearer ${token}`,
+                    // },
+                });
+            const dataProducts = responseUsers.data.product;
+            setData(dataProducts)
+            console.log(dataProducts)
+        } catch (err) {
         }
-        getProduct();
-    }, [id])
+        
+        }
+        getProducts();
+        getUsers()
+    }, [param])
+    
+
+    // useEffect(() => {
+    //     const getProduct = async () => {
+    //         try {
+    //             const responseProduct = await api.get(`/api/v1/products`, {
+
+    //             })
+    //             console.log(responseProduct)
+
+    //             const dataProduct = await responseProduct.data.data.posts[0];
+    //             setPost(dataProduct)
+    //             console.log(dataProduct);
+
+    //         } catch (err) {
+    //             console.log(err);
+    //         }
+    //     }
+    //     getProduct();
+    // }, [id])
 
     return (
         <div id='product-page'>
@@ -94,18 +112,18 @@ const ProductPage = () => {
             <div className="row" style={{'--bs-gutter-x' : 0}}>
                 <div className="col-md-1"></div>
                 <div className="col-md-6">
-                    <CarouselProduct/>
-                    <DescriptionProduct/>
+                    <CarouselProduct photos={data.photos}/>
+                    <DescriptionProduct product={data}/>
                 </div>
                 <div className="col-md-4">
                     <div className="card-product mx-auto">
                         <div className="card-body">
-                            <h5 className="card-title-name">Jam Tangan Casio</h5>
-                            <p className="card-text-category">Aksesoris</p>
-                            <h4 className="card-title-price">Rp. 250.000</h4>
+                            <h5 className="card-title-name">{data.name}</h5>
+                            <p className="card-text-category">{data.category}</p>
+                            <h4 className="card-title-price">Rp. {data.price.toLocaleString()}</h4>
                             {/* <a href="/" className="btn btn-primary btn-terbitakan" data-bs-toggle="modal" data-bs-target="#exampleModal">Terbitakan</a>
                             <a href="/" className="btn btn-primary btn-edit">Edit</a> */}
-                            <DetailProduct user={user} product={product} hasoffer={hasoffer}/>
+                            <DetailProduct user={user} product={data} hasoffer={hasoffer}/>
                         </div>
                     </div>
                     <div className="card-seller">
@@ -115,8 +133,8 @@ const ProductPage = () => {
                                     <img src="/assets/images/image_seller.png" className="seller-image d-block" alt="Seller"/>
                                 </div>
                                 <div className="col-md-10">
-                                    <h5 className="card-title-name-seller" style={{marginBottom: 4}}>Nama Penjual</h5>
-                                    <p className="card-text-city">Kota</p>
+                                    <h5 className="card-title-name-seller" style={{marginBottom: 4}}>{data.user_name}</h5>
+                                    <p className="card-text-city">{data.city}</p>
                                 </div>
                             </div>                      
                         </div>
@@ -124,7 +142,7 @@ const ProductPage = () => {
                 </div>
                 <div className="col-md-1"></div>
             </div>
-            <Modals onSave={() => setShowAlert(true)}/>
+            <Modals product={data} onSave={(price) => submitOffer(price) }/>
             <DetailProductResponsive user={user} product={product} hasoffer={hasoffer}/>
             
         </div>
