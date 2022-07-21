@@ -4,7 +4,7 @@ import '@fontsource/poppins';
 import { Container, Row, Col, Card, Button, ListGroup } from 'react-bootstrap';
 import { FaCube, FaRegHeart, FaDollarSign, FaPlus } from 'react-icons/fa';
 
-import ItemCard from '../components/ListProduct/ItemCard';
+import ItemCard2 from '../components/ListProduct/itemCard2';
 import '../components/css/ListProduct3.css';
 import Navbar from '../components/Navbar';
 import api from '../lib/api';
@@ -98,8 +98,8 @@ function ListProduct3() {
             products.length > 0 ?
               products.map((product, idx) => {
                 return (
-                  <Col key={product.id}>
-                    <ItemCard
+                  <Col md={3} key={product.id}>
+                    <ItemCard2
                       title={product.name}
                       // type={product.description}
                       price={'Rp. ' + product.price.toLocaleString()}

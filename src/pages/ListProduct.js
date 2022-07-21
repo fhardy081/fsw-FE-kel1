@@ -92,7 +92,7 @@ function ListProduct() {
             </div>
           </Col>
           <Col>
-            <div className="card content" type="button" style={{ height: '100%' }}>
+            <div className="card content" type="button" style={{  width: '250px',height: '250px',marginTop: '25px' }}>
               <FaPlus />
               {' '}
               <p className="pt-2">Tambah Produk</p>
@@ -100,7 +100,7 @@ function ListProduct() {
           </Col>
           {products.map((product, idx) => {
             return (
-              <Col key={product.id}>
+              <Col md={3} key={product.id}>
                 <ItemCard
                   title={product.name}
                   type={product.category}
