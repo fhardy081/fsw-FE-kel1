@@ -5,7 +5,7 @@ import { Container, Row, Col, Card, Button, ListGroup } from 'react-bootstrap';
 import { FaCube, FaRegHeart, FaDollarSign, FaPlus } from 'react-icons/fa';
 
 import ItemCard from '../components/ListProduct/ItemCard';
-import '../components/css/ListProduct.css';
+import '../components/css/ListProduct3.css';
 import Navbar from '../components/Navbar';
 import api from '../lib/api';
 import gambar from '../Assets/Frame_34.png';
