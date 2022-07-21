@@ -633,10 +633,10 @@
         
     }
     
-    .btn-close{
+    /* .btn-close{
         background-image: url('../images/fi_x_white.png') !important;
         background-size: 20px;
-    }
+    } */
     .navbar-expand-lg .navbar-nav .dropdown-menu{
         left: 820px;
         width: 376px;

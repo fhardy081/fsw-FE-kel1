@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '@fontsource/poppins';
 import { Container, Row, Col, Card, Button, ListGroup } from 'react-bootstrap';
@@ -7,8 +7,29 @@ import { FaCube, FaRegHeart, FaDollarSign, FaPlus } from 'react-icons/fa';
 import ItemCard from '../components/ListProduct/ItemCard';
 import '../components/css/ListProduct.css';
 import Navbar from '../components/Navbar';
+import api from '../lib/api';
 
 function ListProduct() {
+  const [products, setProducts] = useState([])
+  const [user, setUser] = useState({})
+  const [photo, setPhoto] = useState(`${process.env.PUBLIC_URL}/assets/images/image_seller.png`)
+
+  useEffect(() => {
+    api.get('/api/v1/listonsaleproducts').then(res => {
+      setProducts([...res.data.products])
+    })
+  },[])
+
+  useEffect(() => {
+    api.get('/api/v1/whoami').then(res => {
+      setUser(res.data.user_data)
+      if (user.photo) {
+        setPhoto(user.photo)
+      }
+      // console.log(user.photo)
+    })
+  },[user])
+
   return (
     <div id="list-product">
       <Navbar/>
@@ -20,14 +41,14 @@ function ListProduct() {
         <Card className="upper">
           <Row>
             <Col xs={1}>
-              <img src={`${process.env.PUBLIC_URL}/assets/images/image_seller.png`} style={{ paddingLeft: '16px', paddingTop: '16px' }} alt="" />
+              <img src={photo} style={{ paddingLeft: '16px', paddingTop: '16px' }} width="80%" alt="" />
             </Col>
             <Col xs={9}>
-              <h5 style={{ fontWeight: 'bold', paddingTop: '12px', marginRight: '20%' }}>Fitri</h5>
-              <p>Jakarta</p>
+              <h5 style={{ fontWeight: 'bold', paddingTop: '12px', marginRight: '20%' }}>{user.name}</h5>
+              <p>{user.city}</p>
             </Col>
             <Col xs={2} style={{ paddingTop: '20px', paddingLeft: '120px' }}>
-              <Link to="/profile">
+              <Link to="/info-profil">
                 <Button className="seller-btn" variant="" style={{ borderColor: "#7126B5" }}>Edit</Button>
               </Link>
             </Col>
@@ -77,15 +98,15 @@ function ListProduct() {
               <p className="pt-2">Tambah Produk</p>
             </div>
           </Col>
-          {Array.from({ length: 2 }).map((_, idx) => {
+          {products.map((product, idx) => {
             return (
-              <Col>
+              <Col key={product.id}>
                 <ItemCard
-                  title="Jam Tangan Casio"
-                  type="Aksesoris"
-                  price="Rp 250.000"
-                  image="https://placeimg.com/165/100/any"
-                  imageAlt="Gambar jam tangan"
+                  title={product.name}
+                  type={product.category}
+                  price={'Rp. '+ product.price.toLocaleString()}
+                  image={product.photo}
+                  imageAlt={product.name}
                 />
               </Col>
             );

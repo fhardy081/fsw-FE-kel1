@@ -46,7 +46,7 @@ const Navbar = () => {
                             <div className="collapse navbar-collapse justify-content-end" id="navbarProductPage">
                                 <ul className="navbar-nav navbar-top">
                                     <li className="nav-item">
-                                        <a className="nav-link nav-item-list active" aria-current="page" href="/">&nbsp;</a>
+                                        <a className="nav-link nav-item-list active" aria-current="page" href="/listproduct">&nbsp;</a>
                                     </li>
                                     <li className='nav-item'>
                                         <a className="nav-link nav-item-notification" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">

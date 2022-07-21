@@ -49,6 +49,7 @@ function InfoProfil () {
                         'content-type': 'multipart/form-data'
                     }
                 })
+                setPhotos(image.data.path)
                 // const oldPhotos = [...photos,image.data.path]
                 
             }catch (e){

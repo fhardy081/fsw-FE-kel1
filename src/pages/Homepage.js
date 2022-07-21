@@ -49,71 +49,81 @@ const Homepage = () => {
     <div id="home">
       {/*Nav*/}
       <Navbar />
-      <nav class="navbar navbar-expand-lg navbar-light nav-resp">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          {/* <a class="navbar-brand" href="#">Navbar</a> */}
-          <form>
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                {/* <button class="btn btn-outline-success" type="submit">Search</button> */}
-            </form>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"/></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-              </li>
-            </ul>
+      <div className="bg">
+        <nav class="navbar navbar-expand-lg navbar-light nav-resp">
+          <div class="container-fluid" style={{marginBottom: 200}}>
+
+            <div className="row">
+
+              <div className="col">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style={{background:"white"}}>
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              </div>
+
+              <div className="col">
+                <form class="search-bar d-flex">
+                  <input className="form-control cari-produk" type="search" placeholder="Cari di sini ..." aria-label="Search" />
+                </form>
+              </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Dropdown
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider" /></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </nav>
+        </nav>
 
-      {/*Carousel*/}
-      <div style={{ overflowX: 'hidden' }}>
-        <div className="owl-carousel" id="owl-carousel">
+        {/*Carousel*/}
+        <div id="carousel" style={{ overflowX: 'hidden' }} >
+          <div className="owl-carousel" id="owl-carousel">
 
-          <div className="slide-item">
-            <img src={Imgbanner} className="banner-pic" alt="banner" />
+            <div className="slide-item">
+              <img src={Imgbanner} className="banner-pic" alt="banner" />
+            </div>
+
+            <div className="slide-item">
+              <img src={Banner2} className="banner-pic" alt="banner" />
+            </div>
+
+            <div className="slide-item">
+              <img src={Banner3} className="banner-pic" alt="banner" />
+            </div>
+
+            <div className="slide-item">
+              <img src={Imgbanner} className="banner-pic" alt="banner" />
+            </div>
+
+            <div className="slide-item">
+              <img src={Banner2} className="banner-pic" alt="banner" />
+            </div>
+
+            <div className="slide-item">
+              <img src={Banner3} className="banner-pic" alt="banner" />
+            </div>
+
           </div>
-
-          <div className="slide-item">
-            <img src={Banner2} className="banner-pic" alt="banner" />
-          </div>
-
-          <div className="slide-item">
-            <img src={Banner3} className="banner-pic" alt="banner" />
-          </div>
-
-          <div className="slide-item">
-            <img src={Imgbanner} className="banner-pic" alt="banner" />
-          </div>
-
-          <div className="slide-item">
-            <img src={Banner2} className="banner-pic" alt="banner" />
-          </div>
-
-          <div className="slide-item">
-            <img src={Banner3} className="banner-pic" alt="banner" />
-          </div>
-
         </div>
       </div>
 
@@ -151,6 +161,7 @@ const Homepage = () => {
       {/* Tombol Jual */}
       <Link to='/infoproduct'><button className="tombol-jual-homepage"><i class="bi bi-plus"></i>&nbsp;Jual</button></Link>
     </div>
+
   )
 }
 
