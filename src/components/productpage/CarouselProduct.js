@@ -1,6 +1,7 @@
 import React from "react";
 
-const CarouselProduct = () => {
+const CarouselProduct = (props) => {
+  const {photos} = props
   return (
     <>
       <div
@@ -30,28 +31,16 @@ const CarouselProduct = () => {
             aria-label="Slide 3"
           ></button>
         </div>
-        <div className="carousel-inner mx-auto">
-          <div className="carousel-item active">
+        <div className="carousel-inner mx-auto">     
+          {photos.map((item, index)=>(
+            <div className={`carousel-item ${index===0?'active':""}`} key={index}>
             <img
-              src="/assets/images/jam_casio.png"
+              src={item}
               className="img-seller d-block w-100"
               alt="..."
             />
           </div>
-          <div className="carousel-item">
-            <img
-              src="/assets/images/jam_casio.png"
-              className="img-seller d-block w-100"
-              alt="..."
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="/assets/images/jam_casio.png"
-              className="img-seller d-block w-100"
-              alt="..."
-            />
-          </div>
+          ))}
         </div>
         <button
           className="carousel-control-prev"
