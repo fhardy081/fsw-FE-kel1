@@ -18,7 +18,7 @@ function ListProduct() {
     api.get('/api/v1/listonsaleproducts').then(res => {
       setProducts([...res.data.products])
     })
-  },[])
+  }, [])
 
   useEffect(() => {
     api.get('/api/v1/whoami').then(res => {
@@ -28,20 +28,20 @@ function ListProduct() {
       }
       // console.log(user.photo)
     })
-  },[user])
+  }, [user])
 
   return (
     <div id="list-product">
-      <Navbar/>
+      <Navbar />
 
       <Container>
-      <div className="mb-4 title-list">
-        <h4 style={{ fontWeight: 'bold', marginTop: "50px", fontSize: '20px' }}>Daftar Jual Saya</h4>
-      </div>
+        <div className="mb-4 title-list">
+          <h4 style={{ fontWeight: 'bold', marginTop: "50px", fontSize: '20px' }}>Daftar Jual Saya</h4>
+        </div>
         <Card className="upper">
           <Row>
             <Col xs={1}>
-              <img src={photo} style={{ paddingLeft: '16px', paddingTop: '16px' }} width="80%" alt="" />
+              <img src={photo} style={{ paddingLeft: '16px', paddingTop: '16px', borderRadius: '5px' }} width="80%" alt="" />
             </Col>
             <Col xs={9}>
               <h5 style={{ fontWeight: 'bold', paddingTop: '12px', marginRight: '20%' }}>{user.name}</h5>
@@ -54,7 +54,7 @@ function ListProduct() {
             </Col>
           </Row>
         </Card>
-        <Row style={{ marginTop: '25px'}}>
+        <Row style={{ marginTop: '25px' }}>
           <Col>
             <div className="card-test">
               <div className="card-body1">
@@ -101,13 +101,15 @@ function ListProduct() {
           {products.map((product, idx) => {
             return (
               <Col key={product.id}>
-                <ItemCard
-                  title={product.name}
-                  type={product.category}
-                  price={'Rp. '+ product.price.toLocaleString()}
-                  image={product.photo}
-                  imageAlt={product.name}
-                />
+                <Link to={`/infoproduct/${product.id}`} style={{ color: "black", textDecoration: "none" }}>
+                  <ItemCard
+                    title={product.name}
+                    type={product.category}
+                    price={'Rp. ' + product.price.toLocaleString()}
+                    image={product.photo}
+                    imageAlt={product.name}
+                  />
+                </Link>
               </Col>
             );
           })}

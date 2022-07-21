@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '@fontsource/poppins';
 import { Container, Row, Col, Card, Button, ListGroup } from 'react-bootstrap';
-import { FaCube, FaRegHeart, FaDollarSign, FaPlus } from 'react-icons/fa';
+import { FaCube, FaRegHeart, FaDollarSign } from 'react-icons/fa';
 
 import ItemCard from '../components/ListProduct/ItemCard';
 import '../components/css/ListProduct3.css';
@@ -43,7 +43,7 @@ function ListProduct3() {
         <Card className="upper">
           <Row>
             <Col xs={1}>
-              <img src={photo} style={{ paddingLeft: '16px', paddingTop: '16px' }} width="80%" alt="" />
+              <img src={photo} style={{ paddingLeft: '16px', paddingTop: '16px', borderRadius: '5px' }} width="80%" alt="" />
             </Col>
             <Col xs={9}>
               <h5 style={{ fontWeight: 'bold', paddingTop: '12px', marginRight: '20%' }}>{user.name}</h5>
@@ -99,13 +99,15 @@ function ListProduct3() {
               products.map((product, idx) => {
                 return (
                   <Col key={product.id}>
-                    <ItemCard
-                      title={product.name}
-                      // type={product.description}
-                      price={'Rp. ' + product.price.toLocaleString()}
-                      image={product.photo}
-                      imageAlt={product.product_name}
-                    />
+                    <Link to={`/infoproduct/${product.id}`} style={{ color: "black", textDecoration: "none" }}>
+                      <ItemCard
+                        title={product.name}
+                        price={'Rp. ' + product.price.toLocaleString()}
+                        // type={product.description}
+                        image={product.photo}
+                        imageAlt={product.product_name}
+                      />
+                    </Link>
                   </Col>
                 );
               })
