@@ -284,3 +284,9 @@
     line-height: 18px;
     height: 91%;
 }
+
+@media screen and (min-width : 375px) and (max-width : 576px){
+  #list-product .card-test{
+    display: none;
+  }
+}
