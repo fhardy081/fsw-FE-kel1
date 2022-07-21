@@ -4,7 +4,7 @@ import '@fontsource/poppins';
 import { Container, Row, Col, Card, Button, ListGroup } from 'react-bootstrap';
 import { FaCube, FaRegHeart, FaDollarSign } from 'react-icons/fa';
 
-import ItemCard from '../components/ListProduct/ItemCard';
+import ItemCard2 from '../components/ListProduct/itemCard2';
 import '../components/css/ListProduct2.css';
 import Navbar from '../components/Navbar';
 import api from '../lib/api';
@@ -96,6 +96,7 @@ function ListProduct2() {
             products.length > 0 ?
               products.map((product, idx) => {
                 return (
+<<<<<<< HEAD
                   <Col key={product.id}>
                     <Link to={`/infoproduct/${product.id}`} style={{ color: "black", textDecoration: "none" }}>
                       <ItemCard
@@ -106,6 +107,16 @@ function ListProduct2() {
                         imageAlt={product.product_name}
                       />
                     </Link>
+=======
+                  <Col md={3} key={product.id}>
+                    <ItemCard2
+                      title={product.product_name}
+                      type={'Rp. ' + product.price.toLocaleString()}
+                      price={'Rp. ' + product.offer_price.toLocaleString()}
+                      image={product.photo}
+                      imageAlt={product.product_name}
+                    />
+>>>>>>> 01f43f3b4907c0e9458240494f719c847e850bab
                   </Col>
                 );
               })
