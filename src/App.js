@@ -7,6 +7,8 @@ import InfoOffer from "./pages/InfoOffer";
 import RegistrationPage from "./pages/RegistrationPage";
 import Login from "./pages/Login";
 import ListProduct from "./pages/ListProduct";
+import ListProduct2 from "./pages/ListProduct2";
+import ListProduct3 from "./pages/ListProduct3";
 import SecurePage from "./pages/SecurePage";
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
           <Route path="infoproduct/:id" element={<InfoProduct />} />
           <Route path="infooffer/:id" element={<InfoOffer />} />
           <Route path="listproduct" element={<ListProduct />} />
+          <Route path="listproduct2" element={<ListProduct2 />} />
+          <Route path="listproduct3" element={<ListProduct3 />} />
         </Route>
       </Routes>
     </BrowserRouter>

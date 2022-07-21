@@ -8,17 +8,18 @@ import ItemCard from '../components/ListProduct/ItemCard';
 import '../components/css/ListProduct.css';
 import Navbar from '../components/Navbar';
 import api from '../lib/api';
+import gambar from '../Assets/Frame_34.png';
 
-function ListProduct() {
+function ListProduct2() {
   const [products, setProducts] = useState([])
   const [user, setUser] = useState({})
   const [photo, setPhoto] = useState(`${process.env.PUBLIC_URL}/assets/images/image_seller.png`)
 
   useEffect(() => {
-    api.get('/api/v1/listonsaleproducts').then(res => {
+    api.get('/api/v1/listofferedproducts').then(res => {
       setProducts([...res.data.products])
     })
-  },[])
+  }, [])
 
   useEffect(() => {
     api.get('/api/v1/whoami').then(res => {
@@ -28,16 +29,16 @@ function ListProduct() {
       }
       // console.log(user.photo)
     })
-  },[user])
+  }, [user])
 
   return (
     <div id="list-product">
-      <Navbar/>
+      <Navbar />
 
       <Container>
-      <div className="mb-4 title-list">
-        <h4 style={{ fontWeight: 'bold', marginTop: "50px", fontSize: '20px' }}>Daftar Jual Saya</h4>
-      </div>
+        <div className="mb-4 title-list">
+          <h4 style={{ fontWeight: 'bold', marginTop: "50px", fontSize: '20px' }}>Daftar Jual Saya</h4>
+        </div>
         <Card className="upper">
           <Row>
             <Col xs={1}>
@@ -54,7 +55,7 @@ function ListProduct() {
             </Col>
           </Row>
         </Card>
-        <Row style={{ marginTop: '25px'}}>
+        <Row style={{ marginTop: '25px' }}>
           <Col>
             <div className="card-test">
               <div className="card-body1">
@@ -91,26 +92,27 @@ function ListProduct() {
               </div>
             </div>
           </Col>
-          <Col>
-            <div className="card content" type="button" style={{ height: '100%' }}>
-              <FaPlus />
-              {' '}
-              <p className="pt-2">Tambah Produk</p>
-            </div>
-          </Col>
-          {products.map((product, idx) => {
-            return (
-              <Col key={product.id}>
-                <ItemCard
-                  title={product.name}
-                  type={product.category}
-                  price={'Rp. '+ product.price.toLocaleString()}
-                  image={product.photo}
-                  imageAlt={product.name}
-                />
-              </Col>
-            );
-          })}
+
+          {
+            products.length > 0 ?
+              products.map((product, idx) => {
+                return (
+                  <Col key={product.id}>
+                    <ItemCard
+                      title={product.product_name}
+                      type={'Rp. ' + product.price.toLocaleString()}
+                      price={'Rp. ' + product.offer_price.toLocaleString()}
+                      image={product.photo}
+                      imageAlt={product.product_name}
+                    />
+                  </Col>
+                );
+              })
+              :
+              <Col><img src={gambar} alt={gambar} /></Col>
+
+          }
+
         </Row>
       </Container>
     </div>
@@ -118,4 +120,4 @@ function ListProduct() {
   );
 }
 
-export default ListProduct;
+export default ListProduct2;
