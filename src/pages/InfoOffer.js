@@ -1,27 +1,61 @@
 import React, { useEffect } from "react";
 import { useRef, useState } from "react";
 import { Alert } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import api from "../lib/api"
 
 const InfoOffer = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const [data, setData] = useState([]);
+    const [finish, setFinish] = useState(1);
+    const [offerid, setOfferid] = useState(0);
+    const [data, setData] = useState({});
+    const [complete, setComplete] = useState(false);
+    const [dataa, setDataa] = useState([]);
 
     const [errorResponse, setErrorResponse] = useState({
         isError: false,
         message: "",
     });
 
+    const submitOffer = async (e, bid_id, status) => {
+        e.preventDefault()
+        try {
+            await api.put(`/api/v1/updateoffer/${bid_id}`, {
+                value: status
+            })
+            api.get(`/api/v1/useroffer/${id}`).then(res => {
+                setData(res.data.bidder_data)
+                setDataa([...res.data.products])
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    const finishOffer = async (e, bid_id, status) => {
+        e.preventDefault()
+        try {
+            await api.put(`/api/v1/finishoffer/${bid_id}`, {
+                value: status
+            })
+            api.get(`/api/v1/useroffer/${id}`).then(res => {
+                setData(res.data.bidder_data)
+                setDataa([...res.data.products])
+            })
+            setComplete(true)
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
     useEffect(() => {
         api.get(`/api/v1/useroffer/${id}`).then(res => {
-          setData(res.data.bidder_data)
-          setData(res.data.products)
+            setData(res.data.bidder_data)
+            setDataa([...res.data.products])
         })
-      }, [id])
+    }, [id])
 
-    // console.log(data)
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light fixed-top d-none d-sm-block" style={{ boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)" }}>
@@ -35,15 +69,22 @@ const InfoOffer = () => {
                     {errorResponse.isError && (
                         <Alert variant="danger">{errorResponse.message}</Alert>
                     )}
+
                     <div className='col-md-3' style={{ marginBottom: '2rem' }}>
                         <a href='/'><i className="bi bi-arrow-left offset-md-5" style={{ fontSize: '1.5rem', color: 'black' }}></i></a>
                         <span className='title'><center style={{ marginTop: '-1.875rem' }}>Info Penawar</center></span>
                     </div>
                     <div className='col-md-6'>
-                        <div class="alert alert-success alert-dismissible fade show mx-auto" role="alert" style={{ backgroundColor: "#73CA5C", borderRadius: "0.75rem", color: "white" }}>
-                            Status produk berhasil diperbarui
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                        {(() => {
+                            if (complete === true) {
+                                return (
+                                    <div class="alert alert-success alert-dismissible fade show mx-auto" role="alert" style={{ backgroundColor: "#73CA5C", borderRadius: "0.75rem", color: "white" }}>
+                                        Status produk berhasil diperbarui
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                )
+                            }
+                        })()}
                         <div className="card">
                             <div className="card-body">
                                 <div className='row'>
@@ -58,36 +99,52 @@ const InfoOffer = () => {
                             </div>
                         </div>
                         <h6 className='mt-3' style={{ fontWeight: "bold" }}>Daftar Produkmu yang Ditawar</h6>
-                        <div className='row mt-3'>
-                            <div className='col-2'>
-                                <img src='/assets/images/jam_casio.png' width={"100%"} alt="Product" />
-                            </div>
-                            <div className='col-10'>
-                                <div className='row'>
-                                    <div className='col'>
-                                        <span className="card-text" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>Penawaran produk</span>
+                        {
+                            dataa.map((dataa) => {
+                                return (
+                                    <div className='row mt-3'>
+                                        <div className='col-2'>
+                                            <img src={dataa.photo} width={"100%"} alt={dataa.name} />
+                                        </div>
+                                        <div className='col-10'>
+                                            <div className='row'>
+                                                <div className='col'>
+                                                    <span className="card-title" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>Penawaran produk</span>
+                                                </div>
+                                                <div className='col'>
+                                                    <span className="card-title float-end" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa.date}</span>
+                                                </div>
+                                            </div>
+                                            <h6 className="card-title">{dataa.name}</h6>
+                                            <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + dataa.price.toLocaleString()}</h6>
+                                            <h6 className="card-title">{'Ditawar ' + dataa.bid_price.toLocaleString()}</h6>
+                                            <div className='row mb-3'>
+                                                {(() => {
+                                                    if (dataa.status === true) {
+                                                        return (
+                                                            <div className='col-md-8 offset-md-4 row'>
+                                                                <button className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalHubungi" onClick={e => setOfferid(dataa.id)}>Status</button>
+                                                                <Link to={`https://wa.me/${data.name}?text=Hai%20saya%20dari%20SecondHand`} className='btn btn-primary col' style={{ borderRadius: "1rem" }}>Hubungi di <i className='bi bi-whatsapp'></i></Link>
+                                                            </div>
+                                                        )
+                                                    }if (finish === 1) {
+                                                        <div>kosong</div>
+                                                    }else{
+                                                    return (
+                                                        <div className='col-md-8 offset-md-4 row'>
+                                                            <button className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} onClick={e => submitOffer(e, dataa.id, 0)}>Tolak</button>
+                                                            <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima" onClick={e => submitOffer(e, dataa.id, 1)}>Terima</button>
+                                                        </div>
+                                                    )}
+                                                })()}
+                                            </div>
+                                        </div>
+
+                                        <hr />
                                     </div>
-                                    <div className='col'>
-                                        <span className="card-title float-end" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>20 Apr, 14:04</span>
-                                    </div>
-                                </div>
-                                <h6 className="card-title">Jam Tangan Casio</h6>
-                                <h6 className="card-title">Rp 250.000</h6>
-                                <h6 className="card-title">Ditawar Rp 200.000</h6>
-                                <div className='row mb-3'>
-                                    <div className='col-md-8 offset-md-4 row'>
-                                        <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Tolak</a>
-                                        <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima">Terima</button>
-                                    </div>
-                                    {/* if di terima tampilkan ini */}
-                                    {/* <div className='col-md-8 offset-md-4 row'>
-                                        <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Status</a>
-                                        <a href='/' className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalHubungi">Hubungi di <i className='bi bi-whatsapp'></i></a>
-                                    </div> */}
-                                </div>
-                            </div>
-                            <hr />
-                        </div>
+                                );
+                            })
+                        }
                     </div>
                 </div>
             </div>
@@ -104,27 +161,27 @@ const InfoOffer = () => {
                                     <h6 className='text-center mb-4' style={{ fontWeight: "bold" }}>Product Match</h6>
                                     <div className='row'>
                                         <div className='col-2'>
-                                            <img src='/assets/images/jam_casio.png' width={"100%"} alt="Prudct" />
+                                            <img src={data.photo} width={"100%"} alt={data.name} />
                                         </div>
                                         <div className='col-10'>
-                                            <h6 className="card-title" style={{ fontWeight: "bold" }}>Nama Pembeli</h6>
-                                            <p className="card-text" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>Kota</p>
+                                            <h6 className="card-title" style={{ fontWeight: "bold" }}>{data.name}</h6>
+                                            <p className="card-text" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{data.city}</p>
                                         </div>
                                     </div>
                                     <div className='row mt-3'>
                                         <div className='col-2'>
-                                            <img src='/assets/images/jam_casio.png' width={"100%"} alt="Prudct" />
+                                            <img src={dataa.photo} width={"100%"} alt={dataa.name} />
                                         </div>
                                         <div className='col-10'>
-                                            <h6 className="card-title">Jam Tangan Casio</h6>
-                                            <h6 className="card-title" style={{ textDecoration: "line-through" }}>Rp 250.000</h6>
-                                            <h6 className="card-title">Ditawar Rp 200.000</h6>
+                                            <h6 className="card-title">{dataa.name}</h6>
+                                            {/* <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + dataa.price.toLocaleString()}</h6> */}
+                                            {/* <h6 className="card-title">{'Ditawar ' + dataa.bid_price.toLocaleString()}</h6> */}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className='d-grid'>
-                                <a href='https://wa.me/089627382823?text=Hai%20saya%20dari%20SecondHand' className="btn btn-primary" style={{ borderRadius: "1rem" }}>Hubungi via Whatsapp <i className='bi bi-whatsapp float-end'></i></a>
+                                <Link to={`https://wa.me/${data.name}?text=Hai%20saya%20dari%20SecondHand`} className="btn btn-primary" style={{ borderRadius: "1rem" }}>Hubungi via Whatsapp <i className='bi bi-whatsapp float-end'></i></Link>
                             </div>
                         </div>
                     </div>
@@ -139,22 +196,22 @@ const InfoOffer = () => {
                             <h6 className='title mt-3' style={{ fontWeight: "bold" }}>Perbarui status penjualan produkmu</h6>
                             <form className="mb-3">
                                 <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked />
-                                    <label className="form-check-label" for="exampleRadios1">
+                                    <input className="form-check-input" type="radio" name="is_sold" value="1" checked onChange={e => setFinish(1)} />
+                                    <label className="form-check-label">
                                         Berhasil Terjual
                                     </label>
                                     <p className="card-text">Kamu telah sepakat menjual produk ini kepada pembeli</p>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" />
-                                    <label className="form-check-label" for="exampleRadios2">
+                                    <input className="form-check-input" type="radio" name="is_sold" value="0" onChange={e => setFinish(0)} />
+                                    <label className="form-check-label">
                                         Batalkan Transaksi
                                     </label>
                                     <p className="card-text">Kamu membatalkan transaksi produk ini dengan pembeli</p>
                                 </div>
                             </form>
                             <div className='d-grid'>
-                                <a href='/' className="btn btn-primary" style={{ borderRadius: "1rem" }}>Kirim</a>
+                                <button className="btn btn-primary" style={{ borderRadius: "1rem" }} onClick={(e) => finishOffer(e, offerid, finish)}>Kirim</button>
                                 {/* <a href='/' className="btn btn-secondary" style={{ borderRadius: "1rem" }}>Kirim</a> */}
                             </div>
                         </div>

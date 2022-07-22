@@ -4,13 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeToken } from "../reducers/api-store";
 
-const Navbar = () => {
+const Navbar = (props) => {
 
     const dispatch = useDispatch();
     const token = useSelector(state => state.api.token);
 
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [search, setSearch] = useState("");
 
     const logout = () => {
         dispatch(removeToken())
@@ -24,8 +25,14 @@ const Navbar = () => {
     }
 
     useEffect(() => {
+        if(props.onSearch){
+            props.onSearch(search)
+        }
+    }, [search])
+
+    useEffect(() => {
         setIsLoggedIn(!!token)
-    },[token]) 
+    }, [token])
 
     return (
         <>
@@ -33,13 +40,13 @@ const Navbar = () => {
                 <div className="container">
                     <a className="navbar-brand" href="/">&nbsp;</a>
                     <form class="search-bar d-flex">
-                        <input className="form-control cari-produk" type="search" placeholder="Cari di sini ..." aria-label="Search" />
+                        <input className="form-control cari-produk" type="search" placeholder="Cari di sini ..." aria-label="Search" onChange={e => setSearch(e.target.value)} value={search}/>
                     </form>
                     {(() => {
                         if (!isLoggedIn) {
                             return (
                                 <form>
-                                    <Link to='/login' className='btn btn-primary' type='button'>Masuk</Link>
+                                    <Link to='/login' className='btn btn-primary' type='button'><i className="bi bi-box-arrow-in-right"></i>&nbsp;Masuk</Link>
                                 </form>)
                         }
                         return (
@@ -54,7 +61,7 @@ const Navbar = () => {
                                         </a>
                                         <ul className="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <li>
-                                                <a className="dropdown-item" href="/">
+                                                <Link to={`/infoofer/`} className="dropdown-item">
                                                     <div className="card-notification">
                                                         <div className="card-body-notification">
                                                             <div className="row">
@@ -79,7 +86,7 @@ const Navbar = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </a>
+                                                </Link>
                                             </li>
                                             <li>
                                                 <a className="dropdown-item" href="/">

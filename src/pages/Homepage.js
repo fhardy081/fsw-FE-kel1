@@ -12,43 +12,46 @@ const Homepage = () => {
 
   const categories = category ? `${category}` : "";
 
+  const getProductPublish = async (text) => {
+    try {
+      const response = await api.get(
+        `/api/v1/products?name=${text?text:""}`
+      )
+      const data = await response.data.products;
+      let products = []
+      for (let i in data) {
+        if (data[i].is_sold == false) {
+          if (categories) {
+            console.log(categories)
+            if (categories == data[i].category) {
+              products.push(data[i])
+            }
+          } else {
+            products.push(data[i])
+          }
+        }
+      }
+      setPost(products);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  const updateSearch = (text) => {
+    getProductPublish(text)
+  }
+
   useEffect(() => {
     if (window.Loadowlcarousel) {
       window.Loadowlcarousel("#owl-carousel")
     }
-
-    const getProductPublish = async () => {
-      try {
-        const response = await api.get(
-          `/api/v1/products`
-        )
-        const data = await response.data.products;
-        let products = []
-        for (let i in data) {
-          if (data[i].is_sold == false) {
-            if (categories) {
-              console.log(categories)
-              if (categories == data[i].category) {
-                products.push(data[i])
-              }
-            } else {
-              products.push(data[i])
-            }
-          }
-        }
-        setPost(products);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-
     getProductPublish();
   }, [categories]);
 
   return (
     <div id="home">
       {/*Nav*/}
-      <Navbar />
+      <Navbar onSearch={text => updateSearch(text)} />
       <div className="bg">
         <nav class="navbar navbar-expand-lg navbar-light nav-resp">
           <div class="container-fluid" style={{marginBottom: 200}}>
