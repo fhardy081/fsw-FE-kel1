@@ -25,7 +25,7 @@ const Navbar = () => {
 
     useEffect(() => {
         setIsLoggedIn(!!token)
-    },[token]) 
+    }, [token])
 
     return (
         <>
@@ -54,7 +54,7 @@ const Navbar = () => {
                                         </a>
                                         <ul className="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <li>
-                                                <a className="dropdown-item" href="/">
+                                                <Link to={`/infoofer/`} className="dropdown-item">
                                                     <div className="card-notification">
                                                         <div className="card-body-notification">
                                                             <div className="row">
@@ -79,7 +79,7 @@ const Navbar = () => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </a>
+                                                </Link>
                                             </li>
                                             <li>
                                                 <a className="dropdown-item" href="/">

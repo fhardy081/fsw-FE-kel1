@@ -7,7 +7,8 @@ import api from "../lib/api"
 const InfoOffer = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const [data, setData] = useState([]);
+    const [data, setData] = useState({});
+    const [dataa, setDataa] = useState([]);
 
     const [errorResponse, setErrorResponse] = useState({
         isError: false,
@@ -16,12 +17,16 @@ const InfoOffer = () => {
 
     useEffect(() => {
         api.get(`/api/v1/useroffer/${id}`).then(res => {
-          setData(res.data.bidder_data)
-          setData(res.data.products)
+            setData(res.data.bidder_data)
         })
-      }, [id])
+    }, [id])
 
-    // console.log(data)
+    useEffect(() => {
+        api.get(`/api/v1/useroffer/${id}`).then(res => {
+            setDataa([...res.data.products])
+        })
+    }, [id])
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light fixed-top d-none d-sm-block" style={{ boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)" }}>
@@ -40,10 +45,10 @@ const InfoOffer = () => {
                         <span className='title'><center style={{ marginTop: '-1.875rem' }}>Info Penawar</center></span>
                     </div>
                     <div className='col-md-6'>
-                        <div class="alert alert-success alert-dismissible fade show mx-auto" role="alert" style={{ backgroundColor: "#73CA5C", borderRadius: "0.75rem", color: "white" }}>
+                        {/* <div class="alert alert-success alert-dismissible fade show mx-auto" role="alert" style={{ backgroundColor: "#73CA5C", borderRadius: "0.75rem", color: "white" }}>
                             Status produk berhasil diperbarui
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
+                        </div> */}
                         <div className="card">
                             <div className="card-body">
                                 <div className='row'>
@@ -58,36 +63,41 @@ const InfoOffer = () => {
                             </div>
                         </div>
                         <h6 className='mt-3' style={{ fontWeight: "bold" }}>Daftar Produkmu yang Ditawar</h6>
-                        <div className='row mt-3'>
-                            <div className='col-2'>
-                                <img src='/assets/images/jam_casio.png' width={"100%"} alt="Product" />
-                            </div>
-                            <div className='col-10'>
-                                <div className='row'>
-                                    <div className='col'>
-                                        <span className="card-text" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>Penawaran produk</span>
+                        {dataa.map((dataa) => {
+                            return (
+                                <div className='row mt-3'>
+                                    <div className='col-2'>
+                                        <img src={dataa.photo} width={"100%"} alt={dataa.name} />
                                     </div>
-                                    <div className='col'>
-                                        <span className="card-title float-end" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>20 Apr, 14:04</span>
-                                    </div>
-                                </div>
-                                <h6 className="card-title">Jam Tangan Casio</h6>
-                                <h6 className="card-title">Rp 250.000</h6>
-                                <h6 className="card-title">Ditawar Rp 200.000</h6>
-                                <div className='row mb-3'>
-                                    <div className='col-md-8 offset-md-4 row'>
-                                        <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Tolak</a>
-                                        <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima">Terima</button>
-                                    </div>
-                                    {/* if di terima tampilkan ini */}
-                                    {/* <div className='col-md-8 offset-md-4 row'>
+                                    <div className='col-10'>
+                                        <div className='row'>
+                                            <div className='col'>
+                                                <span className="card-title" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>Penawaran produk</span>
+                                            </div>
+                                            <div className='col'>
+                                                <span className="card-title float-end" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa.date}</span>
+                                            </div>
+                                        </div>
+                                        <h6 className="card-title">{dataa.name}</h6>
+                                        <h6 className="card-title">{'Rp. ' + dataa.price.toLocaleString()}</h6>
+                                        <h6 className="card-title">{'Ditawar ' + dataa.bid_price.toLocaleString()}</h6>
+                                        <div className='row mb-3'>
+                                            <div className='col-md-8 offset-md-4 row'>
+                                                <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Tolak</a>
+                                                <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima">Terima</button>
+                                            </div>
+                                            {/* if di terima tampilkan ini */}
+                                            {/* <div className='col-md-8 offset-md-4 row'>
                                         <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Status</a>
                                         <a href='/' className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalHubungi">Hubungi di <i className='bi bi-whatsapp'></i></a>
                                     </div> */}
+                                        </div>
+                                    </div>
+
+                                    <hr />
                                 </div>
-                            </div>
-                            <hr />
-                        </div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>

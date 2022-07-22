@@ -173,13 +173,14 @@ function InfoProfil () {
                         </div>
                         <div className="col-md mb-3">
                             <label htmlFor="kategori" className="form-label">Kota<span style={{ color: "red" }}>*</span></label>
-                            <select class="form-control" id="kota" ref={cityField} defaultValue={data.city}>
+                            {/* <select class="form-control" id="kota" ref={cityField}>
                                 <option value="0">Pilih Kota</option>
-                                <option value="1">DKI Jakarta</option>
-                                <option value="2">Kota Depok</option>
-                                <option value="3">Bali</option>
-                                <option value="4">Yogyakarta</option>
-                            </select>
+                                <option value="DKI Jakarta" selected={data.city === "DKI Jakarta" ? "selected" : ""}>DKI Jakarta</option>
+                                <option value="Kota Depok" selected={data.city === "Kota Depok" ? "selected" : ""}>Kota Depok</option>
+                                <option value="Bali" selected={data.city === "Bali" ? "selected" : ""}>Bali</option>
+                                <option value="Yogyakarta" selected={data.city === "Yogyakarta" ? "selected" : ""}>Yogyakarta</option>
+                            </select> */}
+                            <input type="type" className="form-control" id="kota" placeholder="Kota" ref={cityField} defaultValue={data.city}/>
                         </div>
                         <div className="col-md mb-3">
                             <label htmlFor="deskripsi" className="form-label">Alamat<span style={{ color: "red" }}>*</span></label>
