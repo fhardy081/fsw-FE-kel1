@@ -1,0 +1,18 @@
+#info-profil .title {
+    display: none;
+  }
+
+#info-profil .satu {
+    margin-top: 5rem;
+  }
+
+@media (min-device-width : 320px) and (max-device-width : 991px) {
+
+#info-profil .row {
+    margin-top: 0rem;
+  }
+
+#info-profil .title {
+    display: inherit;
+  }
+}
