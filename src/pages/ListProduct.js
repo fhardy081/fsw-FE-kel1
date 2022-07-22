@@ -35,20 +35,24 @@ function ListProduct() {
       <Navbar />
         {/* Offcanvas */}
         <div className='container pt-2 pb-4'>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasRight"
-            aria-controls="offcanvasRight"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span>
-              {/* <span className="navbar-toggler-icon" /> */}
-              <i class="bi bi-list"></i>
-            </span>
-          </button>
+          <div className="row">
+            <h2>Second Hand</h2>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span>
+                {/* <span className="navbar-toggler-icon" /> */}
+                <i class="bi bi-list"></i>
+              </span>
+            </button>
+          </div>
+          
           <div
             className="offcanvas offcanvas-start justify-content-end offcanvas-size"
             tabIndex={-1}

@@ -323,4 +323,31 @@
     background: #FFFFFF;
     border-radius: 16px;
   }
+
+  #list-product .offcanvas-body > p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000000;
+  }
+
+  #list-product .offcanvas-body > li > a{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000000;
+  }
+
+  #list-product .row > h2{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    color: #000000;
+  }
 }
