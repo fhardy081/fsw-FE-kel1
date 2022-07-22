@@ -9,7 +9,7 @@ function ItemCard2(props) {
   } = props;
 
   return (
-    <Card className="card-items" style={{height: '250px', width: '300px', marginTop: '8px', marginLeft: '-215%'}}>
+    <Card className="card-items" style={{height: '250px', width: '300px', marginTop: '8px'}}>
       <Card.Img src={image} className="mx-auto card-img-top" alt={imageAlt} style={{width: '200px', height: '140px'}}/>
       {/* <Card.Body style={{height: '65%', width: '80%'}}> */}
         <Card.Title style={{ fontWeight: 'bold', marginLeft: '10px', marginTop: '8px' }}>{title}</Card.Title>
