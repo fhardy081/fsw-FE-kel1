@@ -65,7 +65,6 @@ const InfoProduct = () => {
                 category: parseInt(categoryField.current.value),
                 description: descriptionField.current.value,
                 photo: photos,
-
             }
 
             if (id) {
@@ -113,7 +112,7 @@ const InfoProduct = () => {
             }
         }
     };
-    console.log(data.photos)
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light fixed-top d-none d-sm-block" style={{ boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)" }}>

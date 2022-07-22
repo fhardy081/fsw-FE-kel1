@@ -4,13 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeToken } from "../reducers/api-store";
 
-const Navbar = () => {
+const Navbar = (props) => {
 
     const dispatch = useDispatch();
     const token = useSelector(state => state.api.token);
 
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [search, setSearch] = useState("");
 
     const logout = () => {
         dispatch(removeToken())
@@ -24,6 +25,12 @@ const Navbar = () => {
     }
 
     useEffect(() => {
+        if(props.onSearch){
+            props.onSearch(search)
+        }
+    }, [search])
+
+    useEffect(() => {
         setIsLoggedIn(!!token)
     }, [token])
 
@@ -33,7 +40,7 @@ const Navbar = () => {
                 <div className="container">
                     <a className="navbar-brand" href="/">&nbsp;</a>
                     <form class="search-bar d-flex">
-                        <input className="form-control cari-produk" type="search" placeholder="Cari di sini ..." aria-label="Search" />
+                        <input className="form-control cari-produk" type="search" placeholder="Cari di sini ..." aria-label="Search" onChange={e => setSearch(e.target.value)} value={search}/>
                     </form>
                     {(() => {
                         if (!isLoggedIn) {
