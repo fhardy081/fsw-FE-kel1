@@ -15,14 +15,24 @@ const InfoOffer = () => {
         message: "",
     });
 
-    useEffect(() => {
-        api.get(`/api/v1/useroffer/${id}`).then(res => {
-            setData(res.data.bidder_data)
-        })
-    }, [id])
+    const submitOffer = async (e,bid_id,status) => {
+        e.preventDefault()
+        try{
+            await api.put(`/api/v1/updateoffer/${bid_id}`,{
+                value: status
+            })
+            api.get(`/api/v1/useroffer/${id}`).then(res => {
+                setData(res.data.bidder_data)
+                setDataa([...res.data.products])
+            })
+        }catch (e){
+
+        }
+    }
 
     useEffect(() => {
         api.get(`/api/v1/useroffer/${id}`).then(res => {
+            setData(res.data.bidder_data)
             setDataa([...res.data.products])
         })
     }, [id])
@@ -83,8 +93,8 @@ const InfoOffer = () => {
                                         <h6 className="card-title">{'Ditawar ' + dataa.bid_price.toLocaleString()}</h6>
                                         <div className='row mb-3'>
                                             <div className='col-md-8 offset-md-4 row'>
-                                                <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }}>Tolak</a>
-                                                <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima">Terima</button>
+                                                <a href='/' className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} onClick={e=>submitOffer(e,dataa.id,0) }>Tolak</a>
+                                                <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima" onClick={e=>submitOffer(e,dataa.id,1) }>Terima</button>
                                             </div>
                                             {/* if di terima tampilkan ini */}
                                             {/* <div className='col-md-8 offset-md-4 row'>
