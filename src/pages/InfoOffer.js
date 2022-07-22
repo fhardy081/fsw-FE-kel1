@@ -1,34 +1,27 @@
 import React, { useEffect } from "react";
 import { useRef, useState } from "react";
+import { Alert } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import api from "../lib/api"
 
 const InfoOffer = () => {
     const navigate = useNavigate();
     const { id } = useParams();
-    const [data, setData] = useState({});
+    const [data, setData] = useState([]);
 
     const [errorResponse, setErrorResponse] = useState({
         isError: false,
         message: "",
     });
 
-    const getOffer = async () => {
-        try {
-            const responseOffer = await api.put(`/api/v1/updateoffer/${id}`)
-
-            const dataOffer = await responseOffer.data.offer;
-            setData(dataOffer)
-        } catch (err) {
-            console.log(err);
-        }
-    }
-
     useEffect(() => {
+        api.get(`/api/v1/useroffer/${id}`).then(res => {
+          setData(res.data.bidder_data)
+          setData(res.data.products)
+        })
+      }, [id])
 
-        getOffer();
-    }, [id])
-    console.log(data)
+    // console.log(data)
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light fixed-top d-none d-sm-block" style={{ boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.15)" }}>
@@ -39,6 +32,9 @@ const InfoOffer = () => {
             </nav>
             <div className='container info-bidder'>
                 <div className='row satu'>
+                    {errorResponse.isError && (
+                        <Alert variant="danger">{errorResponse.message}</Alert>
+                    )}
                     <div className='col-md-3' style={{ marginBottom: '2rem' }}>
                         <a href='/'><i className="bi bi-arrow-left offset-md-5" style={{ fontSize: '1.5rem', color: 'black' }}></i></a>
                         <span className='title'><center style={{ marginTop: '-1.875rem' }}>Info Penawar</center></span>
@@ -52,11 +48,11 @@ const InfoOffer = () => {
                             <div className="card-body">
                                 <div className='row'>
                                     <div className='col-2'>
-                                        <img src='/assets/images/jam_casio.png' width={"100%"} alt="Product" />
+                                        <img src={data.photo} width={"100%"} alt={data.name} />
                                     </div>
                                     <div className='col-10'>
-                                        <h6 className="card-title" style={{ fontWeight: "bold" }}>Nama Pembeli</h6>
-                                        <p className="card-text" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>Kota</p>
+                                        <h6 className="card-title" style={{ fontWeight: "bold" }}>{data.name}</h6>
+                                        <p className="card-text" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{data.city}</p>
                                     </div>
                                 </div>
                             </div>
