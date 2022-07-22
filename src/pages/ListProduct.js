@@ -33,7 +33,45 @@ function ListProduct() {
   return (
     <div id="list-product">
       <Navbar />
-
+        {/* Offcanvas */}
+        <div className='container pt-2 pb-4'>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span>
+              {/* <span className="navbar-toggler-icon" /> */}
+              <i class="bi bi-list"></i>
+            </span>
+          </button>
+          <div
+            className="offcanvas offcanvas-start justify-content-end offcanvas-size"
+            tabIndex={-1}
+            id="offcanvasRight"
+            aria-labelledby="offcanvasTopLabel"
+          >
+            <div className="offcanvas-body">
+              <p>Second Hand</p>
+              <ul>
+                <li>
+                  <a href="#">Notifikasi</a>
+                </li>
+                <li> 
+                  <a href="#">Daftar Jual</a>
+                </li>
+                <li>
+                  <a href="#">Akun Saya</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
       <Container>
         <div className="mb-4 title-list">
           <h4 style={{ fontWeight: 'bold', marginTop: "50px", fontSize: '20px' }}>Daftar Jual Saya</h4>
