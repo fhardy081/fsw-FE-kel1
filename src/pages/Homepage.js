@@ -53,7 +53,7 @@ const Homepage = () => {
       {/*Nav*/}
       <Navbar onSearch={text => updateSearch(text)} />
       <div className="bg">
-        <nav class="navbar navbar-expand-lg navbar-light nav-resp">
+        <nav class="navbar navbar-expand-lg navbar-light nav-resp" onSearch={text => updateSearch(text)}>
           <div class="container-fluid" style={{marginBottom: 200}}>
 
             <div className="row">
