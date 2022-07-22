@@ -39,7 +39,7 @@ const Navbar = () => {
                         if (!isLoggedIn) {
                             return (
                                 <form>
-                                    <Link to='/login' className='btn btn-primary' type='button'>Masuk</Link>
+                                    <Link to='/login' className='btn btn-primary' type='button'><i className="bi bi-box-arrow-in-right"></i>&nbsp;Masuk</Link>
                                 </form>)
                         }
                         return (

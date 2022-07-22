@@ -285,8 +285,12 @@
     height: 91%;
 }
 
-@media screen and (min-width : 375px) and (max-width : 576px){
-  #list-product .card-test{
+@media only screen and (max-width : 640px){
+  #list-product .navbar{
     display: none;
+  }
+
+  #list-product h4{
+    display:none;
   }
 }
