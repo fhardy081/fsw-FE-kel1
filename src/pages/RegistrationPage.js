@@ -1,6 +1,6 @@
 import { Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import api from "../lib/api"
 
 const RegistrationPage = () => {

@@ -1,6 +1,6 @@
 import '../components/css/info-profil.css'
 import { useNavigate} from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Alert } from "react-bootstrap";
 import api from "../lib/api"
 import iconPhoto from "../Assets/Group_2.png"

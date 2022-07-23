@@ -30,7 +30,6 @@ const Navbar = (props) => {
         e.preventDefault()
         let tokens = token.split(".")
         let user = JSON.parse(atob(tokens[1]))
-        // console.log(user)
         if (notif.bid_price > 0 && notif.bidder_id !== user.id) {
             navigate(`/infooffer/${notif.bidder_id}`)
         }
@@ -57,7 +56,6 @@ const Navbar = (props) => {
         setIsLoggedIn(!!token)
     }, [token])
 
-    console.log(notif)
     return (
         <>
             <nav className="navbar navbar-expand-lg sticky-top">
