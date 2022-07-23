@@ -1,24 +1,22 @@
 import React, { useEffect } from "react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Alert } from "react-bootstrap";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import api from "../lib/api"
 
 const InfoOffer = () => {
-    const navigate = useNavigate();
     const { id } = useParams();
     const [finish, setFinish] = useState(1);
     const [offerid, setOfferid] = useState(0);
     const [data, setData] = useState({});
     const [complete, setComplete] = useState(false);
     const [dataa, setDataa] = useState([]);
-
-    const [errorResponse, setErrorResponse] = useState({
-        isError: false,
-        message: "",
+    const [selectedData, setSelectedData] = useState({
+        price: 0,
+        bid_price: 0
     });
 
-    const submitOffer = async (e, bid_id, status) => {
+    const submitOffer = async (e, bid_id, status,offer) => {
         e.preventDefault()
         try {
             await api.put(`/api/v1/updateoffer/${bid_id}`, {
@@ -28,6 +26,7 @@ const InfoOffer = () => {
                 setData(res.data.bidder_data)
                 setDataa([...res.data.products])
             })
+            setSelectedData(offer)
         } catch (e) {
             console.log(e);
         }
@@ -66,10 +65,6 @@ const InfoOffer = () => {
             </nav>
             <div className='container info-bidder'>
                 <div className='row satu'>
-                    {errorResponse.isError && (
-                        <Alert variant="danger">{errorResponse.message}</Alert>
-                    )}
-
                     <div className='col-md-3' style={{ marginBottom: '2rem' }}>
                         <a href='/'><i className="bi bi-arrow-left offset-md-5" style={{ fontSize: '1.5rem', color: 'black' }}></i></a>
                         <span className='title'><center style={{ marginTop: '-1.875rem' }}>Info Penawar</center></span>
@@ -112,26 +107,30 @@ const InfoOffer = () => {
                                                     <span className="card-title" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa.title}</span>
                                                 </div>
                                                 <div className='col'>
-                                                    <span className="card-title float-end" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa.date}</span>
+                                                    <span className="card-title float-end" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa.date.replace(/T.*/,"")}</span>
                                                 </div>
                                             </div>
                                             <h6 className="card-title">{dataa.name}</h6>
                                             <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + dataa.price.toLocaleString()}</h6>
                                             <h6 className="card-title">{'Ditawar ' + dataa.bid_price.toLocaleString()}</h6>
                                             <div className='row mb-3'>
-                                                {(() => {
+                                                {(  () => {
+                                                    // const res = await api.get(`/api/v1/products/${}`)
                                                     if (dataa.status === true) {
+                                                        if (dataa.is_sold === true) {
+                                                            return(<></>)
+                                                        }
                                                         return (
                                                             <div className='col-md-8 offset-md-4 row'>
                                                                 <button className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalHubungi" onClick={e => setOfferid(dataa.id)}>Status</button>
-                                                                <Link to={`https://wa.me/${data.phone_number}?text=Hai%20saya%20dari%20SecondHand`} className='btn btn-primary col' style={{ borderRadius: "1rem" }}>Hubungi di <i className='bi bi-whatsapp'></i></Link>
+                                                                <a href={`https://wa.me/${data.phone_number}?text=Hai%20saya%20dari%20SecondHand`} target="_blank" className='btn btn-primary col' style={{ borderRadius: "1rem" }}>Hubungi di <i className='bi bi-whatsapp'></i></a>
                                                             </div>
                                                         )
                                                     }
                                                     return (
                                                         <div className='col-md-8 offset-md-4 row'>
                                                             <button className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} onClick={e => submitOffer(e, dataa.id, 0)}>Tolak</button>
-                                                            <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima" onClick={e => submitOffer(e, dataa.id, 1)}>Terima</button>
+                                                            <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima" onClick={e => submitOffer(e, dataa.id, 1,dataa)}>Terima</button>
                                                         </div>
                                                     )
                                                 })()}
@@ -168,18 +167,18 @@ const InfoOffer = () => {
                                     </div>
                                     <div className='row mt-3'>
                                         <div className='col-2'>
-                                            <img src={dataa.photo} width={"100%"} alt={dataa.name} />
+                                            <img src={selectedData.photo} width={"100%"} alt={selectedData.name} />
                                         </div>
                                         <div className='col-10'>
-                                            <h6 className="card-title">{dataa.name}</h6>
-                                            {/* <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + dataa.price.toLocaleString()}</h6> */}
-                                            {/* <h6 className="card-title">{'Ditawar ' + dataa.bid_price.toLocaleString()}</h6> */}
+                                            <h6 className="card-title">{selectedData.name}</h6>
+                                            <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + selectedData.price.toLocaleString()}</h6>
+                                            <h6 className="card-title">{'Ditawar ' + selectedData.bid_price.toLocaleString()}</h6>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className='d-grid'>
-                                <Link to={`https://wa.me/${data.phone_number}?text=Hai%20saya%20dari%20SecondHand`} className="btn btn-primary" style={{ borderRadius: "1rem" }}>Hubungi via Whatsapp <i className='bi bi-whatsapp float-end'></i></Link>
+                                <a href={`https://wa.me/${data.phone_number}?text=Hai%20saya%20dari%20SecondHand`} target="_blank" className="btn btn-primary" style={{ borderRadius: "1rem" }}>Hubungi via Whatsapp <i className='bi bi-whatsapp float-end'></i></a>
                             </div>
                         </div>
                     </div>

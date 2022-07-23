@@ -35,6 +35,18 @@ const ProductPage = () => {
         }
         setShowAlert(true)
     }
+    const onPublish = (e) =>{
+        e.preventDefault()
+
+    }
+
+    useEffect(() => {
+        api.get(`/api/v1/checkoffer/${param.id}`).then(res=>{
+            if(res.data.is_offered === true){
+                setHasoffer(true)
+            }
+        })
+    },[param])
 
 
     useEffect(()=>{
@@ -123,7 +135,7 @@ const ProductPage = () => {
                             <h4 className="card-title-price">Rp. {data.price.toLocaleString()}</h4>
                             {/* <a href="/" className="btn btn-primary btn-terbitakan" data-bs-toggle="modal" data-bs-target="#exampleModal">Terbitakan</a>
                             <a href="/" className="btn btn-primary btn-edit">Edit</a> */}
-                            <DetailProduct user={user} product={data} hasoffer={hasoffer}/>
+                            <DetailProduct user={user} product={data} hasoffer={hasoffer} onClick={e => onPublish(e)}/>
                         </div>
                     </div>
                     <div className="card-seller">

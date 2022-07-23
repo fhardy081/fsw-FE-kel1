@@ -55,7 +55,7 @@ const InfoProduct = () => {
         getProduct();
     }, [id])
 
-    const onPost = async (e) => {
+    const onPost = async (e, stat) => {
         e.preventDefault();
         try {
 
@@ -93,6 +93,9 @@ const InfoProduct = () => {
                         message: postRequest.data.message
                     })
                 }
+            }
+            if (stat === false && id){
+                navigate(`/product/${id}`)
             }
 
         } catch (err) {
@@ -177,7 +180,7 @@ const InfoProduct = () => {
                         </div>
                         <div className='row'>
                             <div className="col-6 mb-3 d-grid">
-                                <button className="btn btn-outline-primary" type="submit">Preview</button>
+                                <button className="btn btn-outline-primary" type="submit" onClick={(e) => onPost(e, false)}>Preview</button>
                             </div>
                             <div className="col-6 mb-3 d-grid">
                                 {(() => {

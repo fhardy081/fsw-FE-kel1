@@ -12,7 +12,7 @@ const Navbar = (props) => {
 
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(true);
-    const [search, setSearch] = useState("");
+    const [search, setSearch] = useState(props.text || "");
     const [notif, setNotif] = useState([]);
 
     const logout = () => {
@@ -24,6 +24,21 @@ const Navbar = (props) => {
 
     const infoprofil = () => {
         navigate("/info-profil");
+    }
+
+    const onClickNotif = (e, notif) => {
+        e.preventDefault()
+        let tokens = token.split(".")
+        let user = JSON.parse(atob(tokens[1]))
+        // console.log(user)
+        if (notif.bid_price > 0 && notif.bidder_id !== user.id) {
+            navigate(`/infooffer/${notif.bidder_id}`)
+        }
+    }
+
+    const onSearch = (e) => {
+        e.preventDefault()
+        navigate(`/?q=${search}`)
     }
 
     useEffect(() => {
@@ -48,7 +63,8 @@ const Navbar = (props) => {
             <nav className="navbar navbar-expand-lg sticky-top">
                 <div className="container">
                     <a className="navbar-brand" href="/">&nbsp;</a>
-                    <form class="search-bar d-flex">
+                    <form class="search-bar d-flex" onSubmit={e => onSearch(e)}>
+                        <button className='btn btn-primary d-none' type="submit"></button>
                         <input className="form-control cari-produk" type="search" placeholder="Cari di sini ..." aria-label="Search" onChange={e => setSearch(e.target.value)} value={search} />
                     </form>
                     {(() => {
@@ -72,8 +88,8 @@ const Navbar = (props) => {
                                             {
                                                 notif.map((notif) => {
                                                     return (
-                                                        <li>
-                                                            <Link to={`/infoofer/${notif.name}`} className="dropdown-item">
+                                                        <li key={notif.date}>
+                                                            <a href="#" onClick={e => onClickNotif(e,notif)} className="dropdown-item">
                                                                 <div className="card-notification">
                                                                     <div className="card-body-notification">
                                                                         <div className="row">
@@ -86,18 +102,41 @@ const Navbar = (props) => {
                                                                                         <p className="card-text-notification">{notif.title}</p>
                                                                                     </div>
                                                                                     <div className="col-md-4">
-                                                                                        <p className="card-text-notification">{notif.date}</p>
+                                                                                        <p className="card-text-notification">{notif.date.replace(/T.*/,"")}</p>
                                                                                     </div>
                                                                                 </div>
                                                                                 <h5 className="card-title-product" style={{ marginBottom: 4 }}>{notif.name}</h5>
-                                                                                <h5 className="card-title-price-linethrough" style={{ marginBottom: 4 }}>{'Rp. ' + notif.price.toLocaleString()}</h5>
-                                                                                <h5 className="card-title-bargain" style={{ marginBottom: 4 }}>{'Ditawar ' + notif.price.toLocaleString()}</h5>
-                                                                                <p className="card-text-notification">Kamu akan segera dihubungi penjual via whatsapp</p>
+                                                                                <h5 className={notif.bid_price ? "card-title-price-linethrough" : "card-title-product"} style={{ marginBottom: 4 }}>{'Rp. ' + notif.price.toLocaleString()}</h5>
+                                                                                {notif.bid_price ?
+                                                                                    <h5 className="card-title-bargain" style={{ marginBottom: 4 }}>{'Ditawar ' + notif.bid_price.toLocaleString()}</h5>
+                                                                                : ""
+                                                                            }
+                                                                                <p className="card-text-notification">{notif.message}</p>
+                                                                                {/* {(() => {
+                                                                                    switch (notif.name.toLowerCase()) {
+                                                                                        case "berhasil di update":
+                                                                                            return <p className="card-text-notification">produk berhasil di update</p>
+                                                                                            break;
+                                                                                        case "berhasil diterbitkan":
+                                                                                        case "berhasil di terbitkan":
+                                                                                            return <p className="card-text-notification">produk berhasil diterbitkan</p>
+                                                                                            break;
+                                                                                        case "berhasil terjual":
+                                                                                            return <p className="card-text-notification">produk berhasil terjual</p>
+                                                                                            break;
+                                                                                        case "penawaran produk":
+                                                                                            return <p className="card-text-notification">Kamu akan segera dihubungi penjual via whatsapp</p>
+                                                                                            break;
+                                                                                        default:
+                                                                                            return <></>
+                                                                                            break;
+                                                                                    }
+                                                                                })()} */}
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                            </Link>
+                                                            </a>
                                                         </li>
                                                     )
                                                 })
