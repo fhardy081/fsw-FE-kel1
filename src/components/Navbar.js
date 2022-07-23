@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeToken } from "../reducers/api-store";
+import api from "../lib/api";
 
 const Navbar = (props) => {
 
@@ -12,6 +13,7 @@ const Navbar = (props) => {
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [search, setSearch] = useState("");
+    const [notif, setNotif] = useState([]);
 
     const logout = () => {
         dispatch(removeToken())
@@ -25,7 +27,13 @@ const Navbar = (props) => {
     }
 
     useEffect(() => {
-        if(props.onSearch){
+        api.get('/api/v1/notification').then(res => {
+            setNotif([...res.data.notifications])
+        })
+    }, [])
+
+    useEffect(() => {
+        if (props.onSearch) {
             props.onSearch(search)
         }
     }, [search])
@@ -34,13 +42,14 @@ const Navbar = (props) => {
         setIsLoggedIn(!!token)
     }, [token])
 
+    console.log(notif)
     return (
         <>
             <nav className="navbar navbar-expand-lg sticky-top">
                 <div className="container">
                     <a className="navbar-brand" href="/">&nbsp;</a>
                     <form class="search-bar d-flex">
-                        <input className="form-control cari-produk" type="search" placeholder="Cari di sini ..." aria-label="Search" onChange={e => setSearch(e.target.value)} value={search}/>
+                        <input className="form-control cari-produk" type="search" placeholder="Cari di sini ..." aria-label="Search" onChange={e => setSearch(e.target.value)} value={search} />
                     </form>
                     {(() => {
                         if (!isLoggedIn) {
@@ -60,63 +69,39 @@ const Navbar = (props) => {
                                             &nbsp;
                                         </a>
                                         <ul className="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <li>
-                                                <Link to={`/infoofer/`} className="dropdown-item">
-                                                    <div className="card-notification">
-                                                        <div className="card-body-notification">
-                                                            <div className="row">
-                                                                <div className="col-md-2">
-                                                                    <img src="assets/images/image_seller.png" className="seller-image d-block" alt="Seller" />
-                                                                </div>
-                                                                <div className="col-md-10" style={{ paddingTop: 16, paddingBottom: 16, paddingLeft: 32 }}>
-                                                                    <div className="row">
-                                                                        <div className="col-md-8">
-                                                                            <p className="card-text-notification">Penawaran Produk</p>
-                                                                        </div>
-                                                                        <div className="col-md-4">
-                                                                            <p className="card-text-notification">20 Apr, 14:04</p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <h5 className="card-title-product" style={{ marginBottom: 4 }}>Jam Tangan Casio</h5>
-                                                                    <h5 className="card-title-price-linethrough" style={{ marginBottom: 4 }}>Rp 250.000</h5>
-                                                                    <h5 className="card-title-bargain" style={{ marginBottom: 4 }}>Berhasil Ditawar Rp 200.000</h5>
-                                                                    <p className="card-text-notification">Kamu akan segera dihubungi penjual via whatsapp</p>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <a className="dropdown-item" href="/">
-                                                    <div className="card-notification">
-                                                        <div className="card-body-notification">
-                                                            <div className="row">
-                                                                <div className="col-md-2">
-                                                                    <img src="assets/images/image_seller.png" className="seller-image d-block" alt="Seller" />
-                                                                </div>
-                                                                <div className="col-md-10" style={{ paddingTop: 16, paddingBottom: 16, paddingLeft: 32 }}>
-                                                                    <div className="row">
-                                                                        <div className="col-md-8">
-                                                                            <p className="card-text-notification">Penawaran Produk</p>
-                                                                        </div>
-                                                                        <div className="col-md-4">
-                                                                            <p className="card-text-notification">20 Apr, 14:04</p>
+                                            {
+                                                notif.map((notif) => {
+                                                    return (
+                                                        <li>
+                                                            <Link to={`/infoofer/${notif.name}`} className="dropdown-item">
+                                                                <div className="card-notification">
+                                                                    <div className="card-body-notification">
+                                                                        <div className="row">
+                                                                            <div className="col-md-2">
+                                                                                <img src={notif.photo} className="seller-image d-block" alt="Seller" />
+                                                                            </div>
+                                                                            <div className="col-md-10" style={{ paddingTop: 16, paddingBottom: 16, paddingLeft: 32 }}>
+                                                                                <div className="row">
+                                                                                    <div className="col-md-8">
+                                                                                        <p className="card-text-notification">{notif.title}</p>
+                                                                                    </div>
+                                                                                    <div className="col-md-4">
+                                                                                        <p className="card-text-notification">{notif.date}</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <h5 className="card-title-product" style={{ marginBottom: 4 }}>{notif.name}</h5>
+                                                                                <h5 className="card-title-price-linethrough" style={{ marginBottom: 4 }}>{'Rp. ' + notif.price.toLocaleString()}</h5>
+                                                                                <h5 className="card-title-bargain" style={{ marginBottom: 4 }}>{'Ditawar ' + notif.price.toLocaleString()}</h5>
+                                                                                <p className="card-text-notification">Kamu akan segera dihubungi penjual via whatsapp</p>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                    <h5 className="card-title-product" style={{ marginBottom: 4 }}>Jam Tangan Casio</h5>
-                                                                    <h5 className="card-title-price-linethrough" style={{ marginBottom: 4 }}>Rp 250.000</h5>
-                                                                    <h5 className="card-title-bargain" style={{ marginBottom: 4 }}>Berhasil Ditawar Rp 200.000</h5>
-                                                                    <p className="card-text-notification">Kamu akan segera dihubungi penjual via whatsapp</p>
-
                                                                 </div>
-
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                                            </Link>
+                                                        </li>
+                                                    )
+                                                })
+                                            }
                                         </ul>
                                     </li>
                                     {/* <li className="nav-item">
