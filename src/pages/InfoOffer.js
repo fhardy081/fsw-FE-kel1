@@ -117,14 +117,14 @@ const InfoOffer = () => {
                                                     <span className="card-title" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa.title}</span>
                                                 </div>
                                                 <div className='col'>
-                                                    <span className="card-title float-end" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa.date}</span>
+                                                    <span className="card-title float-end" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa.date.replace(/T.*/,"")}</span>
                                                 </div>
                                             </div>
                                             <h6 className="card-title">{dataa.name}</h6>
                                             <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + dataa.price.toLocaleString()}</h6>
                                             <h6 className="card-title">{'Ditawar ' + dataa.bid_price.toLocaleString()}</h6>
                                             <div className='row mb-3'>
-                                                {( async () => {
+                                                {(  () => {
                                                     // const res = await api.get(`/api/v1/products/${}`)
                                                     if (dataa.status === true) {
                                                         return (
