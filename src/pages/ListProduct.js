@@ -48,7 +48,7 @@ function ListProduct() {
             >
               <span>
                 {/* <span className="navbar-toggler-icon" /> */}
-                <i class="bi bi-list"></i>
+                <i className="bi bi-list"></i>
               </span>
             </button>
           </div>

@@ -63,7 +63,7 @@ const Navbar = (props) => {
             <nav className="navbar navbar-expand-lg sticky-top">
                 <div className="container">
                     <a className="navbar-brand" href="/">&nbsp;</a>
-                    <form class="search-bar d-flex" onSubmit={e => onSearch(e)}>
+                    <form className="search-bar d-flex" onSubmit={e => onSearch(e)}>
                         <button className='btn btn-primary d-none' type="submit"></button>
                         <input className="form-control cari-produk" type="search" placeholder="Cari di sini ..." aria-label="Search" onChange={e => setSearch(e.target.value)} value={search} />
                     </form>

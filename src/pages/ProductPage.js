@@ -7,14 +7,11 @@ import Navbar from '../components/Navbar';
 import DescriptionProduct from '../components/productpage/DescriptionProduct';
 import { useParams } from 'react-router-dom';
 import api from "../lib/api";
-import { async } from 'q';
 
 const ProductPage = () => {
     const param = useParams()
-    // const { id } = useParams();
-    const [ product, setProduct] = useState({})
-    // const [ products, setProducts] = useState({})
     const [ user, setUser] = useState({})
+    const [ product, setProduct] = useState({})
     const [ hasoffer, setHasoffer] = useState(true)
     const [showAlert, setShowAlert] = useState(false)
     const [data, setData] = useState({
@@ -50,26 +47,13 @@ const ProductPage = () => {
 
 
     useEffect(()=>{
-        // setProduct({user_id:2})
-        // setUser({id:1})
         setHasoffer(false)
         setShowAlert(false)
     }, [])
-    // }, [product, hasoffer, user, showAlert])
-
-    //hanya coba apakah id nya masuk atau tidak, kalau mau fetch bisa dihapus aja
-    useEffect(()=>{
-        console.log(`current id ${param.id}`)
-    },[param.id])
-    //sampai sini hanya test saja
+    
     const getUsers = async () => {
         try {
-            const responseUsers = await api.get(`/api/v1/whoami`,
-                {
-                    // headers: {
-                    //     Authorization: `Bearer ${token}`,
-                    // },
-                });
+            const responseUsers = await api.get(`/api/v1/whoami`);
             const dataUsers = responseUsers.data.user_data;
             setUser(dataUsers)
         } catch (err) {
@@ -79,12 +63,7 @@ const ProductPage = () => {
     useEffect(() => {
     const getProducts = async () => {
         try {
-            const responseUsers = await api.get(`/api/v1/product/${param.id}`,
-                {
-                    // headers: {
-                    //     Authorization: `Bearer ${token}`,
-                    // },
-                });
+            const responseUsers = await api.get(`/api/v1/product/${param.id}`);
             const dataProducts = responseUsers.data.product;
             setData(dataProducts)
             console.log(dataProducts)
@@ -95,26 +74,6 @@ const ProductPage = () => {
         getProducts();
         getUsers()
     }, [param])
-    
-
-    // useEffect(() => {
-    //     const getProduct = async () => {
-    //         try {
-    //             const responseProduct = await api.get(`/api/v1/products`, {
-
-    //             })
-    //             console.log(responseProduct)
-
-    //             const dataProduct = await responseProduct.data.data.posts[0];
-    //             setPost(dataProduct)
-    //             console.log(dataProduct);
-
-    //         } catch (err) {
-    //             console.log(err);
-    //         }
-    //     }
-    //     getProduct();
-    // }, [id])
 
     return (
         <div id='product-page'>
@@ -163,7 +122,7 @@ const ProductPage = () => {
                 <button type="button" className="btn-close"  onClick={()=> setShowAlert(false)} aria-label="Close"></button>
         </div>
         <div className='button-back'>
-            <button type="button" class="btn-back-responsive fas fa-arrow-left fixed-top" aria-label="Back"></button>
+            <button type="button" className="btn-back-responsive fas fa-arrow-left fixed-top" aria-label="Back"></button>
         </div>
         
         </div>

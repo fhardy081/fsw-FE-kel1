@@ -1,6 +1,4 @@
-import { useEffect } from "react"
 import { Link } from "react-router-dom"
-import api from "../../lib/api"
 
 export default function DetailProduct(props) {
     const { product } = props
