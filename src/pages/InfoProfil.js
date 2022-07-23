@@ -121,10 +121,10 @@ function InfoProfil () {
                     const currentUserRequest = await api.get(
                         "/api/v1/whoami")
     
-                    const currentUserResponse = currentUserRequest.data;
-    
-                    if (currentUserResponse.status) {
-                        setUser(currentUserResponse.data.user_data);
+                    if (currentUserRequest.status) {
+                        setUser(currentUserRequest.data.user_data);
+                        setPhotos(currentUserRequest.data.user_data.photo)
+                        console.log(currentUserRequest.data)
                     }
                 } catch (err) {
                     setIsLoggedIn(false);
