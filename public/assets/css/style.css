@@ -693,3 +693,8 @@
         top: 92px;
     }
 }
+[aria-labelledby="navbarDropdownMenuLink"]{
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}

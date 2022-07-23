@@ -12,13 +12,17 @@ const InfoOffer = () => {
     const [data, setData] = useState({});
     const [complete, setComplete] = useState(false);
     const [dataa, setDataa] = useState([]);
+    const [selectedData, setSelectedData] = useState({
+        price: 0,
+        bid_price: 0
+    });
 
     const [errorResponse, setErrorResponse] = useState({
         isError: false,
         message: "",
     });
 
-    const submitOffer = async (e, bid_id, status) => {
+    const submitOffer = async (e, bid_id, status,offer) => {
         e.preventDefault()
         try {
             await api.put(`/api/v1/updateoffer/${bid_id}`, {
@@ -28,6 +32,7 @@ const InfoOffer = () => {
                 setData(res.data.bidder_data)
                 setDataa([...res.data.products])
             })
+            setSelectedData(offer)
         } catch (e) {
             console.log(e);
         }
@@ -119,19 +124,20 @@ const InfoOffer = () => {
                                             <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + dataa.price.toLocaleString()}</h6>
                                             <h6 className="card-title">{'Ditawar ' + dataa.bid_price.toLocaleString()}</h6>
                                             <div className='row mb-3'>
-                                                {(() => {
+                                                {( async () => {
+                                                    // const res = await api.get(`/api/v1/products/${}`)
                                                     if (dataa.status === true) {
                                                         return (
                                                             <div className='col-md-8 offset-md-4 row'>
                                                                 <button className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalHubungi" onClick={e => setOfferid(dataa.id)}>Status</button>
-                                                                <Link to={`https://wa.me/${data.phone_number}?text=Hai%20saya%20dari%20SecondHand`} className='btn btn-primary col' style={{ borderRadius: "1rem" }}>Hubungi di <i className='bi bi-whatsapp'></i></Link>
+                                                                <a href={`https://wa.me/${data.phone_number}?text=Hai%20saya%20dari%20SecondHand`} target="_blank" className='btn btn-primary col' style={{ borderRadius: "1rem" }}>Hubungi di <i className='bi bi-whatsapp'></i></a>
                                                             </div>
                                                         )
                                                     }
                                                     return (
                                                         <div className='col-md-8 offset-md-4 row'>
                                                             <button className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} onClick={e => submitOffer(e, dataa.id, 0)}>Tolak</button>
-                                                            <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima" onClick={e => submitOffer(e, dataa.id, 1)}>Terima</button>
+                                                            <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima" onClick={e => submitOffer(e, dataa.id, 1,dataa)}>Terima</button>
                                                         </div>
                                                     )
                                                 })()}
@@ -168,12 +174,12 @@ const InfoOffer = () => {
                                     </div>
                                     <div className='row mt-3'>
                                         <div className='col-2'>
-                                            <img src={dataa.photo} width={"100%"} alt={dataa.name} />
+                                            <img src={selectedData.photo} width={"100%"} alt={selectedData.name} />
                                         </div>
                                         <div className='col-10'>
-                                            <h6 className="card-title">{dataa.name}</h6>
-                                            {/* <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + dataa.price.toLocaleString()}</h6> */}
-                                            {/* <h6 className="card-title">{'Ditawar ' + dataa.bid_price.toLocaleString()}</h6> */}
+                                            <h6 className="card-title">{selectedData.name}</h6>
+                                            <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + selectedData.price.toLocaleString()}</h6>
+                                            <h6 className="card-title">{'Ditawar ' + selectedData.bid_price.toLocaleString()}</h6>
                                         </div>
                                     </div>
                                 </div>
