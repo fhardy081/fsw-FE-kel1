@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Alert } from "react-bootstrap";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import api from "../lib/api"
 
 const InfoOffer = () => {
-    const navigate = useNavigate();
     const { id } = useParams();
     const [finish, setFinish] = useState(1);
     const [offerid, setOfferid] = useState(0);
@@ -15,11 +14,6 @@ const InfoOffer = () => {
     const [selectedData, setSelectedData] = useState({
         price: 0,
         bid_price: 0
-    });
-
-    const [errorResponse, setErrorResponse] = useState({
-        isError: false,
-        message: "",
     });
 
     const submitOffer = async (e, bid_id, status,offer) => {
@@ -71,10 +65,6 @@ const InfoOffer = () => {
             </nav>
             <div className='container info-bidder'>
                 <div className='row satu'>
-                    {errorResponse.isError && (
-                        <Alert variant="danger">{errorResponse.message}</Alert>
-                    )}
-
                     <div className='col-md-3' style={{ marginBottom: '2rem' }}>
                         <a href='/'><i className="bi bi-arrow-left offset-md-5" style={{ fontSize: '1.5rem', color: 'black' }}></i></a>
                         <span className='title'><center style={{ marginTop: '-1.875rem' }}>Info Penawar</center></span>
@@ -127,6 +117,9 @@ const InfoOffer = () => {
                                                 {(  () => {
                                                     // const res = await api.get(`/api/v1/products/${}`)
                                                     if (dataa.status === true) {
+                                                        if (dataa.is_sold === true) {
+                                                            return(<></>)
+                                                        }
                                                         return (
                                                             <div className='col-md-8 offset-md-4 row'>
                                                                 <button className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalHubungi" onClick={e => setOfferid(dataa.id)}>Status</button>
@@ -185,7 +178,7 @@ const InfoOffer = () => {
                                 </div>
                             </div>
                             <div className='d-grid'>
-                                <Link to={`https://wa.me/${data.phone_number}?text=Hai%20saya%20dari%20SecondHand`} className="btn btn-primary" style={{ borderRadius: "1rem" }}>Hubungi via Whatsapp <i className='bi bi-whatsapp float-end'></i></Link>
+                                <a href={`https://wa.me/${data.phone_number}?text=Hai%20saya%20dari%20SecondHand`} target="_blank" className="btn btn-primary" style={{ borderRadius: "1rem" }}>Hubungi via Whatsapp <i className='bi bi-whatsapp float-end'></i></a>
                             </div>
                         </div>
                     </div>

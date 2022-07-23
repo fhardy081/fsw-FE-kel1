@@ -3,13 +3,13 @@ import Imgbanner from "../Assets/img banner.png";
 import Banner2 from "../Assets/banner2.png";
 import Banner3 from "../Assets/banner3.png";
 import Navbar from "../components/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import api from "../lib/api"
 
 const Homepage = () => {
   const [post, setPost] = useState([]);
   const [category, setCategory] = useState([""]);
-
+  const [query] = useSearchParams()
   const categories = category ? `${category}` : "";
 
   const getProductPublish = async (text) => {
@@ -45,15 +45,25 @@ const Homepage = () => {
     if (window.Loadowlcarousel) {
       window.Loadowlcarousel("#owl-carousel")
     }
-    getProductPublish();
-  }, [categories]);
+    
+    if (!query.get('q')) {
+      getProductPublish();
+    }
+  }, [categories,query]);
+
+  useEffect(() => {
+    if (query.get('q')) {
+      updateSearch(query.get('q'))
+    }
+    // console.log(query.get('q'))
+  }, [query]);
 
   return (
     <div id="home">
       {/*Nav*/}
-      <Navbar onSearch={text => updateSearch(text)} />
+      <Navbar onSearch={text => updateSearch(text)} text={query.get('q')} />
       <div className="bg">
-        <nav class="navbar navbar-expand-lg navbar-light nav-resp" onSearch={text => updateSearch(text)}>
+        {/* <nav class="navbar navbar-expand-lg navbar-light nav-resp" onSearch={text => updateSearch(text)}>
           <div class="container-fluid" style={{marginBottom: 200}}>
 
             <div className="row">
@@ -96,7 +106,7 @@ const Homepage = () => {
               </ul>
             </div>
           </div>
-        </nav>
+        </nav> */}
 
         {/*Carousel*/}
         <div id="carousel" style={{ overflowX: 'hidden' }} >
