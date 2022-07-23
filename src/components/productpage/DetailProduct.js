@@ -6,11 +6,7 @@ export default function DetailProduct(props) {
     const { product } = props
     const { user } = props
     const { hasoffer } = props
-    useEffect(() => {
-        api.get(`/api/v1/checkoffer/${product.id}`).then(res=>{
-            console.log(res.data)
-        })
-    },[product])
+    
 
     return (<>
         {product.user_id === user.id ?
