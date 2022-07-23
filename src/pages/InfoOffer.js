@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { Alert } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import api from "../lib/api"
 
 const InfoOffer = () => {
@@ -73,9 +72,9 @@ const InfoOffer = () => {
                         {(() => {
                             if (complete === true) {
                                 return (
-                                    <div class="alert alert-success alert-dismissible fade show mx-auto" role="alert" style={{ backgroundColor: "#73CA5C", borderRadius: "0.75rem", color: "white" }}>
+                                    <div className="alert alert-success alert-dismissible fade show mx-auto" role="alert" style={{ backgroundColor: "#73CA5C", borderRadius: "0.75rem", color: "white" }}>
                                         Status produk berhasil diperbarui
-                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                     </div>
                                 )
                             }
@@ -114,8 +113,7 @@ const InfoOffer = () => {
                                             <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + dataa.price.toLocaleString()}</h6>
                                             <h6 className="card-title">{'Ditawar ' + dataa.bid_price.toLocaleString()}</h6>
                                             <div className='row mb-3'>
-                                                {(  () => {
-                                                    // const res = await api.get(`/api/v1/products/${}`)
+                                                {( () => {
                                                     if (dataa.status === true) {
                                                         if (dataa.is_sold === true) {
                                                             return(<></>)
