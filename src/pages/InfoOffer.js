@@ -109,7 +109,7 @@ const InfoOffer = () => {
                                         <div className='col-10'>
                                             <div className='row'>
                                                 <div className='col'>
-                                                    <span className="card-title" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>Penawaran produk</span>
+                                                    <span className="card-title" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa.title}</span>
                                                 </div>
                                                 <div className='col'>
                                                     <span className="card-title float-end" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa.date}</span>
@@ -124,18 +124,16 @@ const InfoOffer = () => {
                                                         return (
                                                             <div className='col-md-8 offset-md-4 row'>
                                                                 <button className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalHubungi" onClick={e => setOfferid(dataa.id)}>Status</button>
-                                                                <Link to={`https://wa.me/${data.name}?text=Hai%20saya%20dari%20SecondHand`} className='btn btn-primary col' style={{ borderRadius: "1rem" }}>Hubungi di <i className='bi bi-whatsapp'></i></Link>
+                                                                <Link to={`https://wa.me/${data.phone_number}?text=Hai%20saya%20dari%20SecondHand`} className='btn btn-primary col' style={{ borderRadius: "1rem" }}>Hubungi di <i className='bi bi-whatsapp'></i></Link>
                                                             </div>
                                                         )
-                                                    }if (finish === 1) {
-                                                        <div>kosong</div>
-                                                    }else{
+                                                    }
                                                     return (
                                                         <div className='col-md-8 offset-md-4 row'>
                                                             <button className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} onClick={e => submitOffer(e, dataa.id, 0)}>Tolak</button>
                                                             <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima" onClick={e => submitOffer(e, dataa.id, 1)}>Terima</button>
                                                         </div>
-                                                    )}
+                                                    )
                                                 })()}
                                             </div>
                                         </div>
@@ -181,7 +179,7 @@ const InfoOffer = () => {
                                 </div>
                             </div>
                             <div className='d-grid'>
-                                <Link to={`https://wa.me/${data.name}?text=Hai%20saya%20dari%20SecondHand`} className="btn btn-primary" style={{ borderRadius: "1rem" }}>Hubungi via Whatsapp <i className='bi bi-whatsapp float-end'></i></Link>
+                                <Link to={`https://wa.me/${data.phone_number}?text=Hai%20saya%20dari%20SecondHand`} className="btn btn-primary" style={{ borderRadius: "1rem" }}>Hubungi via Whatsapp <i className='bi bi-whatsapp float-end'></i></Link>
                             </div>
                         </div>
                     </div>
