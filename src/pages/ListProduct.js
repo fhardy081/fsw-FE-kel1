@@ -36,7 +36,7 @@ function ListProduct() {
         {/* Offcanvas */}
         <div className='container pt-2 pb-4'>
           <div className="row">
-            <h2>Second Hand</h2>
+          <h2 className='offcanvas-title'>Daftar Jual Saya</h2>
             <button
               className="navbar-toggler"
               type="button"
@@ -60,16 +60,16 @@ function ListProduct() {
             aria-labelledby="offcanvasTopLabel"
           >
             <div className="offcanvas-body">
-              <p>Second Hand</p>
-              <ul>
+            <p className='offcanvas-sidetitle'>Second Hand</p>
+              <ul style={{ paddingLeft: '0.25rem'}}>
                 <li>
-                  <a href="#">Notifikasi</a>
+                  <a className="offcanvas-sub" href="#">Notifikasi</a>
                 </li>
                 <li> 
-                  <a href="#">Daftar Jual</a>
+                  <a className="offcanvas-sub" href="#">Daftar Jual</a>
                 </li>
                 <li>
-                  <a href="#">Akun Saya</a>
+                  <a className="offcanvas-sub" href="#">Akun Saya</a>
                 </li>
               </ul>
             </div>
