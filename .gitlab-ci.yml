@@ -1,0 +1,11 @@
+stages:
+  - cleancode
+  - unit testing
+
+Testing:
+  coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
+  stage: unit testing
+  image: node:latest
+  script:
+    - yarn install
+    - yarn test
