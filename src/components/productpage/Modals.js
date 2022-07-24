@@ -1,9 +1,6 @@
-// import React, { useState } from 'react';
-
 import { useState } from "react"
 
 const Modals = (props) => {
-    // const [showModal, setShowModal] = useState (false)
     const saveOffer = () => {
         if(props.onSave){
             props.onSave(price)
@@ -27,11 +24,11 @@ const Modals = (props) => {
                             <div className="card-body-product">
                                 <div className="row">
                                     <div className="col-md-2">
-                                        <img src={product.photos[0]} className="seller-image d-block" alt="Product Buy"/>
+                                        <img src={product?.photos[0]} className="seller-image d-block" alt="Product Buy"/>
                                     </div>
                                     <div className="col-md-10">
-                                        <h5 className="card-title-product" style={{marginBottom: 4}}>{product.name}</h5>
-                                        <p className="card-text-product">Rp. {product.price.toLocaleString()}</p>
+                                        <h5 className="card-title-product" style={{marginBottom: 4}}>{product?.name}</h5>
+                                        <p className="card-text-product">Rp. {product?.price.toLocaleString()}</p>
                                     </div>
                                 </div>
                             </div>

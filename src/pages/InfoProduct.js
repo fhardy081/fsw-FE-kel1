@@ -45,8 +45,8 @@ const InfoProduct = () => {
 
             const dataProduct = await responseProduct.data.product;
             setData(dataProduct)
-        } catch (err) {
-            console.log(err);
+        } catch (e) {
+
         }
     }
 
@@ -98,10 +98,9 @@ const InfoProduct = () => {
                 navigate(`/product/${id}`)
             }
 
-        } catch (err) {
-            if (err.response) {
-                console.log(err);
-                const response = err.response.data;
+        } catch (e) {
+            if (e.response) {
+                const response = e.response.data;
 
                 setErrorResponse({
                     isError: true,
@@ -110,7 +109,7 @@ const InfoProduct = () => {
             } else {
                 setErrorResponse({
                     isError: true,
-                    message: err.message
+                    message: e.message
                 })
             }
         }
@@ -135,7 +134,7 @@ const InfoProduct = () => {
                     <form action='' onSubmit={onPost} className='col-md-6'>
                         <div className="col-md mb-3">
                             <label htmlFor="nm_produk" className="form-label">Nama Produk</label>
-                            <input type="type" className="form-control" defaultValue={data.name} ref={nameField} placeholder="Nama Produk" />
+                            <input type="type" id="nm_produk" className="form-control" defaultValue={data?.name} ref={nameField} placeholder="Nama Produk" />
                         </div>
                         <div className="col-md mb-3">
                             <label htmlFor="harga_produk" className="form-label">Harga Produk</label>

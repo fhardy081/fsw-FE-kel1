@@ -2,21 +2,24 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import ItemCard2 from '../components/ListProduct/ItemCard2';
+import Navbar from '../components/Navbar';
 import api from '../lib/api';
-import { setToken } from '../reducers/api-store';
 import store from '../store/store';
-import Login from './Login';
+import ListProduct2 from './ListProduct2';
 
 test('renders learn react link', () => {
   render(<React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <Login api={api} setToken={setToken}/>
+        <ListProduct2 api={api}/>
+        <Navbar />
+        <ItemCard2 />
       </Provider>
     </BrowserRouter>
   </React.StrictMode>);
 
-const button = screen.getByRole('button', {name: 'Masuk'})
+const button = screen.getByRole('button', {name: 'Edit'})
 fireEvent.click(button)
   
 });

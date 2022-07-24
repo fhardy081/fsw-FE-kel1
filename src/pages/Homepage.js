@@ -155,14 +155,14 @@ const Homepage = () => {
       {/*Product Card*/}
       <div className="container pt-2">
         <div className="row">
-          {post.map((post) =>
-            <Link to={`/product/${post.id}`} className="card ms-4 mb-4" style={{ width: "18rem", height: "18rem", color: "black", textDecoration: "none" }}>
-              <img src={post.photo} alt={post.photo} className="card-img-top mt-3" width={'50%'} height={'50%'} />
+          {post?.map((post) =>
+            <Link to={`/product/${post?.id}`} className="card ms-4 mb-4" style={{ width: "18rem", height: "18rem", color: "black", textDecoration: "none" }}>
+              <img src={post?.photo} alt={post?.photo} className="card-img-top mt-3" width={'50%'} height={'50%'} />
               <div className="card-body">
-                <h5 className="card-title">{post.name}</h5>
-                <p className="jenis-barang">{post.category}</p>
+                <h5 className="card-title">{post?.name}</h5>
+                <p className="jenis-barang">{post?.category}</p>
                 <h5 className="card-text">
-                  Rp {post.price.toLocaleString()}
+                  Rp {post?.price.toLocaleString()}
                   <p />
                 </h5>
               </div>

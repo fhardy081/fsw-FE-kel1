@@ -36,7 +36,7 @@ function ListProduct() {
         {/* Offcanvas */}
         <div className='container pt-2 pb-4'>
           <div className="row">
-            <h2>Second Hand</h2>
+          <h2 className='offcanvas-title'>Daftar Jual Saya</h2>
             <button
               className="navbar-toggler"
               type="button"
@@ -60,16 +60,16 @@ function ListProduct() {
             aria-labelledby="offcanvasTopLabel"
           >
             <div className="offcanvas-body">
-              <p>Second Hand</p>
-              <ul>
+            <p className='offcanvas-sidetitle'>Second Hand</p>
+              <ul style={{ paddingLeft: '0.25rem'}}>
                 <li>
-                  <a href="#">Notifikasi</a>
+                  <a className="offcanvas-sub" href="#">Notifikasi</a>
                 </li>
                 <li> 
-                  <a href="#">Daftar Jual</a>
+                  <a className="offcanvas-sub" href="#">Daftar Jual</a>
                 </li>
                 <li>
-                  <a href="#">Akun Saya</a>
+                  <a className="offcanvas-sub" href="#">Akun Saya</a>
                 </li>
               </ul>
             </div>
@@ -86,8 +86,8 @@ function ListProduct() {
               <img src={photo} style={{ paddingLeft: '16px', paddingTop: '16px', borderRadius: '5px' }} width="80%" alt="" />
             </Col>
             <Col xs={9}>
-              <h5 style={{ fontWeight: 'bold', paddingTop: '12px', marginRight: '20%' }}>{user.name}</h5>
-              <p>{user.city}</p>
+              <h5 style={{ fontWeight: 'bold', paddingTop: '12px', marginRight: '20%' }}>{user?.name}</h5>
+              <p>{user?.city}</p>
             </Col>
             <Col xs={2} style={{ paddingTop: '20px', paddingLeft: '120px' }}>
               <Link to="/info-profil">
@@ -107,7 +107,7 @@ function ListProduct() {
                       <i type="button" className="link">
                         <FaCube />
                         {' '}
-                        Semua Produk
+                        &nbsp;Semua Produk
                       </i>
                     </Link>
                   </ListGroup.Item>
@@ -116,7 +116,7 @@ function ListProduct() {
                       <i type="button" className="link">
                         <FaRegHeart style={{ color: '#8A8A8A' }} />
                         {' '}
-                        Diminati
+                        &nbsp;Diminati
                       </i>
                     </Link>
                   </ListGroup.Item>
@@ -134,22 +134,22 @@ function ListProduct() {
             </div>
           </Col>
           <Col>
-            <div className="card content" type="button" style={{  width: '250px',height: '250px',marginTop: '25px' }}>
+            <Link to="/infoproduct" className="card content" type="button" style={{  width: '250px',height: '250px',marginTop: '25px' }}>
               <FaPlus />
               {' '}
               <p className="pt-2">Tambah Produk</p>
-            </div>
+            </Link>
           </Col>
-          {products.map((product, idx) => {
+          {products?.map((product, idx) => {
             return (
-              <Col md={3} key={product.id}>
+              <Col md={3} key={product?.id}>
                 <Link to={`/infoproduct/${product.id}`} style={{ color: "black", textDecoration: "none" }}>
                   <ItemCard
-                    title={product.name}
-                    type={product.category}
-                    price={'Rp. ' + product.price.toLocaleString()}
-                    image={product.photo}
-                    imageAlt={product.name}
+                    title={product?.name}
+                    type={product?.category}
+                    price={'Rp. ' + product?.price.toLocaleString()}
+                    image={product?.photo}
+                    imageAlt={product?.name}
                   />
                 </Link>
               </Col>

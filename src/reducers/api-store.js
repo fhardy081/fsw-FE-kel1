@@ -18,6 +18,6 @@ export const apiStore = createSlice({
     }
 })
 
-export const { setToken,removeToken } = apiStore.actions
+export const { setToken, removeToken } = apiStore.actions
 
-export default apiStore.reducer
+export default apiStore.reducer 

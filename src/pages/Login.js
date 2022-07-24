@@ -39,10 +39,10 @@ const Login = () => {
 
                 navigate("/");
             }
-        } catch (err) {
-            if (err.response) {
-                console.log(err);
-                const response = err.response.data;
+        } catch (e) {
+            if (e.response) {
+                console.log(e);
+                const response = e.response.data;
 
                 setErrorResponse({
                     isError: true,
@@ -51,7 +51,7 @@ const Login = () => {
             }else{
                 setErrorResponse({
                     isError: true,
-                    message: err.message
+                    message: e.message
                 })
             }
         }
@@ -74,11 +74,11 @@ const Login = () => {
                             <form className='col-md-8 offset-md-2 row' onSubmit={onLogin}>
                                 <div className="col-md-12 mb-3">
                                     <label htmlFor="email" className="form-label">Email</label>
-                                    <input type="email" className="form-control input-width-login" ref={emailField} placeholder="Contoh: johndee@gmail.com" />
+                                    <input id="email" type="email" className="form-control input-width-login" ref={emailField} placeholder="Contoh: johndee@gmail.com" />
                                 </div>
                                 <div className="col-md-12 mb-3">
                                     <label htmlFor="password" className="form-label">Password</label>
-                                    <input type="password" className="form-control input-width-login" ref={passwordField} placeholder="Masukkan password" />
+                                    <input id="password" type="password" className="form-control input-width-login" ref={passwordField} placeholder="Masukkan password" />
                                 </div>
                                 <div className="col-md-12 mb-3 d-grid">
                                     <button type="submit" className="btn btn-primary input-width-login">Masuk</button>

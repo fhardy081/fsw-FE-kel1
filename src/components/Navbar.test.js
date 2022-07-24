@@ -3,20 +3,20 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import api from '../lib/api';
-import { setToken } from '../reducers/api-store';
+import { removeToken } from '../reducers/api-store';
 import store from '../store/store';
-import Login from './Login';
+import Navbar from './Navbar';
 
 test('renders learn react link', () => {
   render(<React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <Login api={api} setToken={setToken}/>
+        <Navbar removeToken={removeToken} api={api} />
       </Provider>
     </BrowserRouter>
   </React.StrictMode>);
 
-const button = screen.getByRole('button', {name: 'Masuk'})
-fireEvent.click(button)
-  
+  const button = screen.getByRole('link', { name: 'Masuk' })
+  fireEvent.click(button)
+
 });

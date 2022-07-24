@@ -18,7 +18,6 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<RegistrationPage />} />
-
         <Route path="/" element={<SecurePage />} >
           <Route path="product/:id" element={<ProductPage />} />
           <Route path="info-profil" element={<InfoProfil />} />

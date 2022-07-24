@@ -33,9 +33,9 @@ const RegistrationPage = () => {
             if (registerRequest.status) {
                 navigate("/login")
             }
-        } catch (err) {
-            console.log(err);
-            const response = err.response.data;
+        } catch (e) {
+            console.log(e);
+            const response = e.response.data;
 
             setErrorResponse({
                 isError: true,
