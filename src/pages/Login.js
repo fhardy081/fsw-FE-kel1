@@ -74,7 +74,7 @@ const Login = () => {
                             <form className='col-md-8 offset-md-2 row' onSubmit={onLogin}>
                                 <div className="col-md-12 mb-3">
                                     <label htmlFor="email" className="form-label">Email</label>
-                                    <input id="email" type="text" className="form-control input-width-login" ref={emailField} placeholder="Contoh: johndee@gmail.com" />
+                                    <input id="email" type="email" className="form-control input-width-login" ref={emailField} placeholder="Contoh: johndee@gmail.com" />
                                 </div>
                                 <div className="col-md-12 mb-3">
                                     <label htmlFor="password" className="form-label">Password</label>

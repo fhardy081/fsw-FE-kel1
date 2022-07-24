@@ -32,7 +32,7 @@ const CarouselProduct = (props) => {
           ></button>
         </div>
         <div className="carousel-inner mx-auto">     
-          {photos.map((item, index)=>(
+          {photos?.map((item, index)=>(
             <div className={`carousel-item ${index===0?'active':""}`} key={index}>
             <img
               src={item}

@@ -110,26 +110,6 @@ const Navbar = (props) => {
                                                                                 : ""
                                                                             }
                                                                                 <p className="card-text-notification">{notif.message}</p>
-                                                                                {/* {(() => {
-                                                                                    switch (notif.name.toLowerCase()) {
-                                                                                        case "berhasil di update":
-                                                                                            return <p className="card-text-notification">produk berhasil di update</p>
-                                                                                            break;
-                                                                                        case "berhasil diterbitkan":
-                                                                                        case "berhasil di terbitkan":
-                                                                                            return <p className="card-text-notification">produk berhasil diterbitkan</p>
-                                                                                            break;
-                                                                                        case "berhasil terjual":
-                                                                                            return <p className="card-text-notification">produk berhasil terjual</p>
-                                                                                            break;
-                                                                                        case "penawaran produk":
-                                                                                            return <p className="card-text-notification">Kamu akan segera dihubungi penjual via whatsapp</p>
-                                                                                            break;
-                                                                                        default:
-                                                                                            return <></>
-                                                                                            break;
-                                                                                    }
-                                                                                })()} */}
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -141,9 +121,7 @@ const Navbar = (props) => {
                                             }
                                         </ul>
                                     </li>
-                                    {/* <li className="nav-item">
-                                        <a className="nav-link nav-item-user" href="/">&nbsp;</a>
-                                    </li> */}
+                    
                                     <li className='nav-item'>
                                         <a className="nav-link nav-item-user" href="/" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             &nbsp;

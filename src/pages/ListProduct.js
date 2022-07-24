@@ -137,7 +137,7 @@ function ListProduct() {
             <div className="card content" type="button" style={{  width: '250px',height: '250px',marginTop: '25px' }}>
               <FaPlus />
               {' '}
-              <p className="pt-2">Tambah Produk</p>
+              <Link to="/infoproduct" className="pt-2">Tambah Produk</Link>
             </div>
           </Col>
           {products.map((product, idx) => {

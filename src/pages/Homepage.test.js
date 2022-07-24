@@ -3,6 +3,7 @@ import React from 'react';
 import { Navbar } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import api from '../lib/api';
 import store from '../store/store';
 import Homepage from './Homepage';
 
@@ -10,7 +11,7 @@ test('renders learn react link', () => {
   render(<React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <Homepage />
+        <Homepage api={api}/>
         <Navbar />
       </Provider>
     </BrowserRouter>
