@@ -83,52 +83,52 @@ const InfoOffer = () => {
                             <div className="card-body">
                                 <div className='row'>
                                     <div className='col-2'>
-                                        <img src={data.photo} width={"100%"} alt={data.name} />
+                                        <img src={data?.photo} width={"100%"} alt={data?.name} />
                                     </div>
                                     <div className='col-10'>
-                                        <h6 className="card-title" style={{ fontWeight: "bold" }}>{data.name}</h6>
-                                        <p className="card-text" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{data.city}</p>
+                                        <h6 className="card-title" style={{ fontWeight: "bold" }}>{data?.name}</h6>
+                                        <p className="card-text" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{data?.city}</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <h6 className='mt-3' style={{ fontWeight: "bold" }}>Daftar Produkmu yang Ditawar</h6>
                         {
-                            dataa.map((dataa) => {
+                            dataa?.map((dataa) => {
                                 return (
                                     <div className='row mt-3'>
                                         <div className='col-2'>
-                                            <img src={dataa.photo} width={"100%"} alt={dataa.name} />
+                                            <img src={dataa?.photo} width={"100%"} alt={dataa?.name} />
                                         </div>
                                         <div className='col-10'>
                                             <div className='row'>
                                                 <div className='col'>
-                                                    <span className="card-title" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa.title}</span>
+                                                    <span className="card-title" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa?.title}</span>
                                                 </div>
                                                 <div className='col'>
-                                                    <span className="card-title float-end" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa.date.replace(/T.*/,"")}</span>
+                                                    <span className="card-title float-end" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{dataa?.date.replace(/T.*/,"")}</span>
                                                 </div>
                                             </div>
-                                            <h6 className="card-title">{dataa.name}</h6>
-                                            <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + dataa.price.toLocaleString()}</h6>
-                                            <h6 className="card-title">{'Ditawar ' + dataa.bid_price.toLocaleString()}</h6>
+                                            <h6 className="card-title">{dataa?.name}</h6>
+                                            <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + dataa?.price.toLocaleString()}</h6>
+                                            <h6 className="card-title">{'Ditawar ' + dataa?.bid_price.toLocaleString()}</h6>
                                             <div className='row mb-3'>
                                                 {( () => {
-                                                    if (dataa.status === true) {
-                                                        if (dataa.is_sold === true) {
+                                                    if (dataa?.status === true) {
+                                                        if (dataa?.is_sold === true) {
                                                             return(<></>)
                                                         }
                                                         return (
                                                             <div className='col-md-8 offset-md-4 row'>
-                                                                <button className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalHubungi" onClick={e => setOfferid(dataa.id)}>Status</button>
-                                                                <a href={`https://wa.me/${data.phone_number}?text=Hai%20saya%20dari%20SecondHand`} target="_blank" className='btn btn-primary col' style={{ borderRadius: "1rem" }}>Hubungi di <i className='bi bi-whatsapp'></i></a>
+                                                                <button className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalHubungi" onClick={e => setOfferid(dataa?.id)}>Status</button>
+                                                                <a href={`https://wa.me/${data?.phone_number}?text=Hai%20saya%20dari%20SecondHand`} target="_blank" className='btn btn-primary col' style={{ borderRadius: "1rem" }}>Hubungi di <i className='bi bi-whatsapp'></i></a>
                                                             </div>
                                                         )
                                                     }
                                                     return (
                                                         <div className='col-md-8 offset-md-4 row'>
-                                                            <button className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} onClick={e => submitOffer(e, dataa.id, 0)}>Tolak</button>
-                                                            <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima" onClick={e => submitOffer(e, dataa.id, 1,dataa)}>Terima</button>
+                                                            <button className='btn btn-outline-primary col me-2' style={{ color: 'black', borderRadius: "1rem" }} onClick={e => submitOffer(e, dataa?.id, 0)}>Tolak</button>
+                                                            <button className='btn btn-primary col' style={{ borderRadius: "1rem" }} data-bs-toggle="modal" data-bs-target="#exampleModalTerima" onClick={e => submitOffer(e, dataa?.id, 1,dataa)}>Terima</button>
                                                         </div>
                                                     )
                                                 })()}
@@ -156,27 +156,27 @@ const InfoOffer = () => {
                                     <h6 className='text-center mb-4' style={{ fontWeight: "bold" }}>Product Match</h6>
                                     <div className='row'>
                                         <div className='col-2'>
-                                            <img src={data.photo} width={"100%"} alt={data.name} />
+                                            <img src={data?.photo} width={"100%"} alt={data?.name} />
                                         </div>
                                         <div className='col-10'>
-                                            <h6 className="card-title" style={{ fontWeight: "bold" }}>{data.name}</h6>
-                                            <p className="card-text" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{data.city}</p>
+                                            <h6 className="card-title" style={{ fontWeight: "bold" }}>{data?.name}</h6>
+                                            <p className="card-text" style={{ fontSize: "0.75rem", color: "#8A8A8A" }}>{data?.city}</p>
                                         </div>
                                     </div>
                                     <div className='row mt-3'>
                                         <div className='col-2'>
-                                            <img src={selectedData.photo} width={"100%"} alt={selectedData.name} />
+                                            <img src={selectedData?.photo} width={"100%"} alt={selectedData?.name} />
                                         </div>
                                         <div className='col-10'>
-                                            <h6 className="card-title">{selectedData.name}</h6>
-                                            <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + selectedData.price.toLocaleString()}</h6>
-                                            <h6 className="card-title">{'Ditawar ' + selectedData.bid_price.toLocaleString()}</h6>
+                                            <h6 className="card-title">{selectedData?.name}</h6>
+                                            <h6 className="card-title" style={{ textDecoration: "line-through" }}>{'Rp. ' + selectedData?.price.toLocaleString()}</h6>
+                                            <h6 className="card-title">{'Ditawar ' + selectedData?.bid_price.toLocaleString()}</h6>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div className='d-grid'>
-                                <a href={`https://wa.me/${data.phone_number}?text=Hai%20saya%20dari%20SecondHand`} target="_blank" className="btn btn-primary" style={{ borderRadius: "1rem" }}>Hubungi via Whatsapp <i className='bi bi-whatsapp float-end'></i></a>
+                                <a href={`https://wa.me/${data?.phone_number}?text=Hai%20saya%20dari%20SecondHand`} target="_blank" className="btn btn-primary" style={{ borderRadius: "1rem" }}>Hubungi via Whatsapp <i className='bi bi-whatsapp float-end'></i></a>
                             </div>
                         </div>
                     </div>
@@ -206,7 +206,7 @@ const InfoOffer = () => {
                                 </div>
                             </form>
                             <div className='d-grid'>
-                                <button className="btn btn-primary" style={{ borderRadius: "1rem" }} onClick={(e) => finishOffer(e, offerid, finish)}>Kirim</button>
+                                <button className="btn btn-primary" type="submit" style={{ borderRadius: "1rem" }} onClick={(e) => finishOffer(e, offerid, finish)}>Kirim</button>
                                 {/* <a href='/' className="btn btn-secondary" style={{ borderRadius: "1rem" }}>Kirim</a> */}
                             </div>
                         </div>

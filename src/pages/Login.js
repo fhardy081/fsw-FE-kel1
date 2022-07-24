@@ -39,10 +39,10 @@ const Login = () => {
 
                 navigate("/");
             }
-        } catch (err) {
-            if (err.response) {
-                console.log(err);
-                const response = err.response.data;
+        } catch (e) {
+            if (e.response) {
+                console.log(e);
+                const response = e.response.data;
 
                 setErrorResponse({
                     isError: true,
@@ -51,7 +51,7 @@ const Login = () => {
             }else{
                 setErrorResponse({
                     isError: true,
-                    message: err.message
+                    message: e.message
                 })
             }
         }

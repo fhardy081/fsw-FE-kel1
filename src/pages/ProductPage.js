@@ -56,7 +56,7 @@ const ProductPage = () => {
             const responseUsers = await api.get(`/api/v1/whoami`);
             const dataUsers = responseUsers.data.user_data;
             setUser(dataUsers)
-        } catch (err) {
+        } catch (e) {
         }
     }
 
@@ -67,7 +67,7 @@ const ProductPage = () => {
             const dataProducts = responseUsers.data.product;
             setData(dataProducts)
             console.log(dataProducts)
-        } catch (err) {
+        } catch (e) {
         }
         
         }
@@ -119,7 +119,7 @@ const ProductPage = () => {
         </div>
         <div className={`alert alert-success alert-dismissible alert-buyer fade ${showAlert ? 'show' : ''}`} role="alert">
                 Harga tawarmu berhasil dikirim ke penjual
-                <button type="button" className="btn-close"  onClick={()=> setShowAlert(false)} aria-label="Close"></button>
+                <button type="button" className="btn-close" onClick={()=> setShowAlert(false)} aria-label="Close"></button>
         </div>
         <div className='button-back'>
             <button type="button" className="btn-back-responsive fas fa-arrow-left fixed-top" aria-label="Back"></button>

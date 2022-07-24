@@ -84,7 +84,7 @@ const Navbar = (props) => {
                                         </a>
                                         <ul className="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             {
-                                                notif.map((notif) => {
+                                                notif?.map((notif) => {
                                                     return (
                                                         <li key={notif.date}>
                                                             <a href="#" onClick={e => onClickNotif(e,notif)} className="dropdown-item">
@@ -92,24 +92,24 @@ const Navbar = (props) => {
                                                                     <div className="card-body-notification">
                                                                         <div className="row">
                                                                             <div className="col-md-2">
-                                                                                <img src={notif.photo} className="seller-image d-block" alt="Seller" />
+                                                                                <img src={notif?.photo} className="seller-image d-block" alt="Seller" />
                                                                             </div>
                                                                             <div className="col-md-10" style={{ paddingTop: 16, paddingBottom: 16, paddingLeft: 32 }}>
                                                                                 <div className="row">
                                                                                     <div className="col-md-8">
-                                                                                        <p className="card-text-notification">{notif.title}</p>
+                                                                                        <p className="card-text-notification">{notif?.title}</p>
                                                                                     </div>
                                                                                     <div className="col-md-4">
-                                                                                        <p className="card-text-notification">{notif.date.replace(/T.*/,"")}</p>
+                                                                                        <p className="card-text-notification">{notif?.date.replace(/T.*/,"")}</p>
                                                                                     </div>
                                                                                 </div>
-                                                                                <h5 className="card-title-product" style={{ marginBottom: 4 }}>{notif.name}</h5>
-                                                                                <h5 className={notif.bid_price ? "card-title-price-linethrough" : "card-title-product"} style={{ marginBottom: 4 }}>{'Rp. ' + notif.price.toLocaleString()}</h5>
-                                                                                {notif.bid_price ?
-                                                                                    <h5 className="card-title-bargain" style={{ marginBottom: 4 }}>{'Ditawar ' + notif.bid_price.toLocaleString()}</h5>
+                                                                                <h5 className="card-title-product" style={{ marginBottom: 4 }}>{notif?.name}</h5>
+                                                                                <h5 className={notif?.bid_price ? "card-title-price-linethrough" : "card-title-product"} style={{ marginBottom: 4 }}>{'Rp. ' + notif?.price.toLocaleString()}</h5>
+                                                                                {notif?.bid_price ?
+                                                                                    <h5 className="card-title-bargain" style={{ marginBottom: 4 }}>{'Ditawar ' + notif?.bid_price.toLocaleString()}</h5>
                                                                                 : ""
                                                                             }
-                                                                                <p className="card-text-notification">{notif.message}</p>
+                                                                                <p className="card-text-notification">{notif?.message}</p>
                                                                             </div>
                                                                         </div>
                                                                     </div>

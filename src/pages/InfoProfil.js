@@ -27,7 +27,7 @@ function InfoProfil() {
             const responseUsers = await api.get(`/api/v1/whoami`);
             const dataUsers = responseUsers.data.user_data;
             setData(dataUsers)
-        } catch (err) {
+        } catch (e) {
         }
     }
 
@@ -78,10 +78,9 @@ function InfoProfil() {
                 })
             }
 
-        } catch (err) {
-            if (err.response) {
-                console.log(err);
-                const response = err.response.data;
+        } catch (e) {
+            if (e.response) {
+                const response = e.response.data;
 
                 setErrorResponse({
                     isError: true,
@@ -90,7 +89,7 @@ function InfoProfil() {
             } else {
                 setErrorResponse({
                     isError: true,
-                    message: err.message
+                    message: e.message
                 })
             }
         }
@@ -135,19 +134,19 @@ function InfoProfil() {
                         </div>
                         <div className="col-md mb-3">
                             <label htmlFor="nm_produk" className="form-label">Nama<span style={{ color: "red" }}>*</span></label>
-                            <input type="type" className="form-control" id="nama" placeholder="Nama" ref={nameField} defaultValue={data.name} />
+                            <input type="type" className="form-control" id="nama" placeholder="Nama" ref={nameField} defaultValue={data?.name} />
                         </div>
                         <div className="col-md mb-3">
                             <label htmlFor="kategori" className="form-label">Kota<span style={{ color: "red" }}>*</span></label>
-                            <input type="type" className="form-control" id="kota" placeholder="Kota" ref={cityField} defaultValue={data.city} />
+                            <input type="type" className="form-control" id="kota" placeholder="Kota" ref={cityField} defaultValue={data?.city} />
                         </div>
                         <div className="col-md mb-3">
                             <label htmlFor="deskripsi" className="form-label">Alamat<span style={{ color: "red" }}>*</span></label>
-                            <textarea className="form-control" id="alamat" rows="3" placeholder='Contoh: Jalan Ikan Hiu 33' ref={addressField} defaultValue={data.address}></textarea>
+                            <textarea className="form-control" id="alamat" rows="3" placeholder='Contoh: Jalan Ikan Hiu 33' ref={addressField} defaultValue={data?.address}></textarea>
                         </div>
                         <div className="col-md mb-3">
                             <label htmlFor="nm_produk" className="form-label">Nomor<span style={{ color: "red" }}>*</span></label>
-                            <input type="type" className="form-control" id="no_hp" placeholder="contoh: +628123456789" ref={phoneField} defaultValue={data.phone_number} />
+                            <input type="type" className="form-control" id="no_hp" placeholder="contoh: +628123456789" ref={phoneField} defaultValue={data?.phone_number} />
                         </div>
                         <div className="mb-5 d-grid">
                             <button type="submit" className="btn btn-primary" onClick={(e) => onUpdate(e, true)}>Simpan</button>
