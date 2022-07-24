@@ -1,6 +1,5 @@
 stages:
   - cleancode
-  - deploy
   - unit testing
 
 Testing:
@@ -10,12 +9,3 @@ Testing:
   script:
     - yarn install
     - yarn test
-
-Deployment:
-  stage: deploy
-  image: ruby:latest
-  before_script:
-    - gem install dpl
-  only:
-    - main
-    - master
