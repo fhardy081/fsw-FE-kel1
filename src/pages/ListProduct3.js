@@ -4,7 +4,7 @@ import '@fontsource/poppins';
 import { Container, Row, Col, Card, Button, ListGroup } from 'react-bootstrap';
 import { FaCube, FaRegHeart, FaDollarSign } from 'react-icons/fa';
 
-import ItemCard2 from '../components/ListProduct/itemCard2';
+import ItemCard2 from '../components/ListProduct/ItemCard2';
 import '../components/css/ListProduct3.css';
 import Navbar from '../components/Navbar';
 import api from '../lib/api';
