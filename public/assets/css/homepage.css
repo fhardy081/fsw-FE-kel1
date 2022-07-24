@@ -131,6 +131,10 @@
     display: none;
 }
 
+#home .bg {
+    display: none;
+}
+
 @media (min-device-width : 320px) and (max-device-width : 991px) {
     /* #home .nav-resp {
         display: inherit;
@@ -141,7 +145,10 @@
     }
 
     #home .bg {
-        background-image: url('../images/Group_9.png') !important;
+        display: block;
+        margin-top: -40px;
+        margin-left: 4px;
+        max-height: 261px;
     }
 
     #home #carousel {
