@@ -4,7 +4,7 @@ import '@fontsource/poppins';
 import { Container, Row, Col, Card, Button, ListGroup } from 'react-bootstrap';
 import { FaCube, FaRegHeart, FaDollarSign } from 'react-icons/fa';
 
-import ItemCard2 from '../components/ListProduct/itemCard2';
+import ItemCard2 from '../components/ListProduct/ItemCard2';
 import '../components/css/ListProduct2.css';
 import Navbar from '../components/Navbar';
 import api from '../lib/api';
@@ -44,8 +44,8 @@ function ListProduct2() {
               <img src={photo} style={{ paddingLeft: '16px', paddingTop: '16px', borderRadius: '5px' }} width="80%" alt="" />
             </Col>
             <Col xs={9}>
-              <h5 style={{ fontWeight: 'bold', paddingTop: '12px', marginRight: '20%' }}>{user.name}</h5>
-              <p>{user.city}</p>
+              <h5 style={{ fontWeight: 'bold', paddingTop: '12px', marginRight: '20%' }}>{user?.name}</h5>
+              <p>{user?.city}</p>
             </Col>
             <Col xs={2} style={{ paddingTop: '20px', paddingLeft: '120px' }}>
               <Link to="/info-profil">
@@ -65,7 +65,7 @@ function ListProduct2() {
                       <i type="button" className="link">
                         <FaCube />
                         {' '}
-                        Semua Produk
+                        &nbsp;Semua Produk
                       </i>
                     </Link>
                   </ListGroup.Item>
@@ -74,7 +74,7 @@ function ListProduct2() {
                       <i type="button" className="link">
                         <FaRegHeart style={{ color: '#8A8A8A' }} />
                         {' '}
-                        Diminati
+                        &nbsp;Diminati
                       </i>
                     </Link>
                   </ListGroup.Item>
@@ -93,17 +93,17 @@ function ListProduct2() {
           </Col>
 
           {
-            products.length > 0 ?
-              products.map((product, idx) => {
+            products?.length > 0 ?
+              products?.map((product, idx) => {
                 return (
-                  <Col md={3} key={product.id}>
-                    <Link to={`/infoproduct/${product.id}`} style={{ color: "black", textDecoration: "none" }}>
+                  <Col md={3} key={product?.id}>
+                    <Link to={`/infoproduct/${product?.id}`} style={{ color: "black", textDecoration: "none" }}>
                       <ItemCard2
-                        title={product.product_name}
-                        type={'Rp. ' + product.price.toLocaleString()}
-                        price={'Rp. ' + product.offer_price.toLocaleString()}
-                        image={product.photo}
-                        imageAlt={product.product_name}
+                        title={product?.product_name}
+                        type={'Rp. ' + product?.price.toLocaleString()}
+                        price={'Rp. ' + product?.offer_price.toLocaleString()}
+                        image={product?.photo}
+                        imageAlt={product?.product_name}
                       />
                     </Link>
                   </Col>
