@@ -101,7 +101,7 @@ const ProductPage = () => {
                         <div className="card-body-seller">
                             <div className="row">
                                 <div className="col-md-2">
-                                    <img src="/assets/images/image_seller.png" className="seller-image d-block" alt="Seller"/>
+                                    <img src={data.owner_photo} className="seller-image d-block" alt="Seller"/>
                                 </div>
                                 <div className="col-md-10">
                                     <h5 className="card-title-name-seller" style={{marginBottom: 4}}>{data.user_name}</h5>
