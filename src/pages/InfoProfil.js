@@ -1,5 +1,5 @@
 import '../components/css/info-profil.css'
-import { useNavigate, Navigate} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { Alert } from "react-bootstrap";
 import api from "../lib/api"
@@ -8,12 +8,15 @@ import iconPhoto from "../Assets/Group_2.png"
 
 function InfoProfil () {
     const navigate = useNavigate();
+        const [isLoggedIn, setIsLoggedIn] = useState(true);
+        const [user, setUser] = useState({});
         const [data, setData] = useState({});
         const [photos,setPhotos] = useState(iconPhoto)
         const nameField = useRef("");
         const cityField = useRef("");
         const addressField = useRef("");
         const phoneField = useRef("");
+        // const [photoField, setpictureField] = useState();
         const fileInputRef = useRef();
     
         const [errorResponse, setErrorResponse] = useState({
@@ -24,7 +27,12 @@ function InfoProfil () {
     
         const getUsers = async () => {
             try {
-                const responseUsers = await api.get(`/api/v1/whoami`);
+                const responseUsers = await api.get(`/api/v1/whoami`,
+                    {
+                        // headers: {
+                        //     Authorization: `Bearer ${token}`,
+                        // },
+                    });
                 const dataUsers = responseUsers.data.user_data;
                 setData(dataUsers)
             } catch (err) {
@@ -42,6 +50,7 @@ function InfoProfil () {
                     }
                 })
                 setPhotos(image.data.path)
+                // const oldPhotos = [...photos,image.data.path]
                 
             }catch (e){
     
@@ -52,6 +61,7 @@ function InfoProfil () {
             e.preventDefault();
     
             try {
+                // const token = localStorage.getItem("token");
     
                 const userToUpdatePayload = {
                     name: nameField.current.value,
@@ -59,6 +69,7 @@ function InfoProfil () {
                     address: addressField.current.value,
                     phone_number: phoneField.current.value,
                     photo: photos.toString(),
+                    // photo_id: photoField
                 };
     
     
@@ -66,7 +77,12 @@ function InfoProfil () {
                     `/api/v1/update`,userToUpdatePayload)
                 console.log(updateRequest)
                 console.log(userToUpdatePayload)
-
+                
+                // const updateResponse = updateRequest.data.user_data;
+                // console.log(updateResponse)
+    
+                // console.log(updateResponse.status)
+                // if (updateResponse.status) navigate("/");
                 if (updateRequest.status === 200) {
                     setData(updateRequest.data.user_data);
                     navigate(`/`)
@@ -98,7 +114,24 @@ function InfoProfil () {
 
     
         useEffect(() => {
-        
+            const fetchData = async () => {
+                try {
+    
+                   //Validasi token API
+                    const currentUserRequest = await api.get(
+                        "/api/v1/whoami")
+    
+                    if (currentUserRequest.status) {
+                        setUser(currentUserRequest.data.user_data);
+                        setPhotos(currentUserRequest.data.user_data.photo)
+                        console.log(currentUserRequest.data)
+                    }
+                } catch (err) {
+                    setIsLoggedIn(false);
+                }
+            };
+    
+            fetchData();
             getUsers();
         }, [])
 
@@ -132,6 +165,7 @@ function InfoProfil () {
                             onChange={(e) => {
                                 setphotoField(e.target.files[0])
                             }} hidden /></label></center>
+                            {/* <img src={photos} alt="Photos"/> */}
                         </div>
                         <div className="col-md mb-3">
                             <label htmlFor="nm_produk" className="form-label">Nama<span style={{ color: "red" }}>*</span></label>
@@ -139,6 +173,13 @@ function InfoProfil () {
                         </div>
                         <div className="col-md mb-3">
                             <label htmlFor="kategori" className="form-label">Kota<span style={{ color: "red" }}>*</span></label>
+                            {/* <select class="form-control" id="kota" ref={cityField}>
+                                <option value="0">Pilih Kota</option>
+                                <option value="DKI Jakarta" selected={data.city === "DKI Jakarta" ? "selected" : ""}>DKI Jakarta</option>
+                                <option value="Kota Depok" selected={data.city === "Kota Depok" ? "selected" : ""}>Kota Depok</option>
+                                <option value="Bali" selected={data.city === "Bali" ? "selected" : ""}>Bali</option>
+                                <option value="Yogyakarta" selected={data.city === "Yogyakarta" ? "selected" : ""}>Yogyakarta</option>
+                            </select> */}
                             <input type="type" className="form-control" id="kota" placeholder="Kota" ref={cityField} defaultValue={data.city}/>
                         </div>
                         <div className="col-md mb-3">
